@@ -1,5 +1,5 @@
-import { SET_DAY_PRODUCTS, SET_DAY_PRODUCTS_CLEAR } from '../constants/constants';
 import { IProduct } from '../../interfaces/product.interface';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IReduxProduct {
   dayProducts: IProduct[];
@@ -9,19 +9,17 @@ const initialState: IReduxProduct = {
   dayProducts: [],
 };
 
-export const dayProductReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    case SET_DAY_PRODUCTS:
-      return {
-        ...state,
-        dayProducts: [...state.dayProducts, action.payload],
-      };
-    case SET_DAY_PRODUCTS_CLEAR:
-      return {
-        ...state,
-        dayProducts: [],
-      };
-    default:
-      return state;
-  }
-};
+export const dayProductReducer = createSlice({
+  name: 'dayProducts',
+  initialState,
+  reducers: {
+    setSuccessDayProducts(state, action: PayloadAction<IProduct[]>) {
+      state.dayProducts = action.payload;
+    },
+    setClearDayProducts(state) {
+      state.dayProducts = [];
+    },
+  },
+});
+
+export default dayProductReducer.reducer;

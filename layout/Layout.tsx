@@ -7,14 +7,18 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { getMenu } from '../redux/actions/menuAction';
 import styles from './Layout.module.scss';
 import Slider from '../components/Slider/Slider';
+import DayProduct from '../components/DayProduct/DayProduct';
+import { getDayProducts } from '../redux/actions/dayProductsAction';
 
 const Layout = () => {
   const [modal, setModal] = useState<boolean>(false);
   const { menu } = useTypedSelector((state) => state.menu);
+  const { dayProducts } = useTypedSelector((state) => state.dayProductReducer);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getMenu());
+    dispatch(getDayProducts());
   }, []);
 
   const openModal = () => {
@@ -30,11 +34,13 @@ const Layout = () => {
       {modal && <ModalLogin closeModal={closeModal} />}
       <div className={styles.container}>
         <Header openModal={openModal} className={styles.top} />
-        <Sidebar className={styles.sidebar} menu={menu} />
         <div className={styles.content}>
-          <div>123</div>
+          <div>
+            <Sidebar className={styles.sidebar} menu={menu} />
+          </div>
           <div className={styles.main}>
             <Slider />
+            <DayProduct product={dayProducts} />
           </div>
         </div>
       </div>

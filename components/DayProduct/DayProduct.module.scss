@@ -1,11 +1,10 @@
 .dayProductBlock {
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
   position: relative;
+  width: 220px;
 
   .top {
-
 
     h2 {
       vertical-align: baseline;
@@ -23,7 +22,6 @@
   }
 
   .wrapper {
-    width: 220px;
     display: flex;
     overflow: hidden;
     position: relative;

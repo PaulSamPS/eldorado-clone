@@ -2,7 +2,6 @@
   list-style-type: none;
   display: flex;
   align-items: center;
-  transition: all ease .2s;
   cursor: pointer;
   font-weight: 500;
   font-size: 15px;
@@ -10,13 +9,15 @@
   white-space: nowrap;
   position: relative;
   padding: 12px 5px 12px 40px;
-  width: 205px;
+  width: 100%;
+  background: none;
+  transition: all ease .2s;
 
   &:hover {
     background: var(--primary);
     border-radius: 4px;
 
-    a {
+    .link {
       color: var(--white);
       .svg {
         filter: brightness(100);
@@ -24,11 +25,12 @@
     }
   }
 
-  a {
+  .link {
     text-decoration: none;
     color: var(--black);
     font-weight: 500;
     font-size: 15px;
+    transition: all ease .2s;
 
     .svg {
       background-repeat: no-repeat;
@@ -36,9 +38,10 @@
       background-size: 16px auto;
       position: absolute;
       left: 5px;
-      top: 11px;
+      top: 12px;
       width: 35px;
       height: 16px;
+      transition: all ease .2s;
     }
   }
 }

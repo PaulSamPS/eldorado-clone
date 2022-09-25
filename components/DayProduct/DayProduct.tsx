@@ -11,7 +11,7 @@ import Arrow from '../Ui/Arrow/Arrow';
 const DayProduct = ({ product }: DayProductProps): JSX.Element => {
   const [offset, setOffset] = useState<number>(0);
   const [slideIndex, setSlideIndex] = useState<number>(0);
-  const dayProduct = useTypedSelector((state) => state.dayProducts.dayProducts);
+  const { dayProducts } = useTypedSelector((state) => state.dayProductReducer);
 
   const IMG_WIDTH = 220;
 
@@ -23,12 +23,12 @@ const DayProduct = ({ product }: DayProductProps): JSX.Element => {
   };
 
   const right = () => {
-    if (slideIndex === dayProduct.length - 1) {
+    if (slideIndex === dayProducts.length - 1) {
       setSlideIndex(0);
       setOffset(0);
     } else {
       setOffset((currentOffset: number) => {
-        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (dayProduct.length - 1)));
+        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (dayProducts.length - 1)));
       });
       setSlideIndex(slideIndex + 1);
     }
@@ -46,14 +46,14 @@ const DayProduct = ({ product }: DayProductProps): JSX.Element => {
         <Timer className={styles.timer} />
       </div>
       <div className={styles.wrapper}>
-        {dayProduct.slice(0, 5).map((product: IProduct) => (
-          <CardItem key={product.id} product={product} appearance='dayProduct' offset={offset} />
+        {dayProducts.slice(0, 5).map((product: IProduct) => (
+          <CardItem key={product._id} product={product} appearance='dayProduct' offset={offset} />
         ))}
         <Arrow appearance='left' background='white' onClick={left} />
         <Arrow appearance='right' background='white' onClick={right} />
       </div>
       <div className={styles.bl}>
-        <Dots className={styles.dots} slideIndex={slideIndex} dots={dots} arr={dayProduct} />
+        <Dots className={styles.dots} slideIndex={slideIndex} dots={dots} arr={dayProducts} />
       </div>
     </div>
   );

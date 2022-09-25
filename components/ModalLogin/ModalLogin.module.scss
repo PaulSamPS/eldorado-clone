@@ -6,14 +6,13 @@
     position: fixed;
     background: #000000;
     opacity: 0.2;
-    z-index: 9;
+    z-index: 9999;
   }
 
   .content {
     display: flex;
     flex-direction: column;
     text-align: center;
-    z-index: 11;
     opacity: 1;
     position: fixed;
     width: 300px;
@@ -24,6 +23,7 @@
     border-radius: 10px;
     row-gap: 20px;
     font-size: 13px;
+    z-index: 99999;
 
     .error {
       color: var(--red);
@@ -31,6 +31,7 @@
       top: 67px;
       right: 0;
       left: 0;
+      font-size: 11px;
     }
 
     h2 {
@@ -42,8 +43,6 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      width: 15px;
-      height: 15px;
       cursor: pointer;
       transition: all ease .2s;
 

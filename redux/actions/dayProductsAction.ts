@@ -1,5 +1,17 @@
-import {IProduct} from "../../interfaces/product.interface";
-import {SET_DAY_PRODUCTS, SET_DAY_PRODUCTS_CLEAR} from "../constants/constants";
+import { AppDispatch } from '../store';
+import { $host } from '../../http';
+import { AxiosError, AxiosResponse } from 'axios';
+import { dayProductReducer } from '../reducers/dayProducts.reducer';
+import { IErrorResponse } from '../../interfaces/axiosError';
+import { IProduct } from '../../interfaces/product.interface';
 
-export const setDayProducts = (products: IProduct[]) => ({type: SET_DAY_PRODUCTS, payload: products})
-export const setDayProductsClear = (products: []) => ({type: SET_DAY_PRODUCTS_CLEAR, payload: products})
+export const getDayProducts = () => async (dispatch: AppDispatch) => {
+  await $host
+    .get('product')
+    .then((res: AxiosResponse<IProduct[]>) => {
+      dispatch(dayProductReducer.actions.setSuccessDayProducts(res.data));
+    })
+    .catch((e: AxiosError<IErrorResponse>) => {
+      console.log(e.response?.data.message);
+    });
+};
