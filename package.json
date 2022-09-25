@@ -10,25 +10,32 @@
     "stylelint": "stylelint \"**/*.scss\" --fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.27.2",
+    "jwt-decode": "^3.1.2",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@types/node": "18.7.21",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
-    "eslint": "8.22.0",
-    "eslint-config-next": "12.3.1",
-    "typescript": "4.8.3",
-    "sass": "^1.50.1",
     "@types/sass": "^1.43.1",
-    "stylelint": "^14.12.0",
-    "stylelint-config-standard-scss": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
+    "classnames": "^2.3.2",
+    "eslint": "8.22.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-next": "12.3.1",
     "eslint-plugin-jsdoc": "^37.9.5",
-    "eslint-plugin-react": "^7.31.8"
+    "eslint-plugin-react": "^7.31.8",
+    "prettier": "^2.7.1",
+    "sass": "^1.50.1",
+    "stylelint": "^14.12.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "typescript": "4.8.3"
   }
 }

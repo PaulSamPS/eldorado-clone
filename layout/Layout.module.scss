@@ -1,0 +1,27 @@
+.container {
+  width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+
+  .wrapper {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+
+    .sidebar {
+      width: calc(1200px - 950px);
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    column-gap: 10px;
+    margin-right: 0;
+
+    .main {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
