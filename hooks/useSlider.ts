@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const useSlider = (imageWidth: number, arrLength: number) => {
-  const [offset, setOffset] = useState<number>(0);
-  const [slideIndex, setSlideIndex] = useState<number>(0);
+  const [offset, setOffset] = React.useState<number>(0);
+  const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const IMG_WIDTH = imageWidth;
 
   React.useEffect(() => {
@@ -34,7 +34,6 @@ export const useSlider = (imageWidth: number, arrLength: number) => {
 
   const left = () => {
     setOffset((currentOffset: number) => {
-      console.log(currentOffset);
       return Math.min(currentOffset + IMG_WIDTH, 0);
     });
     setSlideIndex(slideIndex === 0 ? 0 : slideIndex - 1);
