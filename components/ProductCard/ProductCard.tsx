@@ -6,7 +6,7 @@ import { ProductCardProps } from './ProductCard.props';
 import { IInfo } from '../../interfaces/productInfo.interface';
 import styles from './ProductCard.module.scss';
 import Link from 'next/link';
-import { FavouriteIcon, FavouriteRedIcon } from '../../icons';
+import { FavouriteIcon, FavouriteGreenIcon } from '../../icons';
 import { Button } from '../Ui/Button/Button';
 import { priceRu } from '../../helpers/priceRu';
 
@@ -131,7 +131,7 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
       )}
       <div className={styles.productLeft}>
         <div onClick={() => setLike(!like)} className={styles.like}>
-          {like ? <FavouriteRedIcon /> : <FavouriteIcon />}
+          {like ? <FavouriteGreenIcon /> : <FavouriteIcon />}
         </div>
         <div className={styles.priceBlock}>
           <span className={styles.priceText}>Ваша цена сегодня</span>

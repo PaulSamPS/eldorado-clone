@@ -218,9 +218,14 @@
     display: flex;
 
     svg {
-      height: 20px;
-      width: 20px;
       cursor: pointer;
+      transition: all ease .2s;
+
+      &:hover {
+        path {
+          stroke: var(--primary);
+        }
+      }
     }
   }
 }

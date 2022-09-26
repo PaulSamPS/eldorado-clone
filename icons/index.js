@@ -1,6 +1,6 @@
 import ArrowIcon from './arrow.svg';
 import FavouriteIcon from './favourite.svg';
-import FavouriteRedIcon from './favouriteRed.svg';
+import FavouriteGreenIcon from './favouriteGreen.svg';
 import StarIcon from './star.svg';
 import ReviewIcon from './review.svg';
 import CartIcon from './cart.svg';
@@ -13,7 +13,7 @@ import CloseIcon from './close.svg';
 export {
   ArrowIcon,
   FavouriteIcon,
-  FavouriteRedIcon,
+  FavouriteGreenIcon,
   StarIcon,
   ReviewIcon,
   CartIcon,
