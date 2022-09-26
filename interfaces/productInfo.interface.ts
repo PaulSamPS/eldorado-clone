@@ -1,6 +1,6 @@
 export interface IInfo {
-    title: string
-    description: string
-    id: number
-    productId: number
+  title: string;
+  description: string;
+  _id: string;
+  productId: number;
 }

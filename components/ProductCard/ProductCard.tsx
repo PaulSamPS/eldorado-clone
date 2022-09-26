@@ -18,9 +18,7 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   const [addToCart, setAddToCart] = useState<boolean>(false);
   const [slideIndex, setSlideIndex] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
-  const image = JSON.parse(product.img)
-    .map((i: any) => i)
-    .splice(0, 6);
+  const image = product.img.map((i) => i.fileName).splice(0, 6);
   const IMG_WIDTH = 180;
 
   const dots = (index: number) => {
@@ -79,24 +77,31 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
         onMouseLeave={mouseLeave}
         onMouseMove={(e: MouseEvent<HTMLDivElement>) => mouseMove(e)}
       >
-        <div className={styles.imgSlide} ref={imgRef as unknown as React.RefObject<HTMLImageElement>}>
-          <Link href={`product/${product.id}`}>
-            <img src={`http://localhost:5000/${JSON.parse(product.img)[slideIndex]?.fileName}`} alt='product' />
+        <div
+          className={styles.imgSlide}
+          ref={imgRef as unknown as React.RefObject<HTMLImageElement>}
+        >
+          <Link href={`product/${product._id}`}>
+            <img
+              src={`http://localhost:5000/product/${product.name}/${product.img[slideIndex].fileName}`}
+              alt='product'
+            />
           </Link>
         </div>
-        {product.info.map(
-          (product: any) =>
-            product.title === 'Smart TV' && (
-              <div className={styles.smart} key={product.id}>
-                <span>Smart TV</span>
-              </div>
-            )
-        )}
+        {product.info &&
+          product.info.map(
+            (product: any) =>
+              product.title === 'Smart TV' && (
+                <div className={styles.smart} key={product.id}>
+                  <span>Smart TV</span>
+                </div>
+              )
+          )}
       </div>
       <Dots
         slideIndex={slideIndex}
         dots={dots}
-        arr={JSON.parse(product.img).splice(0, 6)}
+        arr={product.img.slice(0, 6)}
         appearance='activeGreen'
         className={styles.dots}
       />
@@ -105,23 +110,25 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
           <Rating rating={product.rating} isEditable={false} />
           <Review review={review} />
         </div>
-        <Link href={`product/${product.id}`}>
+        <Link href={`product/${product._id}`}>
           <span className={styles.name}>{product.name}</span>
         </Link>
       </div>
-      <div className={styles.infoBlock}>
-        {product.info.slice(0, view ? 10 : 6).map((info: IInfo) => (
-          <div className={styles.info} key={info.id}>
-            <span className={styles.infoName}>{info.title}</span>
-            <span className={styles.infoAbout}>{info.description}</span>
-          </div>
-        ))}
-        {product.info.length > 6 && (
-          <span onClick={() => setView(!view)} className={styles.showMore}>
-            Показать ещё
-          </span>
-        )}
-      </div>
+      {product.info && (
+        <div className={styles.infoBlock}>
+          {product.info.slice(0, view ? 10 : 6).map((info: IInfo) => (
+            <div className={styles.info} key={info._id}>
+              <span className={styles.infoName}>{info.title}</span>
+              <span className={styles.infoAbout}>{info.description}</span>
+            </div>
+          ))}
+          {product.info.length > 6 && (
+            <span onClick={() => setView(!view)} className={styles.showMore}>
+              Показать ещё
+            </span>
+          )}
+        </div>
+      )}
       <div className={styles.productLeft}>
         <div onClick={() => setLike(!like)} className={styles.like}>
           {like ? <FavouriteRedIcon /> : <FavouriteIcon />}

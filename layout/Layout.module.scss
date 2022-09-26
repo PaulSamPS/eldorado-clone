@@ -20,9 +20,22 @@
     margin-right: 0;
 
     .main {
-      display: flex;
+      display: grid;
       column-gap: 60px;
-      justify-content: space-between;
+      grid-template-columns: 660px 1fr;
+      grid-template-areas: 'slider dayProducts' 'productsList productsList';
+
+      .slider {
+        grid-area: slider;
+      }
+
+      .dayProducts {
+        grid-area: dayProducts;
+      }
+
+      .productsList {
+        grid-area: productsList;
+      }
     }
   }
 }

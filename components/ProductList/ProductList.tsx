@@ -6,7 +6,7 @@ const ProductList = ({ products }: ProductListProp) => {
   return (
     <div>
       {products.map((product: IProduct) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product._id} product={product} />
       ))}
     </div>
   );

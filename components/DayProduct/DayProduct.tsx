@@ -4,13 +4,13 @@ import CardItem from '../CardItem/CardItem';
 import { DayProductProps } from './DayProduct.props';
 import { IProduct } from '../../interfaces/product.interface';
 import styles from './DayProduct.module.scss';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
 import Timer from '../Timer/Timer';
 import Arrow from '../Ui/Arrow/Arrow';
 import { useSlider } from '../../hooks/useSlider';
 
 const DayProduct = ({ product }: DayProductProps): JSX.Element => {
-  const { dayProducts } = useTypedSelector((state) => state.dayProductReducer);
+  const { dayProducts } = useAppSelector((state) => state.dayProductReducer);
   const { offset, dots, left, right, slideIndex } = useSlider(220, dayProducts.length);
 
   return (

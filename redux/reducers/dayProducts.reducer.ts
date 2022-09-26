@@ -22,4 +22,6 @@ export const dayProductReducer = createSlice({
   },
 });
 
+export const { setSuccessDayProducts, setClearDayProducts } = dayProductReducer.actions;
+
 export default dayProductReducer.reducer;

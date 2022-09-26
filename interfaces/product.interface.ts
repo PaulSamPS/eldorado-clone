@@ -5,11 +5,15 @@ interface IInfo {
   productId: number;
 }
 
+interface IImg {
+  fileName: string;
+}
+
 export interface IProduct {
   _id: number;
-  img: [{ fileName: string }];
+  img: IImg[];
   price: number;
-  oldPrice?: number;
+  oldPrice: number;
   typeId: number;
   brandId: number;
   name: string;

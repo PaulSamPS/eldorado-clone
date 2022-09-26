@@ -1,6 +1,5 @@
 import { IUser } from '../../interfaces/user.interface';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { registrationReducer } from './registrationReducer';
 
 interface UserState {
   errorMessage: string;

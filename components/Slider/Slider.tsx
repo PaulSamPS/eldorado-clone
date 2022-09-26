@@ -36,7 +36,7 @@ const sliderTop = [
 ];
 
 const Slider = ({ className }: SliderProps) => {
-  const { offset, dots, left, right, slideIndex } = useSlider(660, sliderTop.length);
+  const { offset, dots, left, right, slideIndex } = useSlider(660, sliderTop.length, true);
 
   return (
     <div className={styles.sliderBlock}>

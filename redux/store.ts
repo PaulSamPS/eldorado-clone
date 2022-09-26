@@ -3,7 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import loginUser from './reducers/loginReducer';
 import registration from './reducers/registrationReducer';
-import { productReducer } from './reducers/productReducer';
+import productReducer from './reducers/productReducer';
 import { typeReducer } from './reducers/typeReducer';
 import { brandReducer } from './reducers/brandReducer';
 import { menuReducer } from './reducers/menuReducer';
@@ -17,7 +17,7 @@ const persistConfig = {
 export const rootReducer = combineReducers({
   registration,
   loginUser,
-  product: productReducer,
+  productReducer,
   dayProductReducer,
   type: typeReducer,
   brand: brandReducer,

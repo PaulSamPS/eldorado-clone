@@ -1,29 +1,30 @@
-import { SET_ONE_PRODUCT, SET_PRODUCTS } from '../constants/constants';
 import { IProduct } from '../../interfaces/product.interface';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IReduxProduct {
   products: IProduct[];
   oneProduct: IProduct[];
+  isLoading: boolean;
 }
 
 const initialState: IReduxProduct = {
   products: [],
   oneProduct: [],
+  isLoading: false,
 };
 
-export const productReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    case SET_PRODUCTS:
-      return {
-        ...state,
-        products: action.payload,
-      };
-    case SET_ONE_PRODUCT:
-      return {
-        ...state,
-        oneProduct: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+export const productReducer = createSlice({
+  name: 'product',
+  initialState,
+  reducers: {
+    setIsLoadingProduct(state) {
+      state.isLoading = true;
+    },
+    setSuccessProducts(state, action: PayloadAction<IProduct[]>) {
+      state.products = action.payload;
+      state.isLoading = false;
+    },
+  },
+});
+
+export default productReducer.reducer;

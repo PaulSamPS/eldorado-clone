@@ -1,15 +1,15 @@
 import React from 'react';
 import { HeaderProps } from './Header.props';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './Header.module.scss';
 import { Button } from '../../components/Ui/Button/Button';
 import { UserIcon, SearchIcon, CartBoldIcon } from '../../icons';
 
 const Header = ({ openModal }: HeaderProps) => {
-  const name = useTypedSelector((state) => state.loginUser.userInfo);
+  const name = useAppSelector((state) => state.loginUser.userInfo);
   const isAuth = localStorage.getItem('AccessToken');
 
-  const { userInfo } = useTypedSelector((state) => state.loginUser);
+  const { userInfo } = useAppSelector((state) => state.loginUser);
 
   const userRole = userInfo.role === 'ADMIN';
 

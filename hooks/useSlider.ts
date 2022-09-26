@@ -1,23 +1,25 @@
 import React from 'react';
 
-export const useSlider = (imageWidth: number, arrLength: number) => {
+export const useSlider = (imageWidth: number, arrLength: number, auto?: boolean) => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const IMG_WIDTH = imageWidth;
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      if (slideIndex === arrLength - 1) {
-        setSlideIndex(0);
-        setOffset(0);
-      } else {
-        setOffset((currentOffset: number) => {
-          return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * arrLength));
-        });
-        setSlideIndex((slideIndex) => slideIndex + 1);
-      }
-    }, 5000);
-    return () => clearInterval(interval);
+    if (auto) {
+      const interval = setInterval(() => {
+        if (slideIndex === arrLength - 1) {
+          setSlideIndex(0);
+          setOffset(0);
+        } else {
+          setOffset((currentOffset: number) => {
+            return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * arrLength));
+          });
+          setSlideIndex((slideIndex) => slideIndex + 1);
+        }
+      }, 5000);
+      return () => clearInterval(interval);
+    }
   }, [slideIndex]);
 
   const right = () => {

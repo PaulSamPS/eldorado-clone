@@ -6,7 +6,7 @@ import styles from './ModalLogin.module.scss';
 import { Input } from '../Ui/Input/Input';
 import { Button } from '../Ui/Button/Button';
 import { CloseIcon } from '../../icons';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useAppSelector } from '../../hooks/useAppSelector';
 import { setErrorRegistration } from '../../redux/reducers/registrationReducer';
 import { setErrorLogin } from '../../redux/reducers/loginReducer';
 
@@ -14,7 +14,7 @@ const ModalLogin = ({ closeModal }: ModalLoginProps): JSX.Element => {
   const [email, setLogin] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [isAuth, setIsAuth] = React.useState<boolean>(true);
-  const { errorMessage } = useTypedSelector((state) => state.loginUser);
+  const { errorMessage } = useAppSelector((state) => state.loginUser);
   const dispatch = useAppDispatch();
 
   const auth = async (e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLFormElement>) => {
