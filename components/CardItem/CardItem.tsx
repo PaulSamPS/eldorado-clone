@@ -5,7 +5,7 @@ import { priceRu } from '../../helpers/priceRu';
 import { CardItemProps } from './CardItem.props';
 import cn from 'classnames';
 import styles from './CardItem.module.scss';
-import { CartIcon, FavouriteIcon, FavouriteRedIcon } from '../../icons';
+import { CartIcon, FavouriteIcon, FavouriteGreenIcon } from '../../icons';
 import Link from 'next/link';
 import { Button } from '../Ui/Button/Button';
 
@@ -47,7 +47,7 @@ const CardItem = ({
               В корзину
             </Button>
             <div onClick={() => setLike(!like)}>
-              {like ? <FavouriteRedIcon /> : <FavouriteIcon />}
+              {like ? <FavouriteGreenIcon /> : <FavouriteIcon />}
             </div>
           </div>
         </div>
