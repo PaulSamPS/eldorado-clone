@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import loginUser from './reducers/loginReducer';
 import registration from './reducers/registrationReducer';
 import productReducer from './reducers/productReducer';
+import featuresReducer from './reducers/featuresReducer';
 import { typeReducer } from './reducers/typeReducer';
 import { brandReducer } from './reducers/brandReducer';
 import { menuReducer } from './reducers/menuReducer';
@@ -12,6 +13,7 @@ import dayProductReducer from './reducers/dayProducts.reducer';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['featuresReducers'],
 };
 
 export const rootReducer = combineReducers({
@@ -19,6 +21,7 @@ export const rootReducer = combineReducers({
   loginUser,
   productReducer,
   dayProductReducer,
+  featuresReducer,
   type: typeReducer,
   brand: brandReducer,
   menu: menuReducer,

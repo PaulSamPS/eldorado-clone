@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.scss';
-import Admin from '../page-components/Admin/Admin';
+import { Features } from '../components/Admin/Features';
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Admin />
+      <Features />
     </div>
   );
 };
