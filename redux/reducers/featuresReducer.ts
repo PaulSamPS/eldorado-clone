@@ -16,11 +16,8 @@ export const featuresReducer = createSlice({
       state.features = [...state.features, action.payload];
     },
     setFeaturesItem(state, action: PayloadAction<any>) {
-      state.features = [
-        state.features
-          .find((i) => (i.number = action.payload.number))
-          .iten.concat(action.payload.item),
-      ];
+      const filterItem = state.features.find((i) => i.number === action.payload.number);
+      filterItem.item.push(action.payload.item);
     },
   },
 });

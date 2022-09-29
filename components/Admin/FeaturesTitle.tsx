@@ -8,9 +8,10 @@ import { setFeaturesItem } from '../../redux/reducers/featuresReducer';
 
 export const FeaturesTitle = ({ item, info, setInfo }: FeaturesTitleProps) => {
   const dispatch = useAppDispatch();
+
   const addInfo = (filter: number) => {
     const obj = {
-      number: item.number,
+      number: filter,
       item: {
         name: '',
         description: '',

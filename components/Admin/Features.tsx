@@ -11,7 +11,6 @@ export const Features = () => {
   const [info, setInfo] = useState<any[]>([]);
   const { features } = useAppSelector((state) => state.featuresReducer);
   const dispatch = useAppDispatch();
-  console.log(features);
 
   const addTitle = (e: MouseEvent) => {
     dispatch(setFeaturesTitle({ title: '', item: [], number: Date.now() }));
