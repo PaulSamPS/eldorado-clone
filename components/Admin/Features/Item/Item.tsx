@@ -1,12 +1,15 @@
 import React from 'react';
-import styles from '../../page-components/Admin/Admin.module.scss';
-import { Input } from '../Ui/Input/Input';
-import { FeaturesItemProps } from './FeaturesItem.props';
-import { Button } from '../Ui/Button/Button';
-import { removeFeaturesItemDesc, setFeaturesItemText } from '../../redux/reducers/featuresReducer';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
+import styles from '../../../../page-components/Admin/Admin.module.scss';
+import { Input } from '../../../Ui/Input/Input';
+import { ItemProps } from './Item.props';
+import { Button } from '../../../Ui/Button/Button';
+import {
+  removeFeaturesItemDesc,
+  setFeaturesItemText,
+} from '../../../../redux/reducers/featuresReducer';
+import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 
-export const FeaturesItem = ({ item, info, setInfo, titleNumber }: FeaturesItemProps) => {
+export const Item = ({ item, info, setInfo, titleNumber }: ItemProps) => {
   const dispatch = useAppDispatch();
 
   const changeInfo = (key: string, value: string, number: number, titleNumber: number) => {

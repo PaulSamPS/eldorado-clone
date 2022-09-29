@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from '../../page-components/Admin/Admin.module.scss';
-import { Input } from '../Ui/Input/Input';
-import { Button } from '../Ui/Button/Button';
-import { FeaturesTitleProps } from './FeaturesTitle.props';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
+import styles from '../../../../page-components/Admin/Admin.module.scss';
+import { Input } from '../../../Ui/Input/Input';
+import { Button } from '../../../Ui/Button/Button';
+import { TitleProps } from './Title.props';
+import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import {
   removeFeaturesItem,
   setFeaturesItem,
   setFeaturesTitleText,
-} from '../../redux/reducers/featuresReducer';
+} from '../../../../redux/reducers/featuresReducer';
 
-export const FeaturesTitle = ({ item, info, setInfo }: FeaturesTitleProps) => {
+export const Title = ({ item, info, setInfo }: TitleProps) => {
   const dispatch = useAppDispatch();
 
   const addInfo = (number: number) => {

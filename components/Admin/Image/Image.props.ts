@@ -1,9 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface FeaturesItemProps
+export interface ImageProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  item: any;
-  info: any[];
-  setInfo: ([]: any) => void;
-  titleNumber: number;
+  setFiles: ([]: any) => void;
 }

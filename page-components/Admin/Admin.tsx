@@ -5,6 +5,7 @@ import { addProduct } from '../../redux/actions/productAction';
 import styles from './Admin.module.scss';
 import { Button } from '../../components/Ui/Button/Button';
 import { Input } from '../../components/Ui/Input/Input';
+import { Image } from '../../components/Admin/Image/Image';
 
 const CreateProduct = (): JSX.Element => {
   const [name, setName] = useState<string>('');
@@ -14,19 +15,9 @@ const CreateProduct = (): JSX.Element => {
   const [type, setType] = useState(null);
   const [addOldPrice, setAddOldPrice] = useState<boolean>(false);
   const [files, setFiles] = useState<any[]>([]);
-  const [previewFiles, setPreviewFiles] = useState<any[]>([]);
   const [info, setInfo] = useState<any[]>([]);
   const [itemNumber, setItemNumber] = useState<any>('');
   const dispatch: any = useAppDispatch();
-
-  const selectFile = (e: any) => {
-    const images = [] as any[];
-    for (let i = 0; i < e.target.files.length; i++) {
-      images.push({ picture: URL.createObjectURL(e.target.files[i]), number: uuuid.v4() });
-    }
-    setPreviewFiles(images);
-    setFiles(e.target.files);
-  };
 
   const handleAddProduct = (e: { preventDefault: () => void }) => {
     const formData = new FormData();
@@ -85,33 +76,7 @@ const CreateProduct = (): JSX.Element => {
             />
           )}
         </label>
-        {previewFiles.length > 0 && (
-          <div className={styles.previewBlock}>
-            {previewFiles.map((f: any, index) => (
-              <div className={styles.previewImage} key={f.picture}>
-                <img src={f.picture} alt={'image' + index} />
-              </div>
-            ))}
-          </div>
-        )}
-        <div className={styles.inputFile}>
-          <label htmlFor='img'>
-            Изображения:
-            <Input
-              multiple
-              id='file'
-              name='img'
-              type='file'
-              onChange={selectFile}
-              className={styles.file}
-            />
-            <label htmlFor='file'>
-              <span className={styles.inputBtn}>
-                {previewFiles.length <= 0 ? 'Выберите файлы' : 'Файлы выбраны'}
-              </span>
-            </label>
-          </label>
-        </div>
+        <Image setFiles={setFiles} />
       </form>
       <div className={styles.blockSubmit}>
         <Button className={styles.submit} appearance='primary' onClick={handleAddProduct}>

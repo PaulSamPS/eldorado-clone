@@ -1,11 +1,11 @@
 import React, { MouseEvent, useState } from 'react';
-import styles from '../../page-components/Admin/Admin.module.scss';
-import { Button } from '../Ui/Button/Button';
-import { FeaturesTitle } from './FeaturesTitle';
-import { FeaturesItem } from './FeaturesItem';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setFeaturesTitleItem } from '../../redux/reducers/featuresReducer';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import styles from '../../../page-components/Admin/Admin.module.scss';
+import { Button } from '../../Ui/Button/Button';
+import { Title } from './Title/Title';
+import { Item } from './Item/Item';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { setFeaturesTitleItem } from '../../../redux/reducers/featuresReducer';
+import { useAppSelector } from '../../../hooks/useAppSelector';
 
 export const Features = () => {
   const [info, setInfo] = useState<any[]>([]);
@@ -21,9 +21,9 @@ export const Features = () => {
     <div>
       {features.map((i, index) => (
         <>
-          <FeaturesTitle key={i.number + index} item={i} info={info} setInfo={setInfo} />
+          <Title key={i.number + index} item={i} info={info} setInfo={setInfo} />
           {i.item.map((n: any, index: number) => (
-            <FeaturesItem
+            <Item
               key={n.number + index}
               item={n}
               info={info}
