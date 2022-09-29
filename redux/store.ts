@@ -13,7 +13,7 @@ import dayProductReducer from './reducers/dayProducts.reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['featuresReducers'],
+  blacklist: ['featuresReducer'],
 };
 
 export const rootReducer = combineReducers({

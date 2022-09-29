@@ -4,7 +4,7 @@ import { Button } from '../Ui/Button/Button';
 import { FeaturesTitle } from './FeaturesTitle';
 import { FeaturesItem } from './FeaturesItem';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setFeaturesTitle } from '../../redux/reducers/featuresReducer';
+import { setFeaturesTitleItem } from '../../redux/reducers/featuresReducer';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
 export const Features = () => {
@@ -13,8 +13,7 @@ export const Features = () => {
   const dispatch = useAppDispatch();
 
   const addTitle = (e: MouseEvent) => {
-    setInfo([...info, { title: '', item: [], number: Date.now() }]);
-    dispatch(setFeaturesTitle({ title: '', item: [], number: Date.now() }));
+    dispatch(setFeaturesTitleItem({ title: '', item: [], number: Date.now() }));
     e.preventDefault();
   };
 
@@ -27,7 +26,7 @@ export const Features = () => {
             <FeaturesItem
               key={n.number + index}
               item={n}
-              info={features}
+              info={info}
               setInfo={setInfo}
               titleNumber={i.number}
             />
