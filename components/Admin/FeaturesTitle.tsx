@@ -4,14 +4,14 @@ import { Input } from '../Ui/Input/Input';
 import { Button } from '../Ui/Button/Button';
 import { FeaturesTitleProps } from './FeaturesTitle.props';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setFeaturesItem } from '../../redux/reducers/featuresReducer';
+import { removeFeaturesItem, setFeaturesItem } from '../../redux/reducers/featuresReducer';
 
 export const FeaturesTitle = ({ item, info, setInfo }: FeaturesTitleProps) => {
   const dispatch = useAppDispatch();
 
-  const addInfo = (filter: number) => {
+  const addInfo = (number: number) => {
     const obj = {
-      number: filter,
+      number: number,
       item: {
         name: '',
         description: '',
@@ -19,13 +19,11 @@ export const FeaturesTitle = ({ item, info, setInfo }: FeaturesTitleProps) => {
       },
     };
 
-    // const infoItem = info.find((i) => (i.number = filter));
-    // infoItem.item.map((n: any) => n.item.push({ name: '', description: '', number: Date.now() }));
     dispatch(setFeaturesItem(obj));
   };
 
   const removeInfo = (number: number) => {
-    setInfo(info.filter((i) => i.number !== number));
+    dispatch(removeFeaturesItem(number));
   };
 
   const changeInfo = (key: string, value: string, number: number) => {

@@ -5,4 +5,5 @@ export interface FeaturesItemProps
   item: any;
   info: any[];
   setInfo: ([]: any) => void;
+  titleNumber: number;
 }

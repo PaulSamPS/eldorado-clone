@@ -13,6 +13,7 @@ export const Features = () => {
   const dispatch = useAppDispatch();
 
   const addTitle = (e: MouseEvent) => {
+    setInfo([...info, { title: '', item: [], number: Date.now() }]);
     dispatch(setFeaturesTitle({ title: '', item: [], number: Date.now() }));
     e.preventDefault();
   };
@@ -23,7 +24,13 @@ export const Features = () => {
         <>
           <FeaturesTitle key={i.number + index} item={i} info={info} setInfo={setInfo} />
           {i.item.map((n: any, index: number) => (
-            <FeaturesItem key={n.number + index} item={n} info={info} setInfo={setInfo} />
+            <FeaturesItem
+              key={n.number + index}
+              item={n}
+              info={features}
+              setInfo={setInfo}
+              titleNumber={i.number}
+            />
           ))}
         </>
       ))}
