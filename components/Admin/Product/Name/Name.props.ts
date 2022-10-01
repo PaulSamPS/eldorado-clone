@@ -1,9 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface ItemProps
+export interface NameProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  item: any;
-  info: any[];
-  setInfo: ([]: any) => void;
-  titleNumber: number;
+  name: string;
+  setName: (name: string) => void;
 }

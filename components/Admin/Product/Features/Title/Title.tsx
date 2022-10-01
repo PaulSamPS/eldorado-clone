@@ -1,19 +1,20 @@
-import React from 'react';
-import styles from '../../../../page-components/Admin/Admin.module.scss';
-import { Input } from '../../../Ui/Input/Input';
-import { Button } from '../../../Ui/Button/Button';
+import React, { MouseEvent } from 'react';
+import styles from './Title.module.scss';
+import { Input } from '../../../../Ui/Input/Input';
+import { Button } from '../../../../Ui/Button/Button';
 import { TitleProps } from './Title.props';
-import { useAppDispatch } from '../../../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import {
   removeFeaturesItem,
   setFeaturesItem,
   setFeaturesTitleText,
-} from '../../../../redux/reducers/featuresReducer';
+} from '../../../../../redux/reducers/featuresReducer';
 
-export const Title = ({ item, info, setInfo }: TitleProps) => {
+export const Title = ({ item }: TitleProps) => {
   const dispatch = useAppDispatch();
 
-  const addInfo = (number: number) => {
+  const addInfo = (e: MouseEvent, number: number) => {
+    e.preventDefault();
     const obj = {
       number: number,
       item: {
@@ -22,7 +23,6 @@ export const Title = ({ item, info, setInfo }: TitleProps) => {
         number: Date.now(),
       },
     };
-
     dispatch(setFeaturesItem(obj));
   };
 
@@ -31,7 +31,6 @@ export const Title = ({ item, info, setInfo }: TitleProps) => {
   };
 
   const changeInfo = (key: string, value: string, number: number) => {
-    setInfo(info.map((i) => (i.number === number ? { ...i, [key]: value } : i)));
     const obj = {
       key: key,
       value: value,
@@ -41,7 +40,7 @@ export const Title = ({ item, info, setInfo }: TitleProps) => {
   };
 
   return (
-    <div className={styles.description}>
+    <div className={styles.wrapper}>
       <div className={styles.inputBlock}>
         <label htmlFor='title'>
           Заголовок:
@@ -52,13 +51,13 @@ export const Title = ({ item, info, setInfo }: TitleProps) => {
             placeholder='Введите название заголовка'
           />
         </label>
-      </div>
-      <div>
-        <Button name='infoBtn' onClick={() => addInfo(item.number)} appearance='primary'>
-          Добавить описание
-        </Button>
         <Button onClick={() => removeInfo(item.number)} appearance='primary'>
           Удалить
+        </Button>
+      </div>
+      <div className={styles.buttons}>
+        <Button name='infoBtn' onClick={(e) => addInfo(e, item.number)} appearance='primary'>
+          Добавить описание
         </Button>
       </div>
     </div>

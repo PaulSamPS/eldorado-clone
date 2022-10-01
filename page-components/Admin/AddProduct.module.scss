@@ -1,0 +1,39 @@
+.createProductBlock {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    label {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 220px 1fr;
+    }
+
+    .btnOldPrice {
+      width: 227px;
+    }
+
+    .addInfo {
+
+      button {
+        width: 227px;
+      }
+    }
+  }
+
+  .blockSubmit {
+
+    .submit {
+      margin-top: 20px;
+    }
+  }
+
+}
