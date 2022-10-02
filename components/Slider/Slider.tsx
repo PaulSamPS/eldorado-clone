@@ -10,27 +10,27 @@ import { useSlider } from '../../hooks/useSlider';
 const sliderTop = [
   {
     id: 0,
-    img: 'https://static.eldorado.ru/upload/newbx/1f8/1f84c572ed42d9d309712e0818c8893f.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/2e8/2e847c62a73a609ba350cb5c51647644.png/resize/660x300/',
     type: 'cart',
   },
   {
     id: 1,
-    img: 'https://static.eldorado.ru/upload/newbx/4b6/4b6f3cb459e482fb1c1db6760fbc335b.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/6ee/6eef3e888c29ceaec4788fcb4d5a1c3f.png/resize/660x300/',
     type: 'login',
   },
   {
     id: 2,
-    img: 'https://static.eldorado.ru/upload/newbx/a84/a84c47bf28e3f2d3f5dad937ab2436db.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/158/158e1234240317572e316fadec158f81.png/resize/660x300/',
     type: 'registration',
   },
   {
     id: 3,
-    img: 'https://static.eldorado.ru/upload/newbx/4f3/4f3edd6d92a5c73ef12b706dd56c0df0.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/bf9/bf96288224960fc91726b42fce680dbc.png/resize/660x300/',
     type: 'cart',
   },
   {
     id: 4,
-    img: 'https://static.eldorado.ru/upload/newbx/e00/e0001f81e8e63dcaf707f9f1dbc92b67.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/3eb/3eb47082211defc8e57fa934ece11d33.png/resize/660x300/',
     type: 'cart',
   },
 ];

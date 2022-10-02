@@ -19,7 +19,7 @@
 
   .img {
     grid-area: img;
-    margin-right: 50px;
+    margin-right: 20px;
     margin-bottom: 20px;
     min-width: 180px;
     display: flex;
@@ -82,7 +82,7 @@
     grid-area: block;
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    margin-right: 20px;
 
     .rating {
       display: flex;
@@ -93,7 +93,7 @@
 
     .name {
       cursor: pointer;
-      font-size: 16px;
+      font-size: 13px;
       margin-bottom: 15px;
       transition: all ease .2s;
 
@@ -180,35 +180,34 @@
 
       .priceText {
         order: 1;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 500;
         color: #262626;
       }
 
       .price {
-        font-size: 34px;
+        font-size: 25px;
         order: 3;
-        font-weight: 500;
+        font-weight: 700;
         font-stretch: condensed;
         color: #262626;
-        line-height: 0;
       }
 
       .oldPrice {
         position: absolute;
-        top: -45px;
+        top: -35px;
         right: 0;
         text-decoration: line-through;
-        font-size: 22px;
+        font-size: 20px;
+        font-weight: 700;
         color: #9d9d9d;
       }
     }
   }
 
   .btn {
-    height: 50px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .like {

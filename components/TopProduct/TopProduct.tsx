@@ -34,8 +34,18 @@ const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   return (
     <div className={cn(styles.wrapperSwipe, className)}>
       <h2>Рекомендуем вам</h2>
-      <Arrow appearance='left' background='white' onClick={prevSlide} className={styles.arrowLeft} />
-      <Arrow appearance='right' background='white' onClick={nextSlide} className={styles.arrowRight} />
+      <Arrow
+        appearance='left'
+        background='white'
+        onClick={prevSlide}
+        className={styles.arrowLeft}
+      />
+      <Arrow
+        appearance='right'
+        background='white'
+        onClick={nextSlide}
+        className={styles.arrowRight}
+      />
       <div className={styles.nav}>
         <Button appearance='ghost' className={styles.btn}>
           Персональная подборка
@@ -50,7 +60,7 @@ const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
       <div className={styles.cardBlock}>
         <div className={styles.cardGrid}>
           {product.map((product: IProduct) => (
-            <CardItem key={product.id} product={product} offset={offset} appearance='topProduct' />
+            <CardItem key={product._id} product={product} offset={offset} appearance='topProduct' />
           ))}
         </div>
       </div>

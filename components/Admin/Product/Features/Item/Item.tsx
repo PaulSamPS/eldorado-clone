@@ -35,7 +35,7 @@ export const Item = ({ item, titleNumber }: ItemProps) => {
             name='name'
             value={item.name}
             onChange={(e) => changeInfo('name', e.target.value, item.number, titleNumber)}
-            placeholder='Введите описание свойства'
+            placeholder='Введите название'
           />
         </label>
         <label htmlFor='description'>
@@ -44,7 +44,7 @@ export const Item = ({ item, titleNumber }: ItemProps) => {
             name='description'
             value={item.description}
             onChange={(e) => changeInfo('description', e.target.value, item.number, titleNumber)}
-            placeholder='Введите описание свойства'
+            placeholder='Введите описание'
           />
         </label>
       </div>

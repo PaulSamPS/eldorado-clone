@@ -21,7 +21,7 @@ export const getProduct = () => async (dispatch: AppDispatch) => {
 
 export const getOneProduct = (id: string | undefined) => {
   return async (dispatch: Dispatch) => {
-    const res = await axios.get<IProduct[]>(Api + `product/${id}`);
+    const res = await axios.get<IProduct[]>(`product/${id}`);
     dispatch(setOneProduct(res.data));
   };
 };

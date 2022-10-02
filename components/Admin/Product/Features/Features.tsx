@@ -28,7 +28,12 @@ export const Features = () => {
       <label htmlFor='infoBtn'>
         Информация о продукте:
         <div>
-          <Button name='infoBtn' onClick={(e) => addTitle(e)} appearance='primary'>
+          <Button
+            name='infoBtn'
+            onClick={(e) => addTitle(e)}
+            appearance='primary'
+            style={{ width: '227px' }}
+          >
             Добавить информацию
           </Button>
         </div>

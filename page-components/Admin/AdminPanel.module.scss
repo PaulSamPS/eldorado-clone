@@ -18,6 +18,8 @@
       list-style-type: none;
       cursor: pointer;
       transition: all ease;
+      font-weight: 700;
+      font-size: 13px;
 
       &:hover {
         color: var(--primary);

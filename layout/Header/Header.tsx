@@ -3,7 +3,7 @@ import { HeaderProps } from './Header.props';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './Header.module.scss';
 import { Button } from '../../components/Ui/Button/Button';
-import { UserIcon, SearchIcon, CartBoldIcon } from '../../icons';
+import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '../../icons';
 
 const Header = ({ openModal }: HeaderProps) => {
   const name = useAppSelector((state) => state.loginUser.userInfo);
@@ -19,11 +19,7 @@ const Header = ({ openModal }: HeaderProps) => {
 
   return (
     <div className={styles.header}>
-      <img
-        src='https://static.eldorado.ru/espa/1.37.0-ab-esp-5884.9-VioWqW9lifnHAggUCIllH/static_spa/assets/logo.107e1872.svg'
-        alt='logo'
-        className={styles.logo}
-      />
+      <LogoIcon className={styles.logo} />
       <div className={styles.form}>
         <div className={styles.search}>
           <div className={styles.input}>

@@ -13,11 +13,16 @@
     flex-direction: column;
     row-gap: 10px;
     margin-top: 20px;
+    font-size: 13px;
 
     label {
       display: grid;
       align-items: center;
       grid-template-columns: 220px 1fr;
+
+      input {
+        padding: 2px 15px;
+      }
     }
 
     .btnOldPrice {
@@ -33,7 +38,7 @@
   }
 
   .blockSubmit {
-
+    padding-left: 220px;
     .submit {
       margin-top: 20px;
     }

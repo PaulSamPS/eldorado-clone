@@ -107,7 +107,7 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
       />
       <div className={styles.block}>
         <div className={styles.rating}>
-          <Rating rating={product.rating} isEditable={false} />
+          <Rating rating={product.rating ? product.rating : 5} isEditable={false} />
           <Review review={review} />
         </div>
         <Link href={`product/${product._id}`}>

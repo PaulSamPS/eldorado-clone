@@ -62,7 +62,8 @@ const CardItem = ({
           </div>
           <div className={styles.percent}>
             <span className={styles.totalPercent}>
-              {Math.floor(((product.oldPrice! - product.price) / product.oldPrice!) * 100)}%
+              {Math.floor(((product.oldPrice! - product.price) / product.oldPrice!) * 100)}
+              <div>%</div>
             </span>
             <span>скидка</span>
           </div>
