@@ -1,5 +1,4 @@
 import React, { MouseEvent } from 'react';
-import styles from '../../../../page-components/Admin/AddProduct.module.scss';
 import { Button } from '../../../Ui/Button/Button';
 import { Title } from './Title/Title';
 import { Item } from './Item/Item';
@@ -28,7 +27,7 @@ export const Features = () => {
       ))}
       <label htmlFor='infoBtn'>
         Информация о продукте:
-        <div className={styles.addInfo}>
+        <div>
           <Button name='infoBtn' onClick={(e) => addTitle(e)} appearance='primary'>
             Добавить информацию
           </Button>

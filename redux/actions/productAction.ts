@@ -27,7 +27,7 @@ export const getOneProduct = (id: string | undefined) => {
 };
 
 export const addProduct = async (formData: any) => {
-  return await $host.post<IProduct[]>(Api + 'product', formData);
+  return await $host.post<IProduct[]>('product', formData);
 };
 
 export const setProducts = (products: IProduct[]) => ({ type: SET_PRODUCTS, payload: products });

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addProduct } from '../../redux/actions/productAction';
 import { Button } from '../../components/Ui/Button/Button';
 import { Features, Image, Name, Price } from '../../components/Admin/Product';
@@ -13,9 +12,9 @@ const CreateProduct = (): JSX.Element => {
   const [oldPrice, setOldPrice] = useState<number | undefined>(undefined);
   const [addOldPrice, setAddOldPrice] = useState<boolean>(false);
   const [files, setFiles] = useState<any[]>([]);
-  const dispatch: any = useAppDispatch();
 
-  const handleAddProduct = (e: { preventDefault: () => void }) => {
+  const handleAddProduct = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append('name', name);
     formData.append('price', `${price}`);
@@ -24,8 +23,7 @@ const CreateProduct = (): JSX.Element => {
       formData.append('img', files[i]);
     }
     formData.append('features', JSON.stringify(features));
-    e.preventDefault();
-    dispatch(addProduct(formData));
+    await addProduct(formData);
   };
 
   return (

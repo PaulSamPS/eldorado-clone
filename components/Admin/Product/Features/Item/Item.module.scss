@@ -9,6 +9,10 @@
     row-gap: 10px;
     width: 100%;
     margin-right: 10px;
+
+    label {
+      color: var(--gray);
+    }
   }
 
   button {

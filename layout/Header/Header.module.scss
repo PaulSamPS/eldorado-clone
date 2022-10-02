@@ -99,9 +99,11 @@
       font-size: 13px;
       color: var(--black-light);
       cursor: pointer;
-      transition: all ease .2s;
+      transition: all ease 0.2s;
       padding-left: 25px;
       display: flex;
+      align-items: center;
+      font-weight: 700;
 
       svg {
         fill: var(--black-light);
@@ -149,6 +151,8 @@
     transition: all ease .2s;
     cursor: pointer;
     margin-left: 10px;
+    font-weight: 300;
+    font-size: 15px;
 
     svg {
       transition: all ease .2s;

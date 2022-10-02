@@ -75,7 +75,7 @@ const CardItem = ({
           </Link>
           <div className={styles.sale}>
             <span className={styles.oldPrice}>{priceRu(product.oldPrice)}</span>
-            <span className={styles.discount}>-{product.oldPrice! - product.price}</span>
+            <span className={styles.discount}>-{priceRu(product.oldPrice! - product.price)}</span>
           </div>
           <div className={styles.bottom}>
             <span className={styles.price}>{priceRu(product.price)}</span>

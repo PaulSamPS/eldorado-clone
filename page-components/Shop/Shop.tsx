@@ -5,19 +5,19 @@ import { IBrand } from '../../interfaces/brand.interface';
 import { ShopProps } from './Shop.props';
 import styles from './Shop.module.scss';
 import ProductList from '../../components/ProductList/ProductList';
+import Sidebar from '../../layout/Sidebar/Sidebar';
+import React from 'react';
 
-const Shop = ({ products, brand }: ShopProps): JSX.Element => {
+const Shop = ({ products }: ShopProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
+      <Sidebar className={styles.sidebar} menu={menu} />
       <div className={styles.topBar}>
         <Slider className={styles.slider} />
         <DayProduct product={products} />
       </div>
       <TopProduct className={styles.topProduct} product={products} />
       <ProductList products={products} />
-      {brand.map((brand: IBrand) => (
-        <img key={brand.id} src={`http://localhost:5000/${brand.img}`} alt='12' />
-      ))}
     </div>
   );
 };
