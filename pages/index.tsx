@@ -1,33 +1,31 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.scss';
-import DayProduct from '../components/DayProduct/DayProduct';
-import { useAppDispatch } from '../hooks/useAppDispatch';
-import { useAppSelector } from '../hooks/useAppSelector';
-import { getDayProducts } from '../redux/actions/dayProductsAction';
 import React from 'react';
-import Slider from '../components/Slider/Slider';
-import ProductList from '../components/ProductList/ProductList';
-import { getProduct } from '../redux/actions/productAction';
-import TopProduct from '../components/TopProduct/TopProduct';
+import Shop from '../page-components/Shop/Shop';
+import { GetStaticProps } from 'next';
+import { $host } from '../http';
+import { IProduct } from '../interfaces/product.interface';
 
-const Home: NextPage = () => {
-  const dispatch = useAppDispatch();
-  const { dayProducts } = useAppSelector((state) => state.dayProductReducer);
-  const { products } = useAppSelector((state) => state.productReducer);
-
-  React.useEffect(() => {
-    dispatch(getDayProducts());
-    dispatch(getProduct());
-  }, []);
-
+const Home: NextPage = ({ products }: HomeProps) => {
   return (
     <div className={styles.container}>
-      <DayProduct product={dayProducts} />
-      <Slider />
-      <ProductList products={products} />
-      <TopProduct product={products} />
+      <Shop products={products} />
     </div>
   );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const getProducts = await $host.get<IProduct[]>('product');
+  const products = getProducts.data;
+  return {
+    props: {
+      products,
+    },
+  };
+};
+
+interface HomeProps extends Record<string, unknown> {
+  products: IProduct[];
+}
