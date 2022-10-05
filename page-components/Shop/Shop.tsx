@@ -7,16 +7,18 @@ import Sidebar from '../../layout/Sidebar/Sidebar';
 import React from 'react';
 import { ShopProps } from './Shop.props';
 
-const Shop = ({ products }: ShopProps): JSX.Element => {
+const Shop = ({ products, menu }: ShopProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
-      {/* <Sidebar className={styles.sidebar} menu={menu} />*/}
-      <div className={styles.topBar}>
+      <Sidebar className={styles.sidebar} menu={menu} />
+      <div className={styles.top}>
         <Slider className={styles.slider} />
-        <DayProduct product={products} />
+        <DayProduct product={products} className={styles.dayProducts} />
+        <div className={styles.main}>
+          <ProductList products={products} className={styles.productsList} />
+          <TopProduct className={styles.topProduct} product={products} />
+        </div>
       </div>
-      <TopProduct className={styles.topProduct} product={products} />
-      <ProductList products={products} />
     </div>
   );
 };
