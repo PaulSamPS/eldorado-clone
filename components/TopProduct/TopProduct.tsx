@@ -10,7 +10,7 @@ import { Button } from '../Ui/Button/Button';
 const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = useState<number>(0);
   const [slideIndex, setSlideIndex] = useState<number>(0);
-  const IMG_WIDTH = 235;
+  const IMG_WIDTH = 181.5;
 
   const prevSlide = () => {
     setOffset((currentOffset: number) => {

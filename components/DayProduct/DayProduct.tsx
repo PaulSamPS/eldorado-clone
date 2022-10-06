@@ -9,7 +9,7 @@ import Arrow from '../Ui/Arrow/Arrow';
 import { useSlider } from '../../hooks/useSlider';
 
 const DayProduct = ({ product }: DayProductProps): JSX.Element => {
-  const { offset, dots, left, right, slideIndex } = useSlider(220, product.length);
+  const { offset, dots, left, right, slideIndex } = useSlider(220, product.slice(0, 5).length);
 
   return (
     <div className={styles.dayProductBlock}>
@@ -25,7 +25,12 @@ const DayProduct = ({ product }: DayProductProps): JSX.Element => {
         <Arrow appearance='right' background='white' onClick={right} />
       </div>
       <div className={styles.bl}>
-        <Dots className={styles.dots} slideIndex={slideIndex} dots={dots} arr={product} />
+        <Dots
+          className={styles.dots}
+          slideIndex={slideIndex}
+          dots={dots}
+          arr={product.slice(0, 5)}
+        />
       </div>
     </div>
   );

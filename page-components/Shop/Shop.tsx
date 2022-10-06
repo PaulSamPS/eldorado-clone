@@ -79,7 +79,10 @@ const Shop = ({ products, menu }: ShopProps): JSX.Element => {
             arrowVertical={30}
           />
         </div>
-        <DayProduct product={products} className={styles.dayProducts} />
+        <DayProduct
+          product={products.filter((p) => p.oldPrice > 0)}
+          className={styles.dayProducts}
+        />
         <div className={styles.main}>
           <TopProduct className={styles.topProduct} product={products} />
         </div>

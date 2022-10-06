@@ -9,7 +9,7 @@ const CreateProduct = (): JSX.Element => {
   const { features } = useAppSelector((state) => state.featuresReducer);
   const [name, setName] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
-  const [oldPrice, setOldPrice] = useState<number | undefined>(undefined);
+  const [oldPrice, setOldPrice] = useState<number | undefined>(0);
   const [addOldPrice, setAddOldPrice] = useState<boolean>(false);
   const [files, setFiles] = useState<any[]>([]);
 
@@ -18,7 +18,9 @@ const CreateProduct = (): JSX.Element => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('price', `${price}`);
-    addOldPrice && formData.append('oldPrice', `${oldPrice}`);
+    addOldPrice
+      ? formData.append('oldPrice', `${oldPrice}`)
+      : formData.append('oldPrice', `${oldPrice}`);
     for (let i = 0; i < files.length; i++) {
       formData.append('img', files[i]);
     }
