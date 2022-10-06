@@ -28,7 +28,7 @@ export const useSlider = (
       );
       return () => clearInterval(interval);
     }
-  }, [slideIndex]);
+  }, [slideIndex, auto]);
 
   const right = () => {
     if (slideIndex === arrLength - 1) {

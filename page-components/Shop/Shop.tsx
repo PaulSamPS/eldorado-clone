@@ -95,6 +95,7 @@ const Shop = ({ products, menu }: ShopProps): JSX.Element => {
         greenDots={true}
         arrowTop={19}
         arrowVertical={65}
+        duration={2000}
       />
     </div>
   );

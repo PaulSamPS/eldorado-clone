@@ -14,12 +14,26 @@ const Slider = ({
   greenDots = false,
   arrowTop,
   arrowVertical,
+  duration,
   className,
 }: SliderProps) => {
-  const { offset, dots, left, right, slideIndex } = useSlider(width, arr.length, true);
+  const [auto, setAuto] = React.useState<boolean>(true);
+  const { offset, dots, left, right, slideIndex } = useSlider(
+    width,
+    arr.length,
+    auto,
+    duration && duration
+  );
+
+  console.log(auto);
 
   return (
-    <div className={styles.sliderBlock} style={{ width: `${width}px` }}>
+    <div
+      className={styles.sliderBlock}
+      style={{ width: `${width}px` }}
+      onMouseEnter={() => setAuto(false)}
+      onMouseLeave={() => setAuto(true)}
+    >
       <div
         className={cn(styles.sliderWrapper, className)}
         style={{ width: `${width}px`, height: `${height}px` }}

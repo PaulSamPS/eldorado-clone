@@ -7,6 +7,7 @@ import styles from './DayProduct.module.scss';
 import Timer from '../Timer/Timer';
 import Arrow from '../Ui/Arrow/Arrow';
 import { useSlider } from '../../hooks/useSlider';
+import { H } from '../Ui/H/H';
 
 const DayProduct = ({ product }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider(220, product.slice(0, 5).length);
@@ -14,7 +15,7 @@ const DayProduct = ({ product }: DayProductProps): JSX.Element => {
   return (
     <div className={styles.dayProductBlock}>
       <div className={styles.top}>
-        <h2>Товары дня</h2>
+        <H tag='h2'>Товары дня</H>
         <Timer className={styles.timer} />
       </div>
       <div className={styles.wrapper}>

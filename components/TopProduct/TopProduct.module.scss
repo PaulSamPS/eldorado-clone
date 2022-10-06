@@ -27,13 +27,6 @@
     }
   }
 
-  h2 {
-    font-size: 24px;
-    margin: 0;
-    padding-bottom: 20px;
-    font-weight: 500;
-  }
-
   .nav {
     margin-bottom: 20px;
 
@@ -53,10 +46,6 @@
       &:focus {
         background: #e1efd0;
       }
-    }
-
-    .active {
-      color: var(--primary);
     }
   }
 

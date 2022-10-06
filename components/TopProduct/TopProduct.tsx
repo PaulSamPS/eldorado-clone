@@ -6,6 +6,7 @@ import { IProduct } from '../../interfaces/product.interface';
 import styles from './TopProduct.module.scss';
 import Arrow from '../Ui/Arrow/Arrow';
 import { Button } from '../Ui/Button/Button';
+import { H } from '../Ui/H/H';
 
 const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = useState<number>(0);
@@ -33,7 +34,7 @@ const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
 
   return (
     <div className={cn(styles.wrapperSwipe, className)}>
-      <h2>Рекомендуем вам</h2>
+      <H tag='h2'>Рекомендуем вам</H>
       <Arrow
         appearance='left'
         background='white'

@@ -8,4 +8,5 @@ export interface SliderProps
   arr: any[];
   arrowTop: number;
   arrowVertical: number;
+  duration?: number;
 }
