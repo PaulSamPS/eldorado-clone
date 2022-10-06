@@ -3,15 +3,27 @@
   grid-template-columns: 250px 1fr;
   column-gap: 10px;
   margin-right: 0;
+  grid-template-areas: 'sidebar main' 'sliderS sliderS';
+
+  .sidebar {
+    grid-area: sidebar;
+  }
 
   .top {
+    grid-area: main;
     display: grid;
     column-gap: 60px;
     grid-template-columns: 660px 1fr;
     grid-template-areas: 'slider dayProducts' 'main main';
 
-    .slider {
+    .sliderM {
       grid-area: slider;
+      h2 {
+        position: relative;
+        font-weight: 700;
+        padding-bottom: 20px;
+        margin: 0;
+      }
     }
 
     .dayProducts {
@@ -23,5 +35,9 @@
       grid-template-columns: 1fr;
       grid-area: main;
     }
+  }
+
+  .sliderS {
+    grid-area: sliderS;
   }
 }
