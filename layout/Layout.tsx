@@ -7,6 +7,7 @@ import styles from './Layout.module.scss';
 import { getDayProducts } from '../redux/actions/dayProductsAction';
 import { getProduct } from '../redux/actions/productAction';
 import { LayoutProps } from './Layout.props';
+import { NavHeader } from './NavHeader/NavHeader';
 
 const Layout = ({ children }: LayoutProps) => {
   const [modal, setModal] = useState<boolean>(false);
@@ -31,6 +32,7 @@ const Layout = ({ children }: LayoutProps) => {
       {modal && <ModalLogin closeModal={closeModal} />}
       <div className={styles.container}>
         <Header openModal={openModal} className={styles.top} />
+        <NavHeader />
         <div className={styles.content}>
           <div className={styles.main}>{children}</div>
         </div>

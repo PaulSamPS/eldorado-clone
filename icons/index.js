@@ -9,6 +9,7 @@ import LogoIcon from './logo.svg';
 import SearchIcon from './search.svg';
 import UserIcon from './user.svg';
 import CloseIcon from './close.svg';
+import CatalogIcon from './catalog.svg';
 
 export {
   ArrowIcon,
@@ -22,4 +23,5 @@ export {
   SearchIcon,
   UserIcon,
   CloseIcon,
+  CatalogIcon,
 };

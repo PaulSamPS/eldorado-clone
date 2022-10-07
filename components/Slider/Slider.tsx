@@ -25,8 +25,6 @@ const Slider = ({
     duration && duration
   );
 
-  console.log(auto);
-
   return (
     <div
       className={styles.sliderBlock}
