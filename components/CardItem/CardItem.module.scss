@@ -45,9 +45,10 @@
   .name {
     cursor: pointer;
     display: -webkit-box;
+    font-family: "Din proS", sans-serif;
     -webkit-box-orient: vertical;
     color: #262626;
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 9px;
     margin-top: 10px;
     max-height: 53px;
@@ -147,11 +148,11 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 13px;
+    font-family: "Din proS", sans-serif;
 
     .totalPercent {
       display: flex;
       align-items: baseline;
-      font-weight: 700;
       font-size: 25px;
       line-height: 18px;
 
@@ -168,11 +169,12 @@
   }
 
   .name {
+    font-family: "Din proS", sans-serif;
     min-height: 53px;
     max-height: 53px;
     line-height: 18px;
     margin-bottom: 9px;
-    font-size: 12px;
+    font-size: 13px;
     transition: all ease .2s;
     cursor: pointer;
     margin-top: 10px;
@@ -192,7 +194,7 @@
       margin-right: 10px;
       text-decoration: line-through;
       line-height: .8;
-      font-weight: 700;
+      font-family: "Din proL", sans-serif;
     }
 
     .discount {
@@ -200,7 +202,7 @@
       color: var(--white);
       padding: 1px 5px;
       border-radius: 2px;
-      font-weight: 700;
+      font-family: "Din proL", sans-serif;
       font-size: 12px;
     }
   }
@@ -213,7 +215,7 @@
     .price {
       font-size: 20px;
       line-height: 1.2;
-      font-weight: 700;
+     font-family: "Din proL", sans-serif;
     }
 
     .cart {

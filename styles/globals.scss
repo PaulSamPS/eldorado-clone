@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Din pro", sans-serif;
+  font-family: "Din proM", sans-serif;
 }
 
 a {
@@ -11,8 +11,18 @@ a {
 }
 
 @font-face {
-  font-family: "Din pro";
-  src: url("../fonts/din-pro.ttf");
+  font-family: "Din proS";
+  src: url("../fonts/din-pro-light.ttf");
+}
+
+@font-face {
+  font-family: "Din proM";
+  src: url("../fonts/din-pro-medium.ttf");
+}
+
+@font-face {
+  font-family: "Din proL";
+  src: url("../fonts/din-pro-bold.ttf");
 }
 
 * {
@@ -27,5 +37,5 @@ a {
   --gray: #c4c4c4;
   --gray-border: #d9d9d9;
   --primary: #76bc21;
-  --red: #DE1F1C;
+  --red: #ce1037;
 }

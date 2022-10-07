@@ -103,7 +103,6 @@
       padding-left: 25px;
       display: flex;
       align-items: center;
-      font-weight: 700;
 
       svg {
         fill: var(--black-light);
@@ -149,13 +148,15 @@
     gap: 5px;
     color: var(--black-light);
     transition: all ease .2s;
+    font-family: "Din proS", sans-serif;
     cursor: pointer;
     margin-left: 10px;
-    font-weight: 300;
     font-size: 15px;
 
     svg {
       transition: all ease .2s;
+      height: 16px;
+      width: 16px;
     }
 
     &:hover {

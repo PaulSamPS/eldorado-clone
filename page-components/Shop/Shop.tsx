@@ -6,6 +6,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import Sidebar from '../../layout/Sidebar/Sidebar';
 import React from 'react';
 import { ShopProps } from './Shop.props';
+import { H } from '../../components/Ui/H/H';
 
 const sliderTop = [
   {
@@ -69,7 +70,7 @@ const Shop = ({ products, menu }: ShopProps): JSX.Element => {
       <Sidebar className={styles.sidebar} menu={menu} />
       <div className={styles.top}>
         <div className={styles.sliderM}>
-          <h2>Новые акции</h2>
+          <H tag='h2'>Новые акции</H>
           <Slider
             className={styles.slider}
             height={300}
