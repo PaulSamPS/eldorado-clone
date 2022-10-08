@@ -55,10 +55,14 @@ const CardItem = ({
       {appearance === 'dayProduct' && (
         <div className={styles.cardDayProduct} style={{ transform: `translateX(${offset}px)` }}>
           <div className={styles.img}>
-            <img
-              src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
-              alt='product'
-            />
+            <Link href={`/today/${product._id}`}>
+              <a>
+                <img
+                  src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
+                  alt='product'
+                />
+              </a>
+            </Link>
           </div>
           <div className={styles.percent}>
             <span className={styles.totalPercent}>
@@ -71,8 +75,8 @@ const CardItem = ({
             <Rating rating={rating} isEditable={false} />
             <Review review={review} />
           </div>
-          <Link href={`product/${product._id}`}>
-            <span className={styles.name}>{product.name}</span>
+          <Link href={`/today/${product._id}`}>
+            <a className={styles.name}>{product.name}</a>
           </Link>
           <div className={styles.sale}>
             <span className={styles.oldPrice}>{priceRu(product.oldPrice)}</span>

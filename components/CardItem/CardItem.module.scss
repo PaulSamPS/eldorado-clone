@@ -169,19 +169,19 @@
   }
 
   .name {
-    font-family: "Din proS", sans-serif;
-    min-height: 53px;
-    max-height: 53px;
-    line-height: 18px;
-    margin-bottom: 9px;
-    font-size: 13px;
-    transition: all ease .2s;
-    cursor: pointer;
-    margin-top: 10px;
+      font-family: "Din proS", sans-serif;
+      min-height: 53px;
+      max-height: 53px;
+      line-height: 18px;
+      margin-bottom: 9px;
+      font-size: 13px;
+      transition: all ease .2s;
+      cursor: pointer;
+      margin-top: 10px;
 
-    &:hover {
-      color: var(--primary);
-    }
+      &:hover {
+        color: var(--primary);
+      }
   }
 
   .sale {

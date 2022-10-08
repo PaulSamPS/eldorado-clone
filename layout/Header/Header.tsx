@@ -4,6 +4,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './Header.module.scss';
 import { Button } from '../../components/Ui/Button/Button';
 import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '../../icons';
+import Link from 'next/link';
 
 const Header = ({ openModal }: HeaderProps) => {
   const name = useAppSelector((state) => state.loginUser.userInfo);
@@ -19,7 +20,11 @@ const Header = ({ openModal }: HeaderProps) => {
 
   return (
     <div className={styles.header}>
-      <LogoIcon className={styles.logo} />
+      <Link href={'/'}>
+        <a>
+          <LogoIcon className={styles.logo} />
+        </a>
+      </Link>
       <div className={styles.form}>
         <div className={styles.search}>
           <div className={styles.input}>

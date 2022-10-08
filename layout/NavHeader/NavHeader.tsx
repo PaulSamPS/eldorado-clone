@@ -2,6 +2,7 @@ import React from 'react';
 import { CatalogIcon } from '../../icons';
 import styles from './NavHeader.module.scss';
 import cn from 'classnames';
+import Link from 'next/link';
 
 const nav = [
   { id: 0, name: 'Все акции' },
@@ -17,7 +18,9 @@ export const NavHeader = () => {
       <ul className={styles.btn}>
         <li className={styles.catalog}>
           <CatalogIcon />
-          <a href={'#'}>Каталог</a>
+          <Link href={'/catalog'}>
+            <a>Каталог</a>
+          </Link>
         </li>
         {nav.map((n) => (
           <li key={n.id} className={styles.item}>

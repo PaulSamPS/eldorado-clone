@@ -10,7 +10,7 @@ interface IImg {
 }
 
 export interface IProduct {
-  _id: number;
+  _id: string;
   img: IImg[];
   price: number;
   oldPrice: number;
