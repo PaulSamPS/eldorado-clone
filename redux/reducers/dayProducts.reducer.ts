@@ -1,5 +1,6 @@
 import { IProduct } from '../../interfaces/product.interface';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { act } from 'react-dom/test-utils';
 
 interface IReduxProduct {
   dayProducts: IProduct[];
@@ -14,7 +15,7 @@ export const dayProductReducer = createSlice({
   initialState,
   reducers: {
     setSuccessDayProducts(state, action: PayloadAction<IProduct[]>) {
-      state.dayProducts = [...state.dayProducts].concat(action.payload);
+      state.dayProducts = action.payload;
     },
     setClearDayProducts(state) {
       state.dayProducts = [];

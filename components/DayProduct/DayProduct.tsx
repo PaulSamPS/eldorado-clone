@@ -12,7 +12,8 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 
 const DayProduct = ({ ...props }: DayProductProps): JSX.Element => {
   const { dayProducts } = useAppSelector((state) => state.dayProductReducer);
-  const { offset, dots, left, right, slideIndex } = useSlider(220, dayProducts.slice(0, 5).length);
+  const { offset, dots, left, right, slideIndex } = useSlider(220, dayProducts.length);
+  console.log(dayProducts);
 
   return (
     <div className={styles.dayProductBlock}>
@@ -21,7 +22,7 @@ const DayProduct = ({ ...props }: DayProductProps): JSX.Element => {
         <Timer className={styles.timer} />
       </div>
       <div className={styles.wrapper}>
-        {dayProducts.slice(0, 5).map((product: IProduct) => (
+        {dayProducts.map((product: IProduct) => (
           <CardItem key={product._id} product={product} appearance='dayProduct' offset={offset} />
         ))}
         <Arrow appearance='left' background='white' onClick={left} />

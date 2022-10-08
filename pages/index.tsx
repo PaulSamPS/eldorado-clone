@@ -6,12 +6,14 @@ import { IProduct } from '../interfaces/product.interface';
 import { IMenu } from '../interfaces/menu.interface';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { getProduct } from '../redux/actions/productAction';
+import { getDayProducts } from '../redux/actions/dayProductsAction';
 
 const Home = ({ products, menu }: HomeProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     dispatch(getProduct());
+    dispatch(getDayProducts());
   }, []);
 
   return <Shop products={products} menu={menu} />;

@@ -2,6 +2,8 @@ import { setClearDayProducts, setSuccessDayProducts } from '../redux/reducers/da
 import React, { useState } from 'react';
 import { useAppDispatch } from './useAppDispatch';
 import { useAppSelector } from './useAppSelector';
+import { $host } from '../http';
+import { AxiosResponse } from 'axios';
 import { IProduct } from '../interfaces/product.interface';
 
 export const useTimer = () => {
@@ -11,20 +13,13 @@ export const useTimer = () => {
   const [hours, setHours] = useState(hour);
   const [minutes, setMinutes] = useState(min);
   const [seconds, setSeconds] = useState(sec);
-  const { products } = useAppSelector((state) => state.productReducer);
   const dispatch = useAppDispatch();
 
-  const updateProducts = () => {
+  const updateProducts = async () => {
     dispatch(setClearDayProducts());
 
-    const p = products.map((item) => item);
-    for (let i = 0; i < 5; i++) {
-      const ind = Math.floor(Math.random() * p.length);
-      const item = p[ind];
-      if (item.oldPrice > 0) {
-        dispatch(setSuccessDayProducts([p.splice(ind, 1)[0]]));
-      }
-    }
+    const dayProducts = await $host.post<IProduct[]>('day-products');
+    dispatch(setSuccessDayProducts(dayProducts.data));
   };
 
   React.useEffect(() => {
