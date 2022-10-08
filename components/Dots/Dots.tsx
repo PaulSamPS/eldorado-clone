@@ -3,12 +3,19 @@ import cn from 'classnames';
 import { DotsProps } from './Dots.props';
 import styles from './Dots.module.scss';
 
-const Dots = ({ slideIndex, appearance, dots, arr, className, ...props }: DotsProps): JSX.Element => {
+const Dots = ({
+  slideIndex,
+  appearance,
+  dots,
+  arr,
+  className,
+  ...props
+}: DotsProps): JSX.Element => {
   const [dotsArray, setDotsArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {
     constructDots(slideIndex);
-  }, [slideIndex]);
+  }, [slideIndex, arr]);
 
   const constructDots = (slideIndex: number) => {
     const updateDots = arr.map((dot: JSX.Element, index) => {

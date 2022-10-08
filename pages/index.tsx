@@ -4,8 +4,16 @@ import { GetStaticProps } from 'next';
 import { $host } from '../http';
 import { IProduct } from '../interfaces/product.interface';
 import { IMenu } from '../interfaces/menu.interface';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { getProduct } from '../redux/actions/productAction';
 
 const Home = ({ products, menu }: HomeProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    dispatch(getProduct());
+  }, []);
+
   return <Shop products={products} menu={menu} />;
 };
 

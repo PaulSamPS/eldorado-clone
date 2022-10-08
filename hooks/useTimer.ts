@@ -2,6 +2,7 @@ import { setClearDayProducts, setSuccessDayProducts } from '../redux/reducers/da
 import React, { useState } from 'react';
 import { useAppDispatch } from './useAppDispatch';
 import { useAppSelector } from './useAppSelector';
+import { IProduct } from '../interfaces/product.interface';
 
 export const useTimer = () => {
   const hour = 24 - new Date().getHours() - 1;
@@ -20,7 +21,7 @@ export const useTimer = () => {
     for (let i = 0; i < 5; i++) {
       const ind = Math.floor(Math.random() * p.length);
       const item = p[ind];
-      if (item.oldPrice !== 0) {
+      if (item.oldPrice > 0) {
         dispatch(setSuccessDayProducts([p.splice(ind, 1)[0]]));
       }
     }
@@ -54,5 +55,5 @@ export const useTimer = () => {
     };
   });
 
-  return { hours, minutes, seconds };
+  return { hours, minutes, seconds, updateProducts };
 };

@@ -14,7 +14,7 @@ export const dayProductReducer = createSlice({
   initialState,
   reducers: {
     setSuccessDayProducts(state, action: PayloadAction<IProduct[]>) {
-      state.dayProducts = action.payload;
+      state.dayProducts = [...state.dayProducts].concat(action.payload);
     },
     setClearDayProducts(state) {
       state.dayProducts = [];

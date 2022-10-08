@@ -4,11 +4,11 @@ import cn from 'classnames';
 import { useTimer } from '../../hooks/useTimer';
 
 const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
-  const { hours, minutes, seconds } = useTimer();
+  const { hours, minutes, seconds, updateProducts } = useTimer();
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <span className={styles.timer}>
+      <span className={styles.timer} onClick={updateProducts}>
         {hours < 10 ? `0${hours}` : hours}: {minutes < 10 ? `0${minutes}` : minutes}:{' '}
         {seconds < 10 ? `0${seconds}` : seconds}
       </span>
