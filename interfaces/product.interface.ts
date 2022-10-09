@@ -1,8 +1,13 @@
+interface IItem {
+  _id: string;
+  name: string;
+  description: string;
+}
+
 interface IInfo {
   _id: string;
   title: string;
-  description: string;
-  productId: number;
+  item: IItem[];
 }
 
 interface IImg {
@@ -17,6 +22,6 @@ export interface IProduct {
   typeId: number;
   brandId: number;
   name: string;
-  info: IInfo[];
+  features: IInfo[];
   rating: number;
 }

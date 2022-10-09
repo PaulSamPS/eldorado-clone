@@ -31,7 +31,9 @@ const Rating = ({
           onMouseLeave={() => changeDisplay(rating)}
           onClick={() => onClick(index + 1)}
         >
-          <StarIcon onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(index + 1, e)} />
+          <StarIcon
+            onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(index + 1, e)}
+          />
         </span>
       );
     });
@@ -60,7 +62,7 @@ const Rating = ({
   };
 
   return (
-    <div {...props}>
+    <div className={className} {...props}>
       {isEditable ? (
         ratingArray.map((rating, index) => <span key={index}>{rating}</span>)
       ) : (

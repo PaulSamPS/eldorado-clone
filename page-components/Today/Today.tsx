@@ -9,6 +9,8 @@ import cn from 'classnames';
 import Arrow from '../../components/Ui/Arrow/Arrow';
 import { Button } from '../../components/Ui/Button/Button';
 import { CartButtonIcon, LocationIcon } from '../../icons';
+import Review from '../../components/Review/Review';
+import Rating from '../../components/Rating/Rating';
 
 export const Today = ({ products, currentProduct }: TodayProps) => {
   const [slideIndex, setSlideIndex] = useState<number>(0);
@@ -94,6 +96,10 @@ export const Today = ({ products, currentProduct }: TodayProps) => {
         <div className={styles.card}>
           <div className={styles.left}>
             <H tag='h1'>{currentProduct?.name}</H>
+            <div className={styles.rating}>
+              <Rating rating={5} isFully className={styles.star} />
+              <Review review={5} className={styles.comments} />
+            </div>
             <div className={styles.productBlock}>
               <div className={styles.percent}>
                 <span className={styles.totalPercent}>
@@ -190,6 +196,19 @@ export const Today = ({ products, currentProduct }: TodayProps) => {
                   <a>Самовывоз</a> <span>завтра, бесплатно</span>
                 </div>
               </div>
+            </div>
+            <div className={styles.features}>
+              {currentProduct!.features.map((f) => (
+                <div key={f._id} className={styles.block}>
+                  <b>{f.title}:</b>
+                  {f.item.map((i) => (
+                    <div key={i._id} className={styles.items}>
+                      <p className={styles.name}>{i.name}: </p>
+                      <p>{i.description}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
