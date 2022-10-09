@@ -1,9 +1,14 @@
 .wrapper {
     text-align: right;
   .timer {
+    display: flex;
     color: #9d9d9d;
     font-weight: 500;
     font-size: 13px;
     line-height: 1;
+
+    div {
+      line-height: 25px;
+    }
   }
 }

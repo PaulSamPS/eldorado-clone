@@ -9,7 +9,10 @@ const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
       <span className={styles.timer} onClick={updateProducts}>
-        {hours < 10 ? `0${hours}` : hours}: {minutes < 10 ? `0${minutes}` : minutes}:{' '}
+        {hours < 10 ? `0${hours}` : hours}
+        <div>:</div>
+        {minutes < 10 ? `0${minutes}` : minutes}
+        <div>:</div>
         {seconds < 10 ? `0${seconds}` : seconds}
       </span>
     </div>
