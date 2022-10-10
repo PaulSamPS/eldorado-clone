@@ -4,7 +4,7 @@
   column-gap: 10px;
   margin-right: 0;
   row-gap: 60px;
-  grid-template-areas: 'sidebar main' 'sliderS sliderS';
+  grid-template-areas: 'sidebar main' 'sliderS sliderS' 'brands brands';
 
   .sidebar {
     grid-area: sidebar;
@@ -42,5 +42,9 @@
   .sliderS {
     grid-area: sliderS;
     border-radius: 0;
+  }
+
+  .brands {
+    grid-area: brands;
   }
 }

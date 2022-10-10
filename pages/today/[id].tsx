@@ -3,33 +3,39 @@ import { Today } from '../../page-components/Today/Today';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { $host } from '../../http';
 import { IProduct } from '../../interfaces/product.interface';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { setSuccessDayProducts } from '../../redux/reducers/dayProducts.reducer';
 
-const TodayId = ({ products, oneProduct, productsYesterday }: TodayProps) => {
-  return (
-    <Today products={products} currentProduct={oneProduct} productsYesterday={productsYesterday} />
-  );
+const TodayId = ({ dayProducts, oneProduct, productsYesterday }: TodayProps) => {
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    dispatch(setSuccessDayProducts(dayProducts));
+  }, []);
+
+  return <Today currentProduct={oneProduct} productsYesterday={productsYesterday} />;
 };
 
 export default TodayId;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const getProducts = await $host.get<IProduct[]>('product');
-  const products = getProducts.data;
-  const paths = products.map((p) => ({ params: { id: p._id } }));
+  const getDayProducts = await $host.get<IProduct[]>('product');
+  const dayProducts = getDayProducts.data;
+  const paths = dayProducts.map((p) => ({ params: { id: p._id } }));
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps<TodayProps> = async ({ params }) => {
-  const getProducts = await $host.get<IProduct[]>(`day-products`);
+  const getDayProducts = await $host.get<IProduct[]>(`day-products`);
   const getOneProduct = await $host.get<IProduct>(`product/${params!.id}`);
   const getProductsYesterday = await $host.get<IProduct[]>('products-yesterday');
 
-  const products = getProducts.data;
+  const dayProducts = getDayProducts.data;
   const oneProduct = getOneProduct.data;
   const productsYesterday = getProductsYesterday.data;
   return {
     props: {
-      products,
+      dayProducts,
       oneProduct,
       productsYesterday,
     },
@@ -37,7 +43,7 @@ export const getStaticProps: GetStaticProps<TodayProps> = async ({ params }) => 
 };
 
 interface TodayProps extends Record<string, unknown> {
-  products: IProduct[];
+  dayProducts: IProduct[];
   oneProduct: IProduct;
   productsYesterday: IProduct[];
 }

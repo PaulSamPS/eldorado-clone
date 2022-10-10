@@ -1,9 +1,10 @@
 export interface IBrand {
-    id: number
-    img: string
-    name: string
+  _id: string;
+  img: string;
+  link: string;
+  name: string;
 }
 
 export interface IReduxBrand {
-    brand: any[]
+  brand: any[];
 }

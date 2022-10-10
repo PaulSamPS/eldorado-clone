@@ -12,8 +12,10 @@ import { CartButtonIcon, LocationIcon } from '../../icons';
 import Review from '../../components/Review/Review';
 import Rating from '../../components/Rating/Rating';
 import { useRouter } from 'next/router';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
-export const Today = ({ products, currentProduct, productsYesterday }: TodayProps) => {
+export const Today = ({ currentProduct, productsYesterday }: TodayProps) => {
+  const { dayProducts } = useAppSelector((state) => state.dayProductReducer);
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const [offset, setOffset] = useState<number>(0);
   const [offsetPreview, setOffsetPreview] = useState<number>(0);
@@ -61,7 +63,7 @@ export const Today = ({ products, currentProduct, productsYesterday }: TodayProp
       <div className={styles.sidebar}>
         <div className={styles.dayProducts}>
           <H tag='h2'>Другие товары дня</H>
-          {products
+          {dayProducts
             .filter((p) => p.oldPrice > 0)
             .map((i) => (
               <Link href={`/today/${i._id}`} key={i._id}>
@@ -239,7 +241,7 @@ export const Today = ({ products, currentProduct, productsYesterday }: TodayProp
             </div>
           </div>
           <div className={styles.rules}>
-            <H tag='h4'>Правила проведения акции "Товар дня"</H>
+            <H tag='h4'>Правила проведения акции &quot;Товар дня&quot;</H>
             <ol>
               <li>
                 Товар дня не пересекается ни с какими другими акциями, кроме выдачи купонов,
@@ -250,7 +252,8 @@ export const Today = ({ products, currentProduct, productsYesterday }: TodayProp
                 кредит.
               </li>
               <li>
-                Дополнительные условия акции "Товар дня" уточняйте по телефону 8 800 250 25 25.
+                Дополнительные условия акции &quot;Товар дня&quot; уточняйте по телефону 8 800 250
+                25 25.
               </li>
             </ol>
           </div>

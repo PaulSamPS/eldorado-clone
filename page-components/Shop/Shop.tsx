@@ -7,6 +7,7 @@ import Sidebar from '../../layout/Sidebar/Sidebar';
 import React from 'react';
 import { ShopProps } from './Shop.props';
 import { H } from '../../components/Ui/H/H';
+import { Brands } from '../../components/Brands/Brands';
 
 const sliderTop = [
   {
@@ -64,7 +65,7 @@ const sliderS = [
   },
 ];
 
-const Shop = ({ products, dayProducts, menu }: ShopProps): JSX.Element => {
+const Shop = ({ products, dayProducts, menu, brand }: ShopProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <Sidebar className={styles.sidebar} menu={menu} />
@@ -95,6 +96,7 @@ const Shop = ({ products, dayProducts, menu }: ShopProps): JSX.Element => {
         arrowVertical={65}
         duration={3000}
       />
+      <Brands brands={brand} className={styles.brands} />
     </div>
   );
 };

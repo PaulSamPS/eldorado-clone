@@ -1,6 +1,5 @@
 import { IProduct } from '../../interfaces/product.interface';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { act } from 'react-dom/test-utils';
 
 interface IReduxProduct {
   dayProducts: IProduct[];

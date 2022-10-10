@@ -23,14 +23,14 @@ export const useTimer = () => {
   };
 
   React.useEffect(() => {
-    const myInterval = setInterval(() => {
+    const myInterval = setInterval(async () => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
       }
       if (seconds === 0) {
         if (minutes === 0) {
           if (hours === 0) {
-            updateProducts();
+            await updateProducts();
             setHours(23);
             setMinutes(59);
             setSeconds(59);
