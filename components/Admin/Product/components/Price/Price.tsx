@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input } from '../../../../Ui/Input/Input';
-import { Button } from '../../../../Ui/Button/Button';
+import { Input, Button } from '../../../../Ui';
 import styles from './Price.module.scss';
 import { PriceProps } from './Price.props';
 

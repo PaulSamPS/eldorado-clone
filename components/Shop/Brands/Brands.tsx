@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Brands.module.scss';
 import { BrandsProps } from './Brands.props';
 import cn from 'classnames';
-import { H } from '../../Ui/H/H';
+import { H } from '../../Ui';
 
 export const Brands = ({ brands, className, ...props }: BrandsProps) => {
   return (

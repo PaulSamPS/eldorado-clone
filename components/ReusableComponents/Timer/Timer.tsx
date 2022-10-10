@@ -1,9 +1,9 @@
 import styles from './Timer.module.scss';
 import { TimerProps } from './Timer.props';
 import cn from 'classnames';
-import { useTimer } from '../../hooks/useTimer';
+import { useTimer } from '../../../hooks/useTimer';
 
-const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
+export const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
   const { hours, minutes, seconds, updateProducts } = useTimer();
 
   return (
@@ -18,5 +18,3 @@ const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
     </div>
   );
 };
-
-export default Timer;

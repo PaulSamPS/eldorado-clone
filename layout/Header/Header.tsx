@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderProps } from './Header.props';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './Header.module.scss';
-import { Button } from '../../components/Ui/Button/Button';
+import { Button } from '../../components/Ui';
 import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '../../icons';
 import Link from 'next/link';
 

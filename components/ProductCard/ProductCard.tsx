@@ -1,23 +1,21 @@
-import React, { useRef, useState, MouseEvent } from 'react';
-import Rating from '../Rating/Rating';
-import Review from '../Review/Review';
-import Dots from '../Dots/Dots';
+import React, { MouseEvent } from 'react';
 import { ProductCardProps } from './ProductCard.props';
 import { IInfo } from '../../interfaces/productInfo.interface';
 import styles from './ProductCard.module.scss';
 import Link from 'next/link';
 import { FavouriteIcon, FavouriteGreenIcon } from '../../icons';
-import { Button } from '../Ui/Button/Button';
+import { Button } from '../Ui';
 import { priceRu } from '../../helpers/priceRu';
+import {Dots, Rating, Review} from '../ReusableComponents';
 
 const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   // const [review, setReview] = useState<number>(4);
-  const [review] = useState<number>(4);
-  const [like, setLike] = useState<boolean>(false);
-  const [view, setView] = useState<boolean>(false);
-  const [addToCart, setAddToCart] = useState<boolean>(false);
-  const [slideIndex, setSlideIndex] = useState(0);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [review] = React.useState<number>(4);
+  const [like, setLike] = React.useState<boolean>(false);
+  const [view, setView] = React.useState<boolean>(false);
+  const [addToCart, setAddToCart] = React.useState<boolean>(false);
+  const [slideIndex, setSlideIndex] = React.useState(0);
+  const imgRef = React.useRef<HTMLImageElement>(null);
   const image = product.img.map((i) => i.fileName).splice(0, 6);
   const IMG_WIDTH = 180;
 

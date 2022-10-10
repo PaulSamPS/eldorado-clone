@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Buy.module.scss';
 import { priceRu } from '../../../../../helpers/priceRu';
-import { Button } from '../../../../Ui/Button/Button';
+import { Button } from '../../../../Ui';
 import { BuyProps } from './Buy.props';
 import { CartButtonIcon, LocationIcon } from '../../../../../icons';
 

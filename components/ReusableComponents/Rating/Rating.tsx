@@ -1,10 +1,10 @@
-import React, { useEffect, useState, KeyboardEvent } from 'react';
+import React, { KeyboardEvent } from 'react';
 import { RatingProps } from './Rating.props';
 import cn from 'classnames';
 import styles from './Rating.module.scss';
-import { StarIcon } from '../../icons';
+import { StarIcon } from '../../../icons';
 
-const Rating = ({
+export const Rating = ({
   isEditable = false,
   rating,
   isFully = false,
@@ -12,9 +12,9 @@ const Rating = ({
   className,
   ...props
 }: RatingProps): JSX.Element => {
-  const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+  const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
 
-  useEffect(() => {
+  React.useEffect(() => {
     constructRating(rating);
   }, [rating]);
 
@@ -74,5 +74,3 @@ const Rating = ({
     </div>
   );
 };
-
-export default Rating;

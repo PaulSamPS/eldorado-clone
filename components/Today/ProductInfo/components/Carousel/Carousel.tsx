@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Carousel.module.scss';
 import Arrow from '../../../../Ui/Arrow/Arrow';
 import cn from 'classnames';
@@ -6,9 +6,9 @@ import { CarouselProps } from './Carousel.props';
 import { useRouter } from 'next/router';
 
 export const Carousel = ({ currentProduct }: CarouselProps) => {
-  const [slideIndex, setSlideIndex] = useState<number>(0);
-  const [offset, setOffset] = useState<number>(0);
-  const [offsetPreview, setOffsetPreview] = useState<number>(0);
+  const [slideIndex, setSlideIndex] = React.useState<number>(0);
+  const [offset, setOffset] = React.useState<number>(0);
+  const [offsetPreview, setOffsetPreview] = React.useState<number>(0);
   const IMG_WIDTH = 380;
   const IMG_WIDTH_PREVIEW = 62.5;
   const { query } = useRouter();
@@ -59,7 +59,8 @@ export const Carousel = ({ currentProduct }: CarouselProps) => {
           >
             <img
               src={`http://localhost:5000/product/${currentProduct.name}/${image.fileName}`}
-              alt=''
+              alt={currentProduct.name}
+              title={currentProduct.name}
             />
           </div>
         ))}

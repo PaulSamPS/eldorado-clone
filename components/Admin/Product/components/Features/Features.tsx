@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react';
-import { Button } from '../../../../Ui/Button/Button';
-import { Title } from './Title/Title';
-import { Item } from './Item/Item';
+import { Button } from '../../../../Ui';
+import {Item, Title} from './components';
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { setFeaturesTitleItem } from '../../../../../redux/reducers/featuresReducer';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';

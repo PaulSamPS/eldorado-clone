@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ModalLogin from '../components/ModalLogin/ModalLogin';
 import Header from './Header/Header';
 import styles from './Layout.module.scss';
@@ -7,7 +7,7 @@ import { NavHeader } from './NavHeader/NavHeader';
 import { Footer } from './Footer/Footer';
 
 const Layout = ({ children }: LayoutProps) => {
-  const [modal, setModal] = useState<boolean>(false);
+  const [modal, setModal] = React.useState<boolean>(false);
 
   const openModal = () => {
     setModal(true);

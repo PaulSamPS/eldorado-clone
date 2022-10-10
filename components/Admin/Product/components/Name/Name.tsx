@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '../../../../Ui/Input/Input';
+import { Input } from '../../../../Ui';
 import { NameProps } from './Name.props';
 
 export const Name = ({ name, setName }: NameProps) => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './TodayPageComponent.module.scss';
 import { TodayPageComponentProps } from './TodayPageComponent.props';
-import { H } from '../../components/Ui/H/H';
-import Timer from '../../components/Timer/Timer';
+import { H } from '../../components/Ui';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { OtherDay, Today, Yesterday } from '../../components/Today';
+import {Timer} from '../../components/ReusableComponents';
 
 export const TodayPageComponent = ({
   currentProduct,

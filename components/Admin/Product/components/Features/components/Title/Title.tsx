@@ -1,14 +1,13 @@
 import React, { MouseEvent } from 'react';
 import styles from './Title.module.scss';
-import { Input } from '../../../../../Ui/Input/Input';
-import { Button } from '../../../../../Ui/Button/Button';
+import { Button, Input } from '../../../../../../Ui';
 import { TitleProps } from './Title.props';
-import { useAppDispatch } from '../../../../../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../../../../../../hooks/useAppDispatch';
 import {
   removeFeaturesItem,
   setFeaturesItem,
   setFeaturesTitleText,
-} from '../../../../../../redux/reducers/featuresReducer';
+} from '../../../../../../../redux/reducers/featuresReducer';
 
 export const Title = ({ item }: TitleProps) => {
   const dispatch = useAppDispatch();

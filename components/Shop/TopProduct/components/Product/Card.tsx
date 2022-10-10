@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import styles from './Card.module.scss';
-import Rating from '../../../../Rating/Rating';
-import Review from '../../../../Review/Review';
 import Link from 'next/link';
 import { priceRu } from '../../../../../helpers/priceRu';
-import { Button } from '../../../../Ui/Button/Button';
+import { Button } from '../../../../Ui';
 import { CardProps } from './Card.props';
 import { FavouriteGreenIcon, FavouriteIcon } from '../../../../../icons';
+import {Rating, Review} from '../../../../ReusableComponents';
 
 export const Card = ({ product, className, offset, ...props }: CardProps) => {
-  const [like, setLike] = useState<boolean>(false);
-  const [rating, setRating] = useState<number>(5);
-  const [review, setReview] = useState<number>(5);
+  const [like, setLike] = React.useState<boolean>(false);
+  const [rating, setRating] = React.useState<number>(5);
+  const [review, setReview] = React.useState<number>(5);
 
   return (
     <div
@@ -23,7 +22,8 @@ export const Card = ({ product, className, offset, ...props }: CardProps) => {
       <div className={styles.img}>
         <img
           src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
-          alt='Продукт'
+          alt={product.name}
+          title={product.name}
         />
       </div>
       <div className={styles.rating}>

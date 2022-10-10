@@ -1,14 +1,13 @@
 import React from 'react';
-import Dots from '../../Dots/Dots';
-import CardItem from '../../CardItem/CardItem';
 import { DayProductProps } from './DayProduct.props';
 import { IProduct } from '../../../interfaces/product.interface';
 import styles from './DayProduct.module.scss';
-import Timer from '../../Timer/Timer';
 import Arrow from '../../Ui/Arrow/Arrow';
 import { useSlider } from '../../../hooks/useSlider';
-import { H } from '../../Ui/H/H';
+import { H } from '../../Ui';
 import { useAppSelector } from '../../../hooks/useAppSelector';
+import { Item } from './Card';
+import {Dots, Timer} from '../../ReusableComponents';
 
 export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const dayProductsRedux = useAppSelector((state) => state.dayProductReducer.dayProducts);
@@ -22,7 +21,7 @@ export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
       </div>
       <div className={styles.wrapper}>
         {dayProductsRedux.map((product: IProduct) => (
-          <CardItem key={product._id} product={product} appearance='dayProduct' offset={offset} />
+          <Item key={product._id} product={product} appearance='dayProduct' offset={offset} />
         ))}
         <Arrow appearance='left' background='white' onClick={left} />
         <Arrow appearance='right' background='white' onClick={right} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Yesterday.module.scss';
-import { H } from '../../Ui/H/H';
+import { H } from '../../Ui';
 import Link from 'next/link';
 import { YesterdayProps } from './Yesterday.props';
 

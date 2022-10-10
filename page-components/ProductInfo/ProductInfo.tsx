@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
-import Rating from '../../components/Rating/Rating';
-import Review from '../../components/Review/Review';
 import styles from './ProductInfo.module.scss';
 import { ProductInfoProps } from './ProductInfo.props';
 import Arrow from '../../components/Ui/Arrow/Arrow';
 import { priceRu } from '../../helpers/priceRu';
-import { Button } from '../../components/Ui/Button/Button';
-import { Input } from '../../components/Ui/Input/Input';
+import { Button, Input } from '../../components/Ui';
 import Textarea from '../../components/Ui/Textarea/Textarea';
+import {Rating, Review} from '../../components/ReusableComponents';
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
-  const [slideIndex, setSlideIndex] = useState<number>(0);
-  const [itemIndex, setItemIndex] = useState<number>(0);
-  const [offset, setOffset] = useState<number>(0);
-  const [offsetPreview, setOffsetPreview] = useState<number>(0);
-  const [review, setReview] = useState<number>(1);
-  const [rating, setRating] = useState<number>(5);
-  const [createReview, setCreateReview] = useState<boolean>(false);
+  const [slideIndex, setSlideIndex] = React.useState<number>(0);
+  const [itemIndex, setItemIndex] = React.useState<number>(0);
+  const [offset, setOffset] = React.useState<number>(0);
+  const [offsetPreview, setOffsetPreview] = React.useState<number>(0);
+  const [review, setReview] = React.useState<number>(1);
+  const [rating, setRating] = React.useState<number>(5);
+  const [createReview, setCreateReview] = React.useState<boolean>(false);
   const IMG_WIDTH = 380;
   const IMG_WIDTH_PREVIEW = 62.5;
 

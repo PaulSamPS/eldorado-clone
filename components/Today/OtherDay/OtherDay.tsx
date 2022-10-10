@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OtherDay.module.scss';
-import { H } from '../../Ui/H/H';
+import { H } from '../../Ui';
 import Link from 'next/link';
 import cn from 'classnames';
 import { priceRu } from '../../../helpers/priceRu';
@@ -23,6 +23,7 @@ export const OtherDay = ({ dayProducts, currentProduct }: OtherDayProps) => {
                   <img
                     src={`http://localhost:5000/product/${i.name}/${i.img[0].fileName}`}
                     alt={i.name}
+                    title={i.name}
                   />
                 </div>
                 <div className={styles.right}>

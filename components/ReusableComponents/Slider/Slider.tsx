@@ -1,13 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
 import { SliderProps } from './Slider.props';
-import Dots from '../Dots/Dots';
 import styles from './Slider.module.scss';
-import Arrow from '../Ui/Arrow/Arrow';
+import Arrow from '../../Ui/Arrow/Arrow';
 import Link from 'next/link';
-import { useSlider } from '../../hooks/useSlider';
+import { useSlider } from '../../../hooks/useSlider';
+import {Dots} from '../Dots/Dots';
 
-const Slider = ({
+export const Slider = ({
   arr,
   width,
   height,
@@ -79,5 +79,3 @@ const Slider = ({
     </div>
   );
 };
-
-export default Slider;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Nav.module.scss';
-import { Button } from '../../../../Ui/Button/Button';
+import { Button } from '../../../../Ui';
 
 export const Nav = () => {
   return (

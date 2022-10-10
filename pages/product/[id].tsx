@@ -1,5 +1,4 @@
 import React from 'react';
-import { H } from '../../components/Ui/H/H';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { $host } from '../../http';
 import { IProduct } from '../../interfaces/product.interface';

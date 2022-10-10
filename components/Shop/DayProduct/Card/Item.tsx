@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
-import Rating from '../Rating/Rating';
-import Review from '../Review/Review';
-import { priceRu } from '../../helpers/priceRu';
-import { CardItemProps } from './CardItem.props';
-import cn from 'classnames';
-import styles from './CardItem.module.scss';
-import { CartIcon } from '../../icons';
+import React from 'react';
+import { priceRu } from '../../../../helpers/priceRu';
+import { ItemProps } from './Item.props';
+import styles from './Item.module.scss';
+import { CartIcon } from '../../../../icons';
 import Link from 'next/link';
+import {Rating, Review} from '../../../ReusableComponents';
 
-const CardItem = ({
+export const Item = ({
   className,
   product,
   appearance,
   offset,
   ...props
-}: CardItemProps): JSX.Element => {
-  const [rating, setRating] = useState<number>(4);
-  const [review, setReview] = useState<number>(4);
+}: ItemProps): JSX.Element => {
+  const [rating, setRating] = React.useState<number>(4);
+  const [review, setReview] = React.useState<number>(4);
 
   return (
     <>
@@ -27,7 +25,8 @@ const CardItem = ({
               <a>
                 <img
                   src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
-                  alt='product'
+                  alt={product.name}
+                  title={product.name}
                 />
               </a>
             </Link>
@@ -62,4 +61,3 @@ const CardItem = ({
   );
 };
 
-export default CardItem;

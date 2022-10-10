@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addProduct } from '../../../redux/actions/productAction';
-import { Button } from '../../Ui/Button/Button';
+import { Button } from '../../Ui';
 import { Features, Image, Name, Price } from './components';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import styles from './Add.module.scss';

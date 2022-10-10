@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { DotsProps } from './Dots.props';
 import styles from './Dots.module.scss';
 
-const Dots = ({
+export const Dots = ({
   slideIndex,
   appearance,
   dots,
@@ -11,11 +11,11 @@ const Dots = ({
   className,
   ...props
 }: DotsProps): JSX.Element => {
-  const [dotsArray, setDotsArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+  const [dotsArray, setDotsArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
 
-  useEffect(() => {
+  React.useEffect(() => {
     constructDots(slideIndex);
-  }, [slideIndex]);
+  }, [slideIndex, arr]);
 
   const constructDots = (slideIndex: number) => {
     const updateDots = arr.map((dot: JSX.Element, index) => {
@@ -41,5 +41,3 @@ const Dots = ({
     </div>
   );
 };
-
-export default Dots;

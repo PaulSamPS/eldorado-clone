@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './Today.module.scss';
-import { H } from '../../Ui/H/H';
-import Rating from '../../Rating/Rating';
-import Review from '../../Review/Review';
+import { H } from '../../Ui';
 import { TodayProps } from './Today.props';
 import { Buy, Carousel, Rules, Features } from './components';
 import { Percent } from './components/Percent/Percent';
+import {Rating, Review} from '../../ReusableComponents';
 
 export const Today = ({ currentProduct }: TodayProps) => {
   return (

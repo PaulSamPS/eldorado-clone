@@ -1,9 +1,9 @@
-import Slider from '../../components/Slider/Slider';
 import styles from './ShopPageComponent.module.scss';
 import React from 'react';
 import { ShopPageComponentProps } from './ShopPageComponent.props';
-import { H } from '../../components/Ui/H/H';
+import { H } from '../../components/Ui';
 import { Brands, Sidebar, DayProduct, TopProduct } from '../../components/Shop';
+import {Slider} from '../../components/ReusableComponents';
 
 const sliderTop = [
   {

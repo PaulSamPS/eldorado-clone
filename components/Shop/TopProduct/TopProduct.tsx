@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TopProductProps } from './TopProduct.props';
 import cn from 'classnames';
 import { IProduct } from '../../../interfaces/product.interface';
 import styles from './TopProduct.module.scss';
 import Arrow from '../../Ui/Arrow/Arrow';
-import { H } from '../../Ui/H/H';
+import { H } from '../../Ui';
 import { Card, Nav } from './components';
 
 export const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
-  const [offset, setOffset] = useState<number>(0);
-  const [slideIndex, setSlideIndex] = useState<number>(0);
+  const [offset, setOffset] = React.useState<number>(0);
+  const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const IMG_WIDTH = 182;
 
   const prevSlide = () => {

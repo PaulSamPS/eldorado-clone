@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Image.module.scss';
-import { Input } from '../../../../Ui/Input/Input';
+import { Input } from '../../../../Ui';
 import { ImageProps } from './Image.props';
 import { v4 } from 'uuid';
 

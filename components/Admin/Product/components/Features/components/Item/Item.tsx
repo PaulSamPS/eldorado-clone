@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './Item.module.scss';
-import { Input } from '../../../../../Ui/Input/Input';
+import { Input, Button } from '../../../../../../Ui';
 import { ItemProps } from './Item.props';
-import { Button } from '../../../../../Ui/Button/Button';
 import {
   removeFeaturesItemDesc,
   setFeaturesItemText,
-} from '../../../../../../redux/reducers/featuresReducer';
-import { useAppDispatch } from '../../../../../../hooks/useAppDispatch';
+} from '../../../../../../../redux/reducers/featuresReducer';
+import { useAppDispatch } from '../../../../../../../hooks/useAppDispatch';
 
 export const Item = ({ item, titleNumber }: ItemProps) => {
   const dispatch = useAppDispatch();
