@@ -1,14 +1,26 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 export const useSlider = (
   imageWidth: number,
   arrLength: number,
   auto?: boolean,
-  duration?: number
+  duration?: number,
+  preview?: boolean,
+  imageWidthPreview?: number
 ) => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
+  const [offsetPreview, setOffsetPreview] = React.useState<number>(0);
   const IMG_WIDTH = imageWidth;
+  const IMG_WIDTH_PREVIEW = imageWidthPreview;
+  const { query } = useRouter();
+
+  React.useEffect(() => {
+    setSlideIndex(0);
+    setOffsetPreview(0);
+    setOffset(0);
+  }, [query]);
 
   React.useEffect(() => {
     if (auto) {
@@ -39,6 +51,14 @@ export const useSlider = (
         return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (arrLength - 1)));
       });
       setSlideIndex(slideIndex + 1);
+      if (preview) {
+        setOffsetPreview((currentOffset: number) => {
+          return Math.max(
+            currentOffset - IMG_WIDTH_PREVIEW!,
+            -(IMG_WIDTH_PREVIEW! * (arrLength - 4))
+          );
+        });
+      }
     }
   };
 
@@ -47,12 +67,25 @@ export const useSlider = (
       return Math.min(currentOffset + IMG_WIDTH, 0);
     });
     setSlideIndex(slideIndex === 0 ? 0 : slideIndex - 1);
+    if (preview) {
+      setOffsetPreview((currentOffset: number) => {
+        return Math.min(currentOffset + IMG_WIDTH_PREVIEW!, 0);
+      });
+    }
   };
 
   const dots = (index: number) => {
     setSlideIndex(index);
     setOffset(-(index * IMG_WIDTH));
+    if (preview) {
+      setOffsetPreview((currentOffset: number) => {
+        return Math.max(
+          currentOffset - IMG_WIDTH_PREVIEW!,
+          -(IMG_WIDTH_PREVIEW! * (arrLength - 4))
+        );
+      });
+    }
   };
 
-  return { offset, right, left, dots, slideIndex };
+  return { offset, right, left, dots, slideIndex, offsetPreview };
 };
