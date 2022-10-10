@@ -9,6 +9,8 @@ export const H = ({ tag, children }: HProps): JSX.Element => {
       return <h2 className={styles.h2}>{children}</h2>;
     case 'h3':
       return <h3 className={styles.h3}>{children}</h3>;
+    case 'h4':
+      return <h4 className={styles.h4}>{children}</h4>;
     default:
       return <></>;
   }

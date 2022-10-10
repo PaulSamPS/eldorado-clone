@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<TodayProps> = async ({ params }) => {
   const getOneProduct = await $host.get<IProduct>(`product/${params!.id}`);
   const oneProduct = getOneProduct.data;
-  const getProducts = await $host.get<IProduct[]>(`product`);
+  const getProducts = await $host.get<IProduct[]>(`day-products`);
   const products = getProducts.data;
   return {
     props: {

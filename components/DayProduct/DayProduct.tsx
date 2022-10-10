@@ -8,10 +8,8 @@ import Timer from '../Timer/Timer';
 import Arrow from '../Ui/Arrow/Arrow';
 import { useSlider } from '../../hooks/useSlider';
 import { H } from '../Ui/H/H';
-import { useAppSelector } from '../../hooks/useAppSelector';
 
-const DayProduct = ({ ...props }: DayProductProps): JSX.Element => {
-  const { dayProducts } = useAppSelector((state) => state.dayProductReducer);
+const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider(220, dayProducts.length);
   console.log(dayProducts);
 

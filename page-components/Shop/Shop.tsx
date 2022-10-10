@@ -64,7 +64,7 @@ const sliderS = [
   },
 ];
 
-const Shop = ({ products, menu }: ShopProps): JSX.Element => {
+const Shop = ({ products, dayProducts, menu }: ShopProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <Sidebar className={styles.sidebar} menu={menu} />
@@ -80,7 +80,7 @@ const Shop = ({ products, menu }: ShopProps): JSX.Element => {
             arrowVertical={30}
           />
         </div>
-        <DayProduct className={styles.dayProducts} />
+        <DayProduct className={styles.dayProducts} dayProducts={dayProducts} />
         <div className={styles.main}>
           <TopProduct className={styles.topProduct} product={products} />
         </div>

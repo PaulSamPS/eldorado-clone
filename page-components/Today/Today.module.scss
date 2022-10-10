@@ -2,6 +2,11 @@
   display: flex;
   column-gap: 40px;
   .sidebar {
+
+    .active {
+      border: 1px solid var(--primary) !important;
+    }
+
     .card {
       width: 300px;
       min-height: 100px;
@@ -108,6 +113,10 @@
          span {
            color: var(--white);
            font-size: 30px;
+
+           div {
+             line-height: 23px;
+           }
          }
        }
      }
@@ -116,346 +125,372 @@
     .card {
       box-shadow: 0 3px 15px 0 #00000019;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
 
-      .left {
-        width: 490px;
-        padding: 25px 20px 20px 25px;
+      .info {
+        display: flex;
+        justify-content: space-between;
 
-        h1 {
-          margin-bottom: 20px;
-          font-size: 18px;
-          line-height: 24px;
-        }
+        .left {
+          width: 490px;
+          padding: 25px 20px 20px 25px;
 
-        .rating {
-          display: flex;
-          column-gap: 10px;
-          font-size: 12px;
-          margin-bottom: 20px;
-
-          .star {
-            svg {
-              height: 16px;
-              width: 16px;
-            }
+          h1 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 24px;
           }
 
-          .comments {
-            svg {
-              height: 16px;
-              width: 16px;
-            }
-          }
-        }
-
-        .productBlock {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          position: relative;
-
-          .percent {
-            position: absolute;
-            top: 13px;
-            left: 16px;
-            background: var(--primary);
-            width: 120px;
-            height: 120px;
+          .rating {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: var(--white);
-            align-items: center;
-            border-radius: 50%;
-            text-transform: uppercase;
-            z-index: 10;
-            font-family: "Din proL", sans-serif;
+            column-gap: 10px;
+            font-size: 12px;
+            margin-bottom: 20px;
 
-            .totalPercent {
-              display: flex;
-              align-items: baseline;
-              font-size: 40px;
-              line-height: 18px;
+            .star {
+              svg {
+                height: 16px;
+                width: 16px;
+              }
             }
 
-            span {
-              font-family: "Din proL", sans-serif;
-              font-size: 20px;
+            .comments {
+              svg {
+                height: 16px;
+                width: 16px;
+              }
             }
           }
 
-          .carousel {
-            width: 100%;
+          .productBlock {
+            display: grid;
+            grid-template-columns: 1fr auto;
             position: relative;
 
-            svg {
-              height: 25px;
-              width: 25px;
-            }
-
-            .leftTop {
-              top: 120px;
-              left: -25px;
-            }
-
-            .rightTop {
-              top: 120px;
-              right: -25px;
-            }
-
-            .leftBot {
-              bottom: 0;
-              top: unset;
-              left: 15px;
-            }
-
-            .rightBot {
-              bottom: 0;
-              top: unset;
-              right: 15px;
-            }
-
-            .sliderWrapper {
-              height: 240px;
-              width: 380px;
-              position: relative;
-              display: flex;
-              overflow-x: hidden;
-              margin: 33px auto 0;
-
-              .slider {
-                margin: auto 0;
-                min-width: 380px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all ease .5s;
-
-                img {
-                  width: 240px;
-                  height: 240px;
-                  object-fit: contain;
-                }
-              }
-            }
-
-            .previewWrapper {
-              width: 250px;
-              margin: 33px auto 0;
-              position: relative;
-              display: flex;
-              overflow-x: hidden;
-
-              .previewSlider {
-                min-width: 52.5px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #ECEDEE;
-                margin-right: 10px;
-                border-radius: 4px;
-                transition: all ease .5s;
-                cursor: pointer;
-
-                img {
-                  width: 50px;
-                  height: 50px;
-                  object-fit: contain;
-                }
-              }
-
-              .active {
-                border: 1px solid var(--primary);
-              }
-            }
-          }
-
-          .card {
-            width: 275px;
-            padding: 17px 22px 30px;
-            border: 1px solid var(--gray-border);
-            display: flex;
-            flex-direction: column;
-            max-height: 150px;
-
-            .discountBlock {
-              display: flex;
-              align-items: center;
-              margin-bottom: 20px;
-
-              .oldPrice {
-                color: #9d9d9d;
-                font-size: 22px;
-                margin-right: 10px;
-                text-decoration: line-through;
-                line-height: .8;
-                font-weight: 500;
-              }
-
-              .discount {
-                background: var(--primary);
-                color: var(--white);
-                padding: 1px 5px;
-                border-radius: 2px;
-                font-weight: 500;
-              }
-            }
-            .price {
-              font-size: 40px;
-              font-weight: bold;
-              color: var(--black);
-              margin: 0 0 20px;
-              line-height: 1;
-            }
-
-            .btn {
-              flex-grow: 1;
-            }
-          }
-
-          .navBlock {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-
-            .activeNav {
+            .percent {
+              position: absolute;
+              top: 13px;
+              left: 16px;
               background: var(--primary);
+              width: 120px;
+              height: 120px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
               color: var(--white);
-              border-radius: 5px;
-            }
+              align-items: center;
+              border-radius: 50%;
+              text-transform: uppercase;
+              box-shadow: 0 2px 4px 0 var(--gray-border);
+              z-index: 10;
+              font-family: "Din proL", sans-serif;
 
-            .nav {
-              font-weight: 700;
-              width: 175px;
-              border-bottom: 1px solid transparent;
-
-              &:hover {
-                border-bottom: 1px solid var(--primary);
-                background: unset;
-                color: var(--black);
-                border-radius: unset;
+              .totalPercent {
+                display: flex;
+                align-items: baseline;
+                font-size: 40px;
+                line-height: 18px;
               }
 
-              &:focus {
+              span {
+                font-family: "Din proL", sans-serif;
+                font-size: 20px;
+              }
+            }
+
+            .carousel {
+              width: 100%;
+              position: relative;
+
+              svg {
+                height: 25px;
+                width: 25px;
+              }
+
+              .leftTop {
+                top: 120px;
+                left: -25px;
+              }
+
+              .rightTop {
+                top: 120px;
+                right: -25px;
+              }
+
+              .leftBot {
+                bottom: 0;
+                top: unset;
+                left: 15px;
+              }
+
+              .rightBot {
+                bottom: 0;
+                top: unset;
+                right: 15px;
+              }
+
+              .sliderWrapper {
+                height: 240px;
+                width: 380px;
+                position: relative;
+                display: flex;
+                overflow-x: hidden;
+                margin: 33px auto 0;
+
+                .slider {
+                  margin: auto 0;
+                  min-width: 380px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  transition: all ease .5s;
+
+                  img {
+                    width: 240px;
+                    height: 240px;
+                    object-fit: contain;
+                  }
+                }
+              }
+
+              .previewWrapper {
+                width: 250px;
+                margin: 33px auto 0;
+                position: relative;
+                display: flex;
+                overflow-x: hidden;
+
+                .previewSlider {
+                  min-width: 52.5px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1px solid #ECEDEE;
+                  margin-right: 10px;
+                  border-radius: 4px;
+                  transition: all ease .5s;
+                  cursor: pointer;
+
+                  img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: contain;
+                  }
+                }
+
+                .active {
+                  border: 1px solid var(--primary);
+                }
+              }
+            }
+
+            .card {
+              width: 275px;
+              padding: 17px 22px 30px;
+              border: 1px solid var(--gray-border);
+              display: flex;
+              flex-direction: column;
+              max-height: 150px;
+
+              .discountBlock {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .oldPrice {
+                  color: #9d9d9d;
+                  font-size: 22px;
+                  margin-right: 10px;
+                  text-decoration: line-through;
+                  line-height: .8;
+                  font-weight: 500;
+                }
+
+                .discount {
+                  background: var(--primary);
+                  color: var(--white);
+                  padding: 1px 5px;
+                  border-radius: 2px;
+                  font-weight: 500;
+                }
+              }
+              .price {
+                font-size: 40px;
+                font-weight: bold;
+                color: var(--black);
+                margin: 0 0 20px;
+                line-height: 1;
+              }
+
+              .btn {
+                flex-grow: 1;
+              }
+            }
+
+            .navBlock {
+              display: flex;
+              gap: 20px;
+              margin-top: 40px;
+
+              .activeNav {
                 background: var(--primary);
                 color: var(--white);
                 border-radius: 5px;
+              }
+
+              .nav {
+                font-weight: 700;
+                width: 175px;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                  border-bottom: 1px solid var(--primary);
+                  background: unset;
+                  color: var(--black);
+                  border-radius: unset;
+                }
+
+                &:focus {
+                  background: var(--primary);
+                  color: var(--white);
+                  border-radius: 5px;
+                }
+              }
+            }
+          }
+        }
+
+        .right {
+          padding-top: 25px;
+          width: 320px;
+
+          .buyBlock {
+            display: flex;
+            flex-direction: column;
+            border: solid 1px var(--gray-border-light);
+            box-shadow: 0 3px 15px 0 #00000019;
+            margin-right: 25px;
+
+            .topBuy {
+              display: flex;
+              flex-direction: column;
+              padding: 17px 22px 30px;
+
+              .sale {
+                font-family: "Din proL", sans-serif;
+                display: flex;
+                align-items: center;
+
+                .oldPrice {
+                  color: #9d9d9d;
+                  font-size: 24px;
+                  margin-right: 10px;
+                  text-decoration: line-through;
+                  line-height: .8;
+                  font-family: "Din proL", sans-serif;
+                }
+
+                .discount {
+                  background: var(--primary);
+                  color: var(--white);
+                  padding: 1px 5px;
+                  border-radius: 2px;
+                  font-family: "Din proL", sans-serif;
+                  font-size: 15px;
+                }
+              }
+
+              .price {
+                font-size: 40px;
+                font-family: "Din proL", sans-serif;
+                margin-bottom: 20px;
+              }
+
+              button {
+                height: 50px;
+                font-family: "Din proL", sans-serif;
+                font-size: 16px;
+                position: relative;
+                padding: 10px 30px 10px 60px;
+
+                svg {
+                  position: absolute;
+                  left: 40px;
+                  top: 0;
+                }
+              }
+            }
+
+            hr {
+              border-top: 1px solid var(--gray-border-light);
+              width: 100%;
+            }
+
+            .deliveryBlock {
+              padding: 17px 22px 30px;
+              display: flex;
+              flex-direction: column;
+
+              .location {
+                font-size: 14px;
+                font-family: "Din proS", sans-serif;
+                display: flex;
+                align-items: center;
+                column-gap: 5px;
+
+                a {
+                  color: var(--primary);
+                }
+              }
+            }
+          }
+
+          .features {
+            margin-top: 35px;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+
+            b {
+              font-family: "Din proS", sans-serif;
+              text-transform: uppercase;
+              font-size: 12px;
+            }
+
+            .block {
+              display: flex;
+              flex-direction: column;
+              row-gap: 5px;
+              font-size: 12px;
+              .items {
+                display: flex;
+                font-family: "Din proS", sans-serif;
+                row-gap: 10px;
+
+                .name {
+                  margin-right: 5px;
+                }
               }
             }
           }
         }
       }
 
-      .right {
-        padding-top: 25px;
-          width: 320px;
+      .rules {
+        padding: 35px 20px 40px 25px;
+        width: 100%;
 
-        .buyBlock {
-          display: flex;
-          flex-direction: column;
-          border: solid 1px var(--gray-border-light);
-          box-shadow: 0 3px 15px 0 #00000019;
-          margin-right: 25px;
-
-          .topBuy {
-            display: flex;
-            flex-direction: column;
-            padding: 17px 22px 30px;
-
-            .sale {
-              font-family: "Din proL", sans-serif;
-              display: flex;
-              align-items: center;
-
-              .oldPrice {
-                color: #9d9d9d;
-                font-size: 24px;
-                margin-right: 10px;
-                text-decoration: line-through;
-                line-height: .8;
-                font-family: "Din proL", sans-serif;
-              }
-
-              .discount {
-                background: var(--primary);
-                color: var(--white);
-                padding: 1px 5px;
-                border-radius: 2px;
-                font-family: "Din proL", sans-serif;
-                font-size: 15px;
-              }
-            }
-
-            .price {
-              font-size: 40px;
-              font-family: "Din proL", sans-serif;
-              margin-bottom: 20px;
-            }
-
-            button {
-              height: 50px;
-              font-family: "Din proL", sans-serif;
-              font-size: 16px;
-              position: relative;
-              padding: 10px 30px 10px 60px;
-
-              svg {
-                position: absolute;
-                left: 40px;
-                top: 0;
-              }
-            }
-          }
-
-          hr {
-            border-top: 1px solid var(--gray-border-light);
-            width: 100%;
-          }
-
-          .deliveryBlock {
-            padding: 17px 22px 30px;
-            display: flex;
-            flex-direction: column;
-
-            .location {
-              font-size: 14px;
-              font-family: "Din proS", sans-serif;
-              display: flex;
-              align-items: center;
-              column-gap: 5px;
-
-              a {
-                color: var(--primary);
-              }
-            }
-          }
+        h4 {
+          text-align: center;
         }
 
-        .features {
-          margin-top: 20px;
+        ol {
           font-size: 13px;
-          display: flex;
-          flex-direction: column;
-          row-gap: 10px;
+          font-family: "Din proS", sans-serif;
 
-          b {
-            font-family: "Din proS", sans-serif;
-            text-transform: uppercase;
-          }
-
-          .block {
-            display: flex;
-            flex-direction: column;
-            row-gap: 5px;
-            .items {
-              display: flex;
-              font-family: "Din proS", sans-serif;
-              row-gap: 10px;
-
-              .name {
-                margin-right: 5px;
-              }
-            }
+          li {
+            line-height: 30px;
           }
         }
       }
