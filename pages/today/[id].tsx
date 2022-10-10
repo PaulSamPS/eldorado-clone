@@ -19,7 +19,7 @@ const TodayId = ({ dayProducts, oneProduct, productsYesterday }: TodayProps) => 
 export default TodayId;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const getDayProducts = await $host.get<IProduct[]>('product');
+  const getDayProducts = await $host.get<IProduct[]>('day-products');
   const dayProducts = getDayProducts.data;
   const paths = dayProducts.map((p) => ({ params: { id: p._id } }));
   return { paths, fallback: false };
