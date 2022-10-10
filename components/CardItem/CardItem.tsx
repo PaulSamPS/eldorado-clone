@@ -46,7 +46,7 @@ const CardItem = ({
             <Button appearance='primary' className={styles.btn}>
               В корзину
             </Button>
-            <div onClick={() => setLike(!like)}>
+            <div onClick={() => setLike(!like)} className={styles.favourite}>
               {like ? <FavouriteGreenIcon /> : <FavouriteIcon />}
             </div>
           </div>

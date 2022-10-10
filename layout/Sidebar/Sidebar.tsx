@@ -10,11 +10,10 @@ const Sidebar = ({ className, menu }: SidebarProps) => {
         <span key={menu._id} className={styles.type}>
           <Link href={menu.link}>
             <div className={styles.link}>
-              <span
+              <img
                 className={styles.svg}
-                style={{
-                  backgroundImage: `url(http://localhost:5000/menu/${menu.img}`,
-                }}
+                src={`http://localhost:5000/menu/${menu.name}/${menu.img}`}
+                alt=''
               />
               {menu.name}
             </div>

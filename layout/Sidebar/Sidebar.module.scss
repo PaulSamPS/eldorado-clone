@@ -12,6 +12,7 @@
   width: 100%;
   background: none;
   transition: all ease .2s;
+  z-index: 99999;
 
   &:hover {
     background: var(--primary);
@@ -20,7 +21,7 @@
     .link {
       color: var(--white);
       .svg {
-        filter: brightness(100);
+        filter: brightness(10);
       }
     }
   }

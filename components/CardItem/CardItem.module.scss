@@ -73,7 +73,7 @@
 
   .bottom {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 22px;
 
     .btn {
@@ -84,10 +84,17 @@
       box-sizing: border-box;
     }
 
-    svg {
-      width: 25px;
-      height: 20px;
-      cursor: pointer;
+    .favourite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 7px;
+
+      svg {
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+      }
     }
 
     .cart {
@@ -190,7 +197,7 @@
 
     .oldPrice {
       color: #9d9d9d;
-      font-size: 14px;
+      font-size: 16px;
       margin-right: 10px;
       text-decoration: line-through;
       line-height: .8;
@@ -213,7 +220,7 @@
     padding-top: 10px;
 
     .price {
-      font-size: 20px;
+      font-size: 22px;
       line-height: 1.2;
      font-family: "Din proL", sans-serif;
     }
