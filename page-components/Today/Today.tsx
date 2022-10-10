@@ -101,7 +101,9 @@ export const Today = ({ currentProduct, productsYesterday }: TodayProps) => {
                 <img src={`http://localhost:5000/product/${p.name}/${p.img[0].fileName}`} alt='' />
               </div>
               <div className={styles.yesterdayRight}>
-                <a>{p.name}</a>
+                <Link href={`/product/${p._id}`}>
+                  <a>{p.name}</a>
+                </Link>
               </div>
             </div>
           ))}
@@ -226,7 +228,7 @@ export const Today = ({ currentProduct, productsYesterday }: TodayProps) => {
                 </div>
               </div>
               <div className={styles.features}>
-                {currentProduct!.features.slice(0, 3).map((f) => (
+                {currentProduct!.features.slice(1, 4).map((f) => (
                   <div key={f._id} className={styles.block}>
                     <b>{f.title}:</b>
                     {f.item.map((i) => (
