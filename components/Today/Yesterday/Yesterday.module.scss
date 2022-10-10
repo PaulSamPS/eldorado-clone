@@ -1,0 +1,29 @@
+.wrapper {
+  margin-top: 40px;
+  .cardYesterday {
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    column-gap: 20px;
+    transition: all ease .2s;
+    border-bottom: 1px solid #f2f3f3;
+    box-shadow: 0 0 2px 0 #00000019;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 5px 15px 0 #00000019;
+    }
+
+    .yesterdayLeft {
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+    }
+
+    .yesterdayRight {
+      font-size: 13px;
+    }
+  }
+}

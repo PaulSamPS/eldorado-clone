@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { TopProductProps } from './TopProduct.props';
 import cn from 'classnames';
-import CardItem from '../CardItem/CardItem';
 import { IProduct } from '../../interfaces/product.interface';
 import styles from './TopProduct.module.scss';
 import Arrow from '../Ui/Arrow/Arrow';
-import { Button } from '../Ui/Button/Button';
 import { H } from '../Ui/H/H';
+import { Card, Nav } from './components';
 
 const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = useState<number>(0);
@@ -47,21 +46,11 @@ const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
         onClick={nextSlide}
         className={styles.arrowRight}
       />
-      <div className={styles.nav}>
-        <Button appearance='ghost' className={styles.btn}>
-          Персональная подборка
-        </Button>
-        <Button appearance='ghost' className={styles.btn}>
-          Хиты продаж
-        </Button>
-        <Button appearance='ghost' className={styles.btn}>
-          Топ новинок
-        </Button>
-      </div>
+      <Nav />
       <div className={styles.cardBlock}>
         <div className={styles.cardGrid}>
           {product.map((product: IProduct) => (
-            <CardItem key={product._id} product={product} offset={offset} appearance='topProduct' />
+            <Card key={product._id} product={product} offset={offset} />
           ))}
         </div>
       </div>

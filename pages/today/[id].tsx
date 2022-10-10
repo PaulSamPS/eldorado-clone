@@ -1,5 +1,5 @@
 import React from 'react';
-import { Today } from '../../page-components/Today/Today';
+import { TodayPageComponent } from '../../page-components/Today/TodayPageComponent';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { $host } from '../../http';
 import { IProduct } from '../../interfaces/product.interface';
@@ -13,7 +13,7 @@ const TodayId = ({ dayProducts, oneProduct, productsYesterday }: TodayProps) => 
     dispatch(setSuccessDayProducts(dayProducts));
   }, []);
 
-  return <Today currentProduct={oneProduct} productsYesterday={productsYesterday} />;
+  return <TodayPageComponent currentProduct={oneProduct} productsYesterday={productsYesterday} />;
 };
 
 export default TodayId;
