@@ -5,7 +5,7 @@ import styles from './Slider.module.scss';
 import Arrow from '../../Ui/Arrow/Arrow';
 import Link from 'next/link';
 import { useSlider } from '../../../hooks/useSlider';
-import {Dots} from '../Dots/Dots';
+import { Dots } from '../Dots/Dots';
 
 export const Slider = ({
   arr,
@@ -18,12 +18,12 @@ export const Slider = ({
   className,
 }: SliderProps) => {
   const [auto, setAuto] = React.useState<boolean>(true);
-  const { offset, dots, left, right, slideIndex } = useSlider(
-    width,
-    arr.length,
-    auto,
-    duration && duration
-  );
+  const { offset, dots, left, right, slideIndex } = useSlider({
+    imageWidth: width,
+    arrLength: arr.length,
+    duration: duration,
+    auto: auto,
+  });
 
   return (
     <div

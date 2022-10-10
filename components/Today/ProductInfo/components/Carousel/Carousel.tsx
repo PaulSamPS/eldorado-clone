@@ -3,11 +3,15 @@ import styles from './Carousel.module.scss';
 import Arrow from '../../../../Ui/Arrow/Arrow';
 import cn from 'classnames';
 import { CarouselProps } from './Carousel.props';
-import {useSlider} from '../../../../../hooks/useSlider';
+import { useSlider } from '../../../../../hooks/useSlider';
 
 export const Carousel = ({ currentProduct }: CarouselProps) => {
-  const {offset, offsetPreview, slideIndex, left, right, dots} = useSlider(380, currentProduct!.img.length, false, 0, true, 62.5);
-
+  const { offset, offsetPreview, slideIndex, left, right, dots } = useSlider({
+    arrLength: currentProduct!.img.length,
+    imageWidth: 380,
+    preview: true,
+    imageWidthPreview: 62.5,
+  });
   return (
     <div className={styles.wrapper}>
       <div className={styles.sliderWrapper}>

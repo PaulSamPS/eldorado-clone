@@ -7,11 +7,14 @@ import { useSlider } from '../../../hooks/useSlider';
 import { H } from '../../Ui';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { Item } from './Card';
-import {Dots, Timer} from '../../ReusableComponents';
+import { Dots, Timer } from '../../ReusableComponents';
 
 export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const dayProductsRedux = useAppSelector((state) => state.dayProductReducer.dayProducts);
-  const { offset, dots, left, right, slideIndex } = useSlider(220, dayProductsRedux.length);
+  const { offset, dots, left, right, slideIndex } = useSlider({
+    imageWidth: 200,
+    arrLength: dayProductsRedux.length,
+  });
 
   return (
     <div className={styles.dayProductBlock}>

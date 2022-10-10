@@ -1,14 +1,23 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-export const useSlider = (
-  imageWidth: number,
-  arrLength: number,
-  auto?: boolean,
-  duration?: number,
-  preview?: boolean,
-  imageWidthPreview?: number
-) => {
+interface ISlider {
+  imageWidth: number;
+  arrLength: number;
+  auto?: boolean;
+  duration?: number;
+  preview?: boolean;
+  imageWidthPreview?: number;
+}
+
+export const useSlider = ({
+  imageWidthPreview,
+  preview,
+  imageWidth,
+  arrLength,
+  auto,
+  duration,
+}: ISlider) => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const [offsetPreview, setOffsetPreview] = React.useState<number>(0);
