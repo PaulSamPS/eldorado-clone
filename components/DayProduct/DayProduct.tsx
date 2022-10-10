@@ -11,7 +11,6 @@ import { H } from '../Ui/H/H';
 
 const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider(220, dayProducts.length);
-  console.log(dayProducts);
 
   return (
     <div className={styles.dayProductBlock}>

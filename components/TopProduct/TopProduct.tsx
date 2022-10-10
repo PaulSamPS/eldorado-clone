@@ -21,12 +21,12 @@ const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   };
 
   const nextSlide = () => {
-    if (slideIndex === product.length - 4) {
+    if (slideIndex === product.length - 5) {
       setSlideIndex(0);
       setOffset(0);
     } else {
       setOffset((currentOffset: number) => {
-        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (product.length - 4)));
+        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (product.length - 5)));
       });
       setSlideIndex(slideIndex + 1);
     }
