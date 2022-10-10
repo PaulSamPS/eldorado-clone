@@ -1,5 +1,5 @@
 import React from 'react';
-import Shop from '../page-components/Shop/Shop';
+import ShopPageComponent from '../page-components/Shop/ShopPageComponent';
 import { GetStaticProps } from 'next';
 import { $host } from '../http';
 import { IProduct } from '../interfaces/product.interface';
@@ -15,7 +15,9 @@ const Home = ({ products, dayProducts, menu, brand }: HomeProps): JSX.Element =>
     dispatch(getProduct());
   }, []);
 
-  return <Shop products={products} dayProducts={dayProducts} menu={menu} brand={brand} />;
+  return (
+    <ShopPageComponent products={products} dayProducts={dayProducts} menu={menu} brand={brand} />
+  );
 };
 
 export default Home;

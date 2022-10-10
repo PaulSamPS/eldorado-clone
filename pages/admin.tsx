@@ -1,8 +1,8 @@
 import React from 'react';
-import { AdminPanel } from '../page-components/Admin/AdminPanel';
+import { AdminPageComponent } from '../page-components/Admin/AdminPageComponent';
 
 const Admin = () => {
-  return <AdminPanel />;
+  return <AdminPageComponent />;
 };
 
 export default Admin;
