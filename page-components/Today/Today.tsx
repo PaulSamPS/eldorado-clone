@@ -226,7 +226,7 @@ export const Today = ({ currentProduct, productsYesterday }: TodayProps) => {
                 </div>
               </div>
               <div className={styles.features}>
-                {currentProduct!.features.map((f) => (
+                {currentProduct!.features.slice(0, 3).map((f) => (
                   <div key={f._id} className={styles.block}>
                     <b>{f.title}:</b>
                     {f.item.map((i) => (
