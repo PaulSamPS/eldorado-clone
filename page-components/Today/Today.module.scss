@@ -2,81 +2,113 @@
   display: flex;
   column-gap: 40px;
   .sidebar {
+    .dayProducts {
 
-    .active {
-      border: 1px solid var(--primary) !important;
-    }
-
-    .card {
-      width: 300px;
-      min-height: 100px;
-      box-shadow: 2px 3px 6px 0 rgb(211 215 206 / 64%);
-      padding: 15px 13px 14px 25px;
-      border-radius: 2px;
-      display: flex;
-      column-gap: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: all ease .2s;
-      border: 1px solid transparent;
-      position: relative;
-
-      &:hover {
-        border: 1px solid var(--primary);
+      .active {
+        border: 1px solid var(--primary) !important;
       }
 
-      .percent {
-        color: var(--white);
+      .card {
+        width: 300px;
+        min-height: 100px;
+        box-shadow: 2px 3px 6px 0 rgb(211 215 206 / 64%);
+        padding: 15px 13px 14px 25px;
+        border-radius: 2px;
         display: flex;
-        align-items: center;
-        font-size: 18px;
-        letter-spacing: -1px;
-        justify-content: center;
-        font-family: "Din proL", sans-serif;
-        background-color: var(--primary);
-        height: 40px;
-        width: 60px;
-        clip-path: polygon(97% 0,90% 100%,0 100%,0 0);
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
+        column-gap: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all ease .2s;
+        border: 1px solid transparent;
+        position: relative;
 
-      .left {
-        img {
-          height: 100px;
-          width: 100px;
-          object-fit: contain;
+        &:hover {
+          border: 1px solid var(--primary);
         }
-      }
 
-      .right {
-        flex: 1;
-        .sale {
+        .percent {
+          color: var(--white);
           display: flex;
-          align-content: center;
+          align-items: center;
+          font-size: 18px;
+          letter-spacing: -1px;
+          justify-content: center;
+          font-family: "Din proL", sans-serif;
+          background-color: var(--primary);
+          height: 40px;
+          width: 60px;
+          clip-path: polygon(97% 0,90% 100%,0 100%,0 0);
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
 
-          .oldPrice {
-            color: var(--gray-border);
-            text-decoration: line-through;
+        .left {
+          img {
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
           }
-          .discount {
-            background-color: var(--primary);
-            color: var(--white);
-            height: 18px;
-            line-height: 18px;
-            float: left;
-            padding: 0 8px 0 9px;
-            border-radius: 2px;
+        }
+
+        .right {
+          flex: 1;
+          .sale {
+            display: flex;
+            align-content: center;
+
+            .oldPrice {
+              color: var(--gray-border);
+              text-decoration: line-through;
+            }
+            .discount {
+              background-color: var(--primary);
+              color: var(--white);
+              height: 18px;
+              line-height: 18px;
+              float: left;
+              padding: 0 8px 0 9px;
+              border-radius: 2px;
+              font-size: 13px;
+            }
+          }
+          .price {
+            font-size: 20px;
+          }
+
+          .name {
+            font-family: "Din proS", sans-serif;
             font-size: 13px;
           }
         }
-        .price {
-          font-size: 20px;
+      }
+    }
+
+    .productsYesterday {
+      margin-top: 40px;
+      .cardYesterday {
+        width: 300px;
+        padding: 20px;
+        display: flex;
+        column-gap: 20px;
+        transition: all ease .2s;
+        border-bottom: 1px solid #f2f3f3;
+        box-shadow: 0 0 2px 0 #00000019;
+        overflow: hidden;
+
+        &:hover {
+          box-shadow: 0 5px 15px 0 #00000019;
         }
 
-        .name {
-          font-family: "Din proS", sans-serif;
+        .yesterdayLeft {
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+          }
+        }
+
+        .yesterdayRight {
           font-size: 13px;
         }
       }

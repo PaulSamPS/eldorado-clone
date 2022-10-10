@@ -13,7 +13,7 @@ import Review from '../../components/Review/Review';
 import Rating from '../../components/Rating/Rating';
 import { useRouter } from 'next/router';
 
-export const Today = ({ products, currentProduct }: TodayProps) => {
+export const Today = ({ products, currentProduct, productsYesterday }: TodayProps) => {
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const [offset, setOffset] = useState<number>(0);
   const [offsetPreview, setOffsetPreview] = useState<number>(0);
@@ -59,36 +59,51 @@ export const Today = ({ products, currentProduct }: TodayProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.sidebar}>
-        <H tag='h2'>Другие товары дня</H>
-        {products
-          .filter((p) => p.oldPrice > 0)
-          .map((i) => (
-            <Link href={`/today/${i._id}`} key={i._id}>
-              <a>
-                <div
-                  className={cn(styles.card, { [styles.active]: i._id === currentProduct?._id })}
-                >
-                  <div className={styles.percent}>
-                    {'-' + Math.floor(((i.oldPrice! - i.price) / i.oldPrice!) * 100) + '%'}
-                  </div>
-                  <div className={styles.left}>
-                    <img
-                      src={`http://localhost:5000/product/${i.name}/${i.img[0].fileName}`}
-                      alt={i.name}
-                    />
-                  </div>
-                  <div className={styles.right}>
-                    <div className={styles.sale}>
-                      <span className={styles.oldPrice}>{priceRu(i.oldPrice)}</span>
-                      <span className={styles.discount}>-{priceRu(i.oldPrice! - i.price)}</span>
+        <div className={styles.dayProducts}>
+          <H tag='h2'>Другие товары дня</H>
+          {products
+            .filter((p) => p.oldPrice > 0)
+            .map((i) => (
+              <Link href={`/today/${i._id}`} key={i._id}>
+                <a>
+                  <div
+                    className={cn(styles.card, { [styles.active]: i._id === currentProduct?._id })}
+                  >
+                    <div className={styles.percent}>
+                      {'-' + Math.floor(((i.oldPrice! - i.price) / i.oldPrice!) * 100) + '%'}
                     </div>
-                    <span className={styles.price}>{priceRu(i.price)}</span>
-                    <p className={styles.name}>{i.name}</p>
+                    <div className={styles.left}>
+                      <img
+                        src={`http://localhost:5000/product/${i.name}/${i.img[0].fileName}`}
+                        alt={i.name}
+                      />
+                    </div>
+                    <div className={styles.right}>
+                      <div className={styles.sale}>
+                        <span className={styles.oldPrice}>{priceRu(i.oldPrice)}</span>
+                        <span className={styles.discount}>-{priceRu(i.oldPrice! - i.price)}</span>
+                      </div>
+                      <span className={styles.price}>{priceRu(i.price)}</span>
+                      <p className={styles.name}>{i.name}</p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            </Link>
+                </a>
+              </Link>
+            ))}
+        </div>
+        <div className={styles.productsYesterday}>
+          <H tag='h2'>Товары прошлых дней</H>
+          {productsYesterday.map((p) => (
+            <div className={styles.cardYesterday} key={p._id}>
+              <div className={styles.yesterdayLeft}>
+                <img src={`http://localhost:5000/product/${p.name}/${p.img[0].fileName}`} alt='' />
+              </div>
+              <div className={styles.yesterdayRight}>
+                <a>{p.name}</a>
+              </div>
+            </div>
           ))}
+        </div>
       </div>
       <div className={styles.main}>
         <H tag='h2'>Только сегодня!</H>

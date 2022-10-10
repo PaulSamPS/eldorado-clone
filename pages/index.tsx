@@ -22,6 +22,7 @@ export default Home;
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const getProducts = await $host.get<IProduct[]>('product');
   const getDayProducts = await $host.get<IProduct[]>('day-products');
+
   const getMenu = await $host.get<IMenu[]>('menu');
   const products = getProducts.data;
   const dayProducts = getDayProducts.data;
