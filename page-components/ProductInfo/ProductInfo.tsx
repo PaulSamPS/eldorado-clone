@@ -2,123 +2,44 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './ProductInfo.module.scss';
 import { ProductInfoProps } from './ProductInfo.props';
-import Arrow from '../../components/Ui/Arrow/Arrow';
-import { priceRu } from '../../helpers/priceRu';
 import { Button, Input } from '../../components/Ui';
 import Textarea from '../../components/Ui/Textarea/Textarea';
-import {Rating, Review} from '../../components/ReusableComponents';
+import { Buy, Carousel, Rating, Review } from '../../components/ReusableComponents';
+import { ZoomModal } from '../../components/ReusableComponents/ZoomModal/ZoomModal';
+import { Rotate360 } from '../../components/Rotate360/Rotate360';
+import { Icon360 } from '../../icons';
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
-  const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const [itemIndex, setItemIndex] = React.useState<number>(0);
-  const [offset, setOffset] = React.useState<number>(0);
-  const [offsetPreview, setOffsetPreview] = React.useState<number>(0);
+  const [is360, setIs360] = React.useState<boolean>(false);
   const [review, setReview] = React.useState<number>(1);
   const [rating, setRating] = React.useState<number>(5);
   const [createReview, setCreateReview] = React.useState<boolean>(false);
-  const IMG_WIDTH = 380;
-  const IMG_WIDTH_PREVIEW = 62.5;
 
   const info = [
     { id: 1, name: 'Характеристики' },
     { id: 2, name: 'Отзывы' },
   ];
 
-  const right = () => {
-    if (slideIndex === product.img.length - 1) {
-      setSlideIndex(0);
-      setOffset(0);
-      setOffsetPreview(0);
-    } else {
-      setOffset((currentOffset: number) => {
-        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (product.img.length - 1)));
-      });
-      setSlideIndex(slideIndex + 1);
-      setOffsetPreview((currentOffset: number) => {
-        return Math.max(
-          currentOffset - IMG_WIDTH_PREVIEW,
-          -(IMG_WIDTH_PREVIEW * (product.img.length - 4))
-        );
-      });
-    }
-  };
-
-  const left = () => {
-    setOffset((currentOffset: number) => {
-      return Math.min(currentOffset + IMG_WIDTH, 0);
-    });
-    setOffsetPreview((currentOffset: number) => {
-      return Math.min(currentOffset + IMG_WIDTH_PREVIEW, 0);
-    });
-    setSlideIndex(slideIndex === 0 ? 0 : slideIndex - 1);
-  };
-
-  const handleClick = (index: number) => {
-    setSlideIndex(index);
-    setOffset(-(index * IMG_WIDTH));
-    setOffsetPreview(-IMG_WIDTH_PREVIEW);
-  };
-
   return (
     <div className={styles.productInfo}>
       <h1 className={styles.title}>{product.name}</h1>
+      {is360 && <Rotate360 setIs360={setIs360} />}
       <div className={styles.rating}>
         <Rating rating={rating} isEditable={false} isFully={true} />
         <Review review={review} />
       </div>
       <div className={styles.productBlock}>
-        <div className={styles.carousel}>
-          <div className={styles.sliderWrapper}>
-            {product.img.map((image: any) => (
-              <div
-                key={image.fileName}
-                className={styles.slider}
-                style={{ transform: `translateX(${offset}px)` }}
-              >
-                <img
-                  src={`http://localhost:5000/product/${product.name}/${image.fileName}`}
-                  alt=''
-                />
-              </div>
-            ))}
-          </div>
-          <Arrow appearance='left' background='none' onClick={left} className={styles.leftTop} />
-          <Arrow appearance='right' background='none' onClick={right} className={styles.rightTop} />
-          <div className={styles.previewWrapper}>
-            {product.img.map((image: any, index: number) => (
-              <div
-                key={image.fileName}
-                onClick={() => handleClick(index)}
-                style={{ transform: `translateX(${offsetPreview}px)` }}
-                className={cn(styles.previewSlider, {
-                  [styles.active]: slideIndex === index,
-                })}
-              >
-                <img
-                  src={`http://localhost:5000/product/${product.name}/${image.fileName}`}
-                  alt=''
-                />
-              </div>
-            ))}
-          </div>
-          <Arrow appearance='left' background='white' onClick={left} className={styles.leftBot} />
-          <Arrow
-            appearance='right'
-            background='white'
-            onClick={right}
-            className={styles.rightBot}
-          />
+        <div className={styles.productImage}>
+          <Carousel currentProduct={product} className={styles.carousel} imageWidth={240} />
+          <ZoomModal currentProduct={product} className={styles.zoom} />
+          {product.rotate3d.length > 0 && (
+            <div className={styles.rotate360} onClick={() => setIs360(true)}>
+              <Icon360 />
+            </div>
+          )}
         </div>
-        <div className={styles.card}>
-          <div className={styles.discountBlock}>
-            <span className={styles.oldPrice}>{priceRu(product.oldPrice)}</span>
-            <span className={styles.discount}>-{product.oldPrice! - product.price}</span>
-          </div>
-          <span className={styles.price}>{priceRu(product.price)}</span>
-          <Button appearance='primary' className={styles.btn}>
-            Добавить в корзину
-          </Button>
-        </div>
+        <Buy currentProduct={product} className={styles.buy} />
         <div className={styles.navBlock}>
           {info.map((i: any, index: number) => (
             <Button

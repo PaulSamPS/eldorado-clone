@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './Today.module.scss';
 import { H } from '../../Ui';
 import { TodayProps } from './Today.props';
-import { Buy, Carousel, Rules, Features } from './components';
+import { Rules, Features } from './components';
 import { Percent } from './components/Percent/Percent';
-import {Rating, Review} from '../../ReusableComponents';
+import { Carousel, Rating, Review, Buy } from '../../ReusableComponents';
+import { ZoomModal } from '../../ReusableComponents/ZoomModal/ZoomModal';
 
 export const Today = ({ currentProduct }: TodayProps) => {
   return (
@@ -18,7 +19,10 @@ export const Today = ({ currentProduct }: TodayProps) => {
           </div>
           <div className={styles.productBlock}>
             <Percent currentProduct={currentProduct} />
-            <Carousel currentProduct={currentProduct} />
+            <div className={styles.carousel}>
+              <Carousel currentProduct={currentProduct} imageWidth={240} />
+              <ZoomModal currentProduct={currentProduct} />
+            </div>
           </div>
         </div>
         <div className={styles.right}>

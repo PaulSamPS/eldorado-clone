@@ -5,10 +5,11 @@ import loginUser from './reducers/loginReducer';
 import registration from './reducers/registrationReducer';
 import productReducer from './reducers/productReducer';
 import featuresReducer from './reducers/featuresReducer';
+import zoomImageReducer from './reducers/zoomImageReducer';
+import dayProductReducer from './reducers/dayProducts.reducer';
 import { typeReducer } from './reducers/typeReducer';
 import { brandReducer } from './reducers/brandReducer';
 import { menuReducer } from './reducers/menuReducer';
-import dayProductReducer from './reducers/dayProducts.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +26,7 @@ export const rootReducer = combineReducers({
   type: typeReducer,
   brand: brandReducer,
   menu: menuReducer,
+  zoomImageReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

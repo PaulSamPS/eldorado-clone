@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { IProduct } from '../../../interfaces/product.interface';
 
-export interface ImageProps
+export interface ZoomModalProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  setFiles: ([]: any) => void;
-  setFiles3d: ([]: any) => void;
+  currentProduct: IProduct | undefined;
 }

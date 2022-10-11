@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './Buy.module.scss';
-import { priceRu } from '../../../../../helpers/priceRu';
-import { Button } from '../../../../Ui';
+import { priceRu } from '../../../helpers/priceRu';
+import { Button } from '../../Ui';
 import { BuyProps } from './Buy.props';
-import { CartButtonIcon, LocationIcon } from '../../../../../icons';
+import { CartButtonIcon, LocationIcon } from '../../../icons';
+import cn from 'classnames';
 
-export const Buy = ({ currentProduct }: BuyProps) => {
+export const Buy = ({ currentProduct, className }: BuyProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, className)}>
       <div className={styles.topBuy}>
         <div className={styles.sale}>
           <span className={styles.oldPrice}>{priceRu(currentProduct!.oldPrice)}</span>

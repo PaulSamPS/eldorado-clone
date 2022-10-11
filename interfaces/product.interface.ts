@@ -17,6 +17,7 @@ interface IImg {
 export interface IProduct {
   _id: string;
   img: IImg[];
+  rotate3d: IImg[];
   price: number;
   oldPrice: number;
   typeId: number;

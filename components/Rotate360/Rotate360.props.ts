@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface ImageProps
+export interface Rotate360Props
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  setFiles: ([]: any) => void;
-  setFiles3d: ([]: any) => void;
+  setIs360: (is360: boolean) => void;
 }

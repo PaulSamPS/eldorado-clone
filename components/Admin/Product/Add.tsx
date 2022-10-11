@@ -12,6 +12,7 @@ export const Add = (): JSX.Element => {
   const [oldPrice, setOldPrice] = useState<number | undefined>(0);
   const [addOldPrice, setAddOldPrice] = useState<boolean>(false);
   const [files, setFiles] = useState<any[]>([]);
+  const [files3d, setFiles3d] = useState<any[]>([]);
 
   const handleAddProduct = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -23,6 +24,9 @@ export const Add = (): JSX.Element => {
       : formData.append('oldPrice', `${oldPrice}`);
     for (let i = 0; i < files.length; i++) {
       formData.append('img', files[i]);
+    }
+    for (let i = 0; i < files3d.length; i++) {
+      formData.append('rotate3d', files3d[i]);
     }
     formData.append('features', JSON.stringify(features));
     await addProduct(formData);
@@ -41,7 +45,7 @@ export const Add = (): JSX.Element => {
           addOldPrice={addOldPrice}
           setAddOldPrice={setAddOldPrice}
         />
-        <Image setFiles={setFiles} />
+        <Image setFiles={setFiles} setFiles3d={setFiles3d} />
         <Features />
       </form>
       <div className={styles.blockSubmit}>

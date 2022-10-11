@@ -1,46 +1,51 @@
 .wrapper {
   margin-bottom: 10px;
-  .preview {
-    display: flex;
-    gap: 10px;
-    padding-left: 220px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+ .img {
+   .preview {
+     display: flex;
+     gap: 10px;
+     padding-left: 220px;
+     margin-bottom: 10px;
 
-    .previewImage {
-      border: 1px solid var(--gray-border);
-      border-radius: 4px;
+     .previewImage {
+       border: 1px solid var(--gray-border);
+       border-radius: 4px;
 
-      img {
-        object-fit: contain;
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-  .inputFile {
-    position: relative;
-    .file {
-      position: absolute;
-      opacity: 0;
-      visibility: hidden;
-    }
-    .inputBtn {
-      display: inline-block;
+       img {
+         object-fit: contain;
+         width: 50px;
+         height: 50px;
+       }
+     }
+   }
+   .inputFile {
+     position: relative;
+     .file {
+       position: absolute;
+       opacity: 0;
+       visibility: hidden;
+     }
+     .inputBtn {
+       display: inline-block;
 
-      box-sizing: border-box;
-      padding: 10px 30px;
-      width: 227px;
-      background-color: var(--primary);
-      color: var(--white);
+       box-sizing: border-box;
+       padding: 10px 30px;
+       width: 227px;
+       background-color: var(--primary);
+       color: var(--white);
 
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
+       cursor: pointer;
+       transition: all 0.2s;
+       text-align: center;
 
-      border: none;
-      border-radius: 5px;
+       border: none;
+       border-radius: 5px;
 
-      font-size: 14px;
-    }
-  }
+       font-size: 14px;
+     }
+   }
+ }
 }

@@ -1,20 +1,26 @@
 import React from 'react';
 import styles from './Carousel.module.scss';
-import Arrow from '../../../../Ui/Arrow/Arrow';
+import Arrow from '../../Ui/Arrow/Arrow';
 import cn from 'classnames';
 import { CarouselProps } from './Carousel.props';
-import { useSlider } from '../../../../../hooks/useSlider';
+import { useSlider } from '../../../hooks/useSlider';
+import { useAppContext } from '../../../context/modalContext';
 
-export const Carousel = ({ currentProduct }: CarouselProps) => {
+export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProps) => {
+  const { setModal } = useAppContext();
   const { offset, offsetPreview, slideIndex, left, right, dots } = useSlider({
     arrLength: currentProduct!.img.length,
-    imageWidth: 380,
+    imageWidth: imageWidth,
     preview: true,
     imageWidthPreview: 62.5,
   });
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.sliderWrapper}>
+    <div className={cn(styles.wrapper, className)}>
+      <div
+        className={styles.sliderWrapper}
+        style={{ width: `${imageWidth}px`, height: `${imageWidth}px` }}
+      >
         {currentProduct?.img.map((image: any) => (
           <div
             key={image.fileName}
@@ -25,14 +31,16 @@ export const Carousel = ({ currentProduct }: CarouselProps) => {
               src={`http://localhost:5000/product/${currentProduct.name}/${image.fileName}`}
               alt={currentProduct.name}
               title={currentProduct.name}
+              style={{ width: `${imageWidth}px`, height: `${imageWidth}px` }}
+              onClick={() => setModal(true)}
             />
           </div>
         ))}
       </div>
-      {slideIndex > 0 && (
+      {slideIndex > 0 && imageWidth < 500 && (
         <Arrow appearance='left' background='none' onClick={left} className={styles.leftTop} />
       )}
-      {slideIndex !== currentProduct!.img.length - 1 && (
+      {slideIndex !== currentProduct!.img.length - 1 && imageWidth < 500 && (
         <Arrow appearance='right' background='none' onClick={right} className={styles.rightTop} />
       )}
       <div className={styles.previewWrapper}>
