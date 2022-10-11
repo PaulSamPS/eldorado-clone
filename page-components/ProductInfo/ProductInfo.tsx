@@ -24,7 +24,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   return (
     <div className={styles.productInfo}>
       <h1 className={styles.title}>{product.name}</h1>
-      {is360 && <Rotate360 setIs360={setIs360} />}
+      {is360 && <Rotate360 setIs360={setIs360} product={product} />}
       <div className={styles.rating}>
         <Rating rating={rating} isEditable={false} isFully={true} />
         <Review review={review} />
