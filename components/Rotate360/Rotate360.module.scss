@@ -39,6 +39,27 @@
      object-fit: contain;
      width: 600px;
      height: 600px;
+     cursor: grab;
+     user-select: none;
+   }
+
+   .play {
+     border: 2px solid #cb3050;
+     position: absolute;
+     width: 35px;
+     height: 35px;
+     color: #cb3050;
+     font-size: 20px;
+     border-radius: 50%;
+     right: 20px;
+     bottom: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     line-height: 1.7;
+     padding-left: 4px;
+     z-index: 3;
    }
  }
 }
