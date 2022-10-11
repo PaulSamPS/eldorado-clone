@@ -33,7 +33,7 @@ export const Image = ({ setFiles, setFiles3d }: ImageProps) => {
       <div className={styles.img}>
         {previewFiles.length > 0 && (
           <div className={styles.preview}>
-            {previewFiles.map((f: any, index) => (
+            {previewFiles.slice(0, 10).map((f: any, index) => (
               <div className={styles.previewImage} key={f.picture}>
                 <img src={f.picture} alt={'image' + index} />
               </div>
