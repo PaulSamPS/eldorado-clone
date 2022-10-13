@@ -10,7 +10,7 @@ import { ModalReview, Nav, Features, ProductReviews, WriteFeedback } from './com
 const ProductInfo: FC<ProductInfoProps> = ({ product }) => {
   const [itemIndex, setItemIndex] = React.useState<number>(0);
   const [is360, setIs360] = React.useState<boolean>(false);
-  const [review, setReview] = React.useState<number>(1);
+  const [review] = React.useState<number>(1);
   const [rating, setRating] = React.useState<number>(5);
   const [sort, setSort] = React.useState<string>('Пользе');
   const [writeFeedback, setWriteFeedback] = React.useState<boolean>(false);
@@ -39,10 +39,14 @@ const ProductInfo: FC<ProductInfoProps> = ({ product }) => {
       {itemIndex === 0 ? (
         <Features product={product} />
       ) : (
-        <WriteFeedback setWriteFeedback={setWriteFeedback} sort={sort} setSort={setSort} />
+        <>
+          <WriteFeedback setWriteFeedback={setWriteFeedback} sort={sort} setSort={setSort} />
+          <ProductReviews rating={rating} />
+        </>
       )}
-      <ProductReviews rating={rating} />
-      {writeFeedback && <ModalReview setWriteFeedback={setWriteFeedback} />}
+      {writeFeedback && (
+        <ModalReview setWriteFeedback={setWriteFeedback} setRating={setRating} rating={rating} />
+      )}
     </div>
   );
 };

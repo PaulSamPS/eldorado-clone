@@ -18,8 +18,6 @@ export const Rating = ({
     constructRating(rating);
   }, [rating]);
 
-  console.log(isEditable);
-
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, index: number) => {
       return (
