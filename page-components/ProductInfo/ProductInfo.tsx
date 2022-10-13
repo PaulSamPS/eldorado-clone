@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 import styles from './ProductInfo.module.scss';
 import { ProductInfoProps } from './ProductInfo.props';
 import { Button } from '../../components/Ui';
@@ -8,6 +7,8 @@ import { ZoomModal } from '../../components/ReusableComponents/ZoomModal/ZoomMod
 import { Rotate360 } from '../../components/Rotate360/Rotate360';
 import { Icon360, WriteIcon } from '../../icons';
 import { ModalReview } from './ModalReview/ModalReview';
+import { Nav } from './Nav/Nav';
+import { Features } from './Features/Features';
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
   const [itemIndex, setItemIndex] = React.useState<number>(0);
@@ -16,11 +17,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   const [rating, setRating] = React.useState<number>(5);
   const [sort, setSort] = React.useState<string>('Пользе');
   const [createReview, setCreateReview] = React.useState<boolean>(false);
-
-  const info = [
-    { id: 1, name: 'Характеристики' },
-    { id: 2, name: 'Отзывы' },
-  ];
 
   return (
     <div className={styles.productInfo}>
@@ -41,33 +37,13 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           )}
         </div>
         <Buy currentProduct={product} className={styles.buy} />
-        <div className={styles.navBlock}>
-          {info.map((i: any, index: number) => (
-            <ul
-              key={i.id}
-              onClick={() => setItemIndex(index)}
-              className={cn({
-                [styles.activeNav]: itemIndex === index,
-              })}
-            >
-              <li>{i.name}</li>
-            </ul>
-          ))}
-        </div>
+        <Nav setItemIndex={setItemIndex} itemIndex={itemIndex} />
       </div>
       {itemIndex === 0 && (
         <div className={styles.features}>
           <div className={styles.name}>Характеристики {product.name}</div>
-          {product.features.map((p) => (
-            <div key={p._id} className={styles.table}>
-              <div>{p.title}</div>
-              {p.item.map((i) => (
-                <ul key={i._id} className={styles.list}>
-                  <li>{i.name}</li>
-                  <li>{i.description}</li>
-                </ul>
-              ))}
-            </div>
+          {product.features.map((f) => (
+            <Features key={f._id} features={f} />
           ))}
         </div>
       )}

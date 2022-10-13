@@ -6,7 +6,7 @@ import Textarea from '../../../components/Ui/Textarea/Textarea';
 import { CloseIcon } from '../../../icons';
 
 export const ModalReview = () => {
-  const [rating, setRating] = React.useState<number>(1);
+  const [rating, setRating] = React.useState<number>(5);
 
   return (
     <form className={styles.wrapper}>

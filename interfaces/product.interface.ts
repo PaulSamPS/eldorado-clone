@@ -4,7 +4,7 @@ interface IItem {
   description: string;
 }
 
-interface IInfo {
+export interface IFeatures {
   _id: string;
   title: string;
   item: IItem[];
@@ -23,6 +23,6 @@ export interface IProduct {
   typeId: number;
   brandId: number;
   name: string;
-  features: IInfo[];
+  features: IFeatures[];
   rating: number;
 }
