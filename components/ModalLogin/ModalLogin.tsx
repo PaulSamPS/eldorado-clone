@@ -11,6 +11,7 @@ import { setErrorLogin } from '../../redux/reducers/loginReducer';
 
 const ModalLogin = ({ closeModal }: ModalLoginProps): JSX.Element => {
   const [email, setLogin] = React.useState('');
+  const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [isAuth, setIsAuth] = React.useState<boolean>(true);
   const { errorMessage } = useAppSelector((state) => state.loginUser);
@@ -20,7 +21,7 @@ const ModalLogin = ({ closeModal }: ModalLoginProps): JSX.Element => {
     e.preventDefault();
     isAuth
       ? await dispatch(login({ password, email }))
-      : await dispatch(registration({ password, email }));
+      : await dispatch(registration({ password, email, userName }));
     // closeModal();
   };
 
@@ -48,6 +49,15 @@ const ModalLogin = ({ closeModal }: ModalLoginProps): JSX.Element => {
           onChange={(e) => setLogin(e.target.value)}
           value={email}
         />
+        {!isAuth && (
+          <Input
+            className={styles.inputLogin}
+            placeholder='Имя пользователя'
+            type='text'
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
+          />
+        )}
         <Input
           className={styles.inputPassword}
           placeholder='Пароль'

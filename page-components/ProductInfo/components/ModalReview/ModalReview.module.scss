@@ -48,11 +48,16 @@
 
     label {
       display: grid;
-      grid-template-columns: 160px 320px;
+      grid-template-columns: 160px 5px 320px;
+      grid-template-areas: '. . button';
       align-items: center;
       color: #6f7478;;
       font-size: 13px;
       text-align: right;
+
+      span {
+        color: var(--red);
+      }
 
       input {
         width: 300px;
@@ -66,16 +71,17 @@
         background: var(--red);
         margin-left: 20px;
         border-radius: 5px;
+        grid-area: button;
       }
-    }
 
-    .ratingModal {
-      padding-left: 180px;
+      .ratingModal {
+        margin-left: 20px;
+      }
     }
 
     .textareaLabel {
       display: grid;
-      grid-template-columns: 160px 320px;
+      grid-template-columns: 160px 5px 320px;
       align-items: flex-start;
 
       .textarea {

@@ -33,6 +33,15 @@ export const loginReducer = createSlice({
       state.isLoading = false;
       state.errorMessage = action.payload;
     },
+    setLogout(state) {
+      state.isLoading = false;
+      state.errorMessage = '';
+      state.userInfo = {
+        userName: '',
+        role: '',
+        email: '',
+      };
+    },
   },
 });
 

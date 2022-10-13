@@ -1,5 +1,5 @@
 import { $host } from '../../http';
-import { IAuthForm, IAuthSentResponse } from '../../interfaces/auth.interface';
+import { IAuthForm, IAuthSentResponse, IRegistration } from '../../interfaces/auth.interface';
 import jwtDecode from 'jwt-decode';
 import { loginReducer } from '../reducers/loginReducer';
 import { AxiosError, AxiosResponse } from 'axios';
@@ -23,10 +23,10 @@ export const login =
   };
 
 export const registration =
-  ({ password, email }: IAuthForm) =>
+  ({ password, email, userName }: IRegistration) =>
   async (dispatch: AppDispatch) => {
     await $host
-      .post(`api/auth/registration`, { password, email })
+      .post(`user/registration`, { password, email, userName })
       .then((res: AxiosResponse) => {
         dispatch(registrationReducer.actions.setSuccess());
       })

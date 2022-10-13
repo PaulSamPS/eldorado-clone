@@ -16,24 +16,28 @@ export const ModalReview: FC<ModalReviewProps> = ({ setWriteFeedback, rating, se
       <div className={styles.body}>
         <div className={styles.label}>
           <label htmlFor='name'>
-            Ваше имя:
-            <Input name='name' />
+            Ваше имя <span>*</span>
+            <Input name='name' type='text' />
           </label>
         </div>
         <div className={styles.label}>
-          <label htmlFor='city'>
-            Город:
-            <Input name='city' />
+          <label htmlFor='email'>
+            Email <span>*</span>
+            <Input name='email' type='email' />
           </label>
         </div>
-        <Rating
-          rating={rating}
-          isEditable={true}
-          setRating={setRating}
-          className={styles.ratingModal}
-        />
+        <label htmlFor='rating'>
+          Оценка <span>*</span>
+          <Rating
+            rating={rating}
+            isEditable={true}
+            setRating={setRating}
+            className={styles.ratingModal}
+            id='rating'
+          />
+        </label>
         <label htmlFor='textarea' className={styles.textareaLabel}>
-          Отзыв:
+          Отзыв <span>*</span>
           <Textarea className={styles.textarea} name='textarea' />
         </label>
         <label htmlFor='button'>
