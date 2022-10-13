@@ -12,7 +12,7 @@ import { Dots, Timer } from '../../ReusableComponents';
 export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const dayProductsRedux = useAppSelector((state) => state.dayProductReducer.dayProducts);
   const { offset, dots, left, right, slideIndex } = useSlider({
-    imageWidth: 200,
+    imageWidth: 220,
     arrLength: dayProductsRedux.length,
   });
 

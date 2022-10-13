@@ -5,7 +5,7 @@ import { FeaturesProps } from './Features.props';
 export const Features = ({ currentProduct }: FeaturesProps) => {
   return (
     <div className={styles.wrapper}>
-      {currentProduct!.features.slice(1, 4).map((f) => (
+      {currentProduct!.features.map((f) => (
         <div key={f._id} className={styles.block}>
           <b>{f.title}:</b>
           {f.item.map((i) => (

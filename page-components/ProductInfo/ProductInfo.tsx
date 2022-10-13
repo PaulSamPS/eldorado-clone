@@ -42,35 +42,32 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         <Buy currentProduct={product} className={styles.buy} />
         <div className={styles.navBlock}>
           {info.map((i: any, index: number) => (
-            <Button
+            <ul
               key={i.id}
               onClick={() => setItemIndex(index)}
-              className={cn(styles.nav, {
+              className={cn({
                 [styles.activeNav]: itemIndex === index,
               })}
-              appearance='ghost'
             >
-              {i.name}
-            </Button>
+              <li>{i.name}</li>
+            </ul>
           ))}
         </div>
       </div>
       {itemIndex === 0 && (
-        <div>
-          <h2 className={styles.infoTitle}>Основные характеристики</h2>
-          <div className={styles.features}>
-            {product!.features.map((f) => (
-              <div key={f._id} className={styles.block}>
-                <b>{f.title}:</b>
-                {f.item.map((i) => (
-                  <div key={i._id} className={styles.items}>
-                    <p className={styles.name}>{i.name}: </p>
-                    <p>{i.description}</p>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+        <div className={styles.features}>
+          <div className={styles.name}>Характеристики {product.name}</div>
+          {product.features.map((p) => (
+            <div key={p._id} className={styles.table}>
+              <div>{p.title}</div>
+              {p.item.map((i) => (
+                <ul key={i._id} className={styles.list}>
+                  <li>{i.name}</li>
+                  <li>{i.description}</li>
+                </ul>
+              ))}
+            </div>
+          ))}
         </div>
       )}
       {itemIndex === 1 && (
