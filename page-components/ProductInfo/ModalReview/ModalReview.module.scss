@@ -1,0 +1,88 @@
+.wrapper {
+  position: absolute;
+  margin: auto;
+  z-index: 9999;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 660px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 25%);
+  justify-content: center;
+  box-sizing: border-box;
+  background: var(--white);
+
+  .top {
+    position: relative;
+    .title {
+      margin: 0;
+      padding: 0 0 0 20px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #3f454b;
+      font-family: Graphik_LC, Helvetica, Arial, sans-serif;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    svg {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      transition: all ease .2s;
+      cursor: pointer;
+
+      &:hover {
+        fill: var(--red);
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 30px;
+    row-gap: 15px;
+
+    label {
+      display: grid;
+      grid-template-columns: 160px 320px;
+      align-items: center;
+      color: #6f7478;;
+      font-size: 13px;
+      text-align: right;
+
+      input {
+        width: 300px;
+        padding: 0 10px;
+        height: 30px;
+        font-size: 12px;
+        margin-left: 20px;
+      }
+
+      button {
+        background: var(--red);
+        margin-left: 20px;
+        border-radius: 5px;
+      }
+    }
+
+    .ratingModal {
+      padding-left: 180px;
+    }
+
+    .textareaLabel {
+      display: grid;
+      grid-template-columns: 160px 320px;
+      align-items: flex-start;
+
+      .textarea {
+        max-width: 300px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+      }
+    }
+  }
+}

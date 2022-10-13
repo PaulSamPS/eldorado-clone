@@ -14,6 +14,7 @@ import CartButtonIcon from './cartButton.svg';
 import LocationIcon from './location.svg';
 import ZoomIcon from './zoom.svg';
 import Icon360 from './360.svg';
+import WriteIcon from './write.svg';
 
 export {
   ArrowIcon,
@@ -32,4 +33,5 @@ export {
   LocationIcon,
   ZoomIcon,
   Icon360,
+  WriteIcon,
 };

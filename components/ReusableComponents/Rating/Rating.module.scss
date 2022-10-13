@@ -1,12 +1,40 @@
 .filled {
   svg {
-    fill: var(--primary);
+    path {
+      fill: var(--primary);
+    }
   }
 }
 
 .star {
   svg {
     margin-right: 5px;
+  }
+}
+
+.starBlock {
+  display: flex;
+  .starReview {
+    border: 1px solid #DDDDDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px ;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    span {
+      padding: 5px 23px;
+
+      svg {
+        margin: 0;
+      }
+    }
   }
 }
 

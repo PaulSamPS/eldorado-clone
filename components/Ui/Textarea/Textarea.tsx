@@ -6,7 +6,6 @@ const Textarea = ({ error, className, ...props }: TextareaProps): JSX.Element =>
   return (
     <div className={cn(className, styles.textAreaWrapper)}>
       <textarea
-        placeholder='Введите текст'
         className={cn(styles.textArea, {
           [styles.error]: error,
         })}

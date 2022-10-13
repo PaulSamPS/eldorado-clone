@@ -18,6 +18,8 @@ export const Rating = ({
     constructRating(rating);
   }, [rating]);
 
+  console.log(isEditable);
+
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, index: number) => {
       return (
@@ -64,7 +66,13 @@ export const Rating = ({
   return (
     <div className={className} {...props}>
       {isEditable ? (
-        ratingArray.map((rating, index) => <span key={index}>{rating}</span>)
+        <div className={styles.starBlock}>
+          {ratingArray.map((rating, index) => (
+            <div key={index} className={styles.starReview}>
+              {rating}
+            </div>
+          ))}
+        </div>
       ) : (
         <div className={styles.ratingBlock}>
           {isFully ? ratingArray.map((r, index) => <span key={index}>{r}</span>) : ratingArray[0]}

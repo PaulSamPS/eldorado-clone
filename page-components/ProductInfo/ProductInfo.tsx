@@ -2,18 +2,19 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './ProductInfo.module.scss';
 import { ProductInfoProps } from './ProductInfo.props';
-import { Button, Input } from '../../components/Ui';
-import Textarea from '../../components/Ui/Textarea/Textarea';
+import { Button } from '../../components/Ui';
 import { Buy, Carousel, Rating, Review } from '../../components/ReusableComponents';
 import { ZoomModal } from '../../components/ReusableComponents/ZoomModal/ZoomModal';
 import { Rotate360 } from '../../components/Rotate360/Rotate360';
-import { Icon360 } from '../../icons';
+import { Icon360, WriteIcon } from '../../icons';
+import { ModalReview } from './ModalReview/ModalReview';
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
   const [itemIndex, setItemIndex] = React.useState<number>(0);
   const [is360, setIs360] = React.useState<boolean>(false);
   const [review, setReview] = React.useState<number>(1);
   const [rating, setRating] = React.useState<number>(5);
+  const [sort, setSort] = React.useState<string>('Пользе');
   const [createReview, setCreateReview] = React.useState<boolean>(false);
 
   const info = [
@@ -71,58 +72,39 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         </div>
       )}
       {itemIndex === 1 && (
-        <div>
-          <h2 className={styles.infoTitle}>Отзывы</h2>
-          <Button
-            className={styles.btnReview}
-            appearance='primary'
-            onClick={() => setCreateReview(!createReview)}
-          >
-            Написать отзыв
-          </Button>
-          <div className={styles.reviewBlock}>
-            <div>
-              <span className={styles.name}>User</span>
-            </div>
-            <div className={styles.review}>
+        <div className={styles.reviewsBlock}>
+          <div className={styles.writeFeedback}>
+            <label htmlFor='Sort'>
+              Сортировать по:
+              <select name='sort' value={sort} onChange={(e) => setSort(e.target.value)}>
+                <option>Пользе</option>
+                <option>Дате добавления</option>
+              </select>
+            </label>
+            <Button
+              className={styles.btnReview}
+              appearance='primary'
+              onClick={() => setCreateReview(!createReview)}
+            >
+              <WriteIcon />
+              Написать отзыв
+            </Button>
+          </div>
+          <div className={styles.review}>
+            <div className={styles.top}>
+              <span className={styles.name}>Name</span>
               <Rating rating={rating} isFully={true} />
-              <span>
+            </div>
+            <div className={styles.bottom}>
+              <span className={styles.date}>Review Date</span>
+              <span className={styles.text}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum delectus
                 expedita illum maxime minus nam numquam odit omnis porro qui quos sed, similique. Ab
                 consectetur facilis iste numquam odit?
               </span>
             </div>
           </div>
-          {createReview && (
-            <div className={styles.addReview}>
-              <h1>Написать отзыв</h1>
-              <div className={styles.label}>
-                <label htmlFor='name'>
-                  Ваше имя:
-                  <Input name='name' />
-                </label>
-              </div>
-              <div className={styles.label}>
-                <label htmlFor='city'>
-                  Город:
-                  <Input name='city' />
-                </label>
-              </div>
-              <Rating
-                rating={rating}
-                isEditable={true}
-                setRating={setRating}
-                className={styles.ratingModal}
-              />
-              <label htmlFor='textarea'>
-                Отзыв:
-                <Textarea className={styles.textarea} name='textarea' />
-              </label>
-              <Button className={styles.sendReview} appearance='primary'>
-                Отправить
-              </Button>
-            </div>
-          )}
+          {createReview && <ModalReview />}
         </div>
       )}
     </div>
