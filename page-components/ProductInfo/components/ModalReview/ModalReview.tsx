@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './ModalReview.module.scss';
-import { Button, Input } from '../../../components/Ui';
-import { Rating } from '../../../components/ReusableComponents';
-import Textarea from '../../../components/Ui/Textarea/Textarea';
-import { CloseIcon } from '../../../icons';
+import { Button, Input } from '../../../../components/Ui';
+import { Rating } from '../../../../components/ReusableComponents';
+import Textarea from '../../../../components/Ui/Textarea/Textarea';
+import { CloseIcon } from '../../../../icons';
+import { ModalReviewProps } from './ModalReview.props';
 
-export const ModalReview = () => {
+export const ModalReview: FC<ModalReviewProps> = ({ setWriteFeedback }) => {
   const [rating, setRating] = React.useState<number>(5);
 
   return (
     <form className={styles.wrapper}>
       <div className={styles.top}>
         <div className={styles.title}>Написать отзыв</div>
-        <CloseIcon />
+        <CloseIcon onClick={() => setWriteFeedback(false)} />
       </div>
       <div className={styles.body}>
         <div className={styles.label}>
