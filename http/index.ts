@@ -4,10 +4,12 @@ const API_URL = 'http://localhost:5000/api/';
 
 const $host = axios.create({
   baseURL: API_URL,
+  withCredentials: true,
 });
 
 const $authHost = axios.create({
   baseURL: API_URL,
+  withCredentials: true,
 });
 
 const authInterceptor = (config: any) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ModalLogin from '../components/ModalLogin/ModalLogin';
 import Header from './Header/Header';
 import styles from './Layout.module.scss';
@@ -9,8 +9,9 @@ import { $host } from '../http';
 import { IProduct } from '../interfaces/product.interface';
 import { setSuccessDayProducts } from '../redux/reducers/dayProducts.reducer';
 import { useAppDispatch } from '../hooks/useAppDispatch';
+import { refreshToken } from '../redux/actions/authAction';
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = memo(({ children }: LayoutProps) => {
   const [modal, setModal] = React.useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -28,6 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   React.useEffect(() => {
+    refreshToken();
     getDayProducts();
   }, []);
 
@@ -44,6 +46,6 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
     </div>
   );
-};
+});
 
 export default Layout;

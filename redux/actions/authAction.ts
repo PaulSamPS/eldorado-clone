@@ -37,3 +37,20 @@ export const registration =
         console.log(e);
       });
   };
+
+export const refreshToken = async () =>
+  await $host
+    .post(`user/refresh-token`)
+    .then((res: AxiosResponse) => {
+      localStorage.setItem('AccessToken', 'Bearer ' + res.data.token);
+    })
+    .catch((e: AxiosError<IErrorResponse>) => {
+      const deleteCookie = (name: string) => {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      };
+      if (e.response?.status === 401) {
+        localStorage.clear();
+        deleteCookie('refreshToken');
+      }
+      console.log(e.response?.data.message);
+    });
