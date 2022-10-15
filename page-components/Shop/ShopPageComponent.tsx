@@ -28,7 +28,7 @@ const sliderTop = [
   },
   {
     id: 4,
-    img: 'https://static.eldorado.ru/upload/newbx/3eb/3eb47082211defc8e57fa934ece11d33.png/resize/660x300/',
+    img: 'https://static.eldorado.ru/upload/newbx/ae9/ae9a608bf0f6f6ccacb29469f6253208.png/resize/660x300//',
     type: 'cart',
   },
 ];

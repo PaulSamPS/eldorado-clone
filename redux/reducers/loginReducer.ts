@@ -11,6 +11,7 @@ const initialState: UserState = {
   errorMessage: '',
   isLoading: false,
   userInfo: {
+    _id: '',
     userName: '',
     role: '',
     email: '',
@@ -37,6 +38,7 @@ export const loginReducer = createSlice({
       state.isLoading = false;
       state.errorMessage = '';
       state.userInfo = {
+        _id: '',
         userName: '',
         role: '',
         email: '',

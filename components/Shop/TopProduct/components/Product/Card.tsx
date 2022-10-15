@@ -6,12 +6,15 @@ import { priceRu } from '../../../../../helpers/priceRu';
 import { Button } from '../../../../Ui';
 import { CardProps } from './Card.props';
 import { FavouriteGreenIcon, FavouriteIcon } from '../../../../../icons';
-import {Rating, Review} from '../../../../ReusableComponents';
+import { Rating, Review } from '../../../../ReusableComponents';
+import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
+import { addToBasket } from '../../../../../redux/actions/basketAction';
 
 export const Card = ({ product, className, offset, ...props }: CardProps) => {
   const [like, setLike] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(5);
+  const dispatch = useAppDispatch();
 
   return (
     <div
@@ -35,7 +38,11 @@ export const Card = ({ product, className, offset, ...props }: CardProps) => {
       </Link>
       <span className={styles.price}>{priceRu(product.price)}</span>
       <div className={styles.bottom}>
-        <Button appearance='primary' className={styles.btn}>
+        <Button
+          appearance='primary'
+          className={styles.btn}
+          onClick={() => dispatch(addToBasket(product._id))}
+        >
           В корзину
         </Button>
         <div onClick={() => setLike(!like)} className={styles.favourite}>

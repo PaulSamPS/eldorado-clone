@@ -7,6 +7,7 @@ import productReducer from './reducers/productReducer';
 import featuresReducer from './reducers/featuresReducer';
 import zoomImageReducer from './reducers/zoomImageReducer';
 import dayProductReducer from './reducers/dayProducts.reducer';
+import basketReducer from './reducers/basketReducer';
 import { typeReducer } from './reducers/typeReducer';
 import { brandReducer } from './reducers/brandReducer';
 import { menuReducer } from './reducers/menuReducer';
@@ -27,6 +28,7 @@ export const rootReducer = combineReducers({
   brand: brandReducer,
   menu: menuReducer,
   zoomImageReducer,
+  basketReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
