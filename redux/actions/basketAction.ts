@@ -17,10 +17,23 @@ export const getBasket = (userId?: string) => async (dispatch: AppDispatch) => {
     });
 };
 
-export const addToBasket = (productId?: string) => async (dispatch: AppDispatch) => {
+export const addToBasket =
+  (productId?: string, price?: number) => async (dispatch: AppDispatch) => {
+    dispatch(basketReducer.actions.setLoadingBasket());
+    await $host
+      .post('basket/add-to-basket', { productId: productId, productPrice: price })
+      .then((res: AxiosResponse<BasketInterface>) => {
+        dispatch(basketReducer.actions.setSuccessBasket(res.data));
+      })
+      .catch((e: AxiosError<IErrorResponse>) => {
+        dispatch(basketReducer.actions.setErrorBaskets(e.response!.data.message));
+      });
+  };
+
+export const getBasketItems = () => async (dispatch: AppDispatch) => {
   dispatch(basketReducer.actions.setLoadingBasket());
   await $host
-    .post('basket/add-to-basket', { productId: productId })
+    .get('get-basket')
     .then((res: AxiosResponse<BasketInterface>) => {
       dispatch(basketReducer.actions.setSuccessBasket(res.data));
     })

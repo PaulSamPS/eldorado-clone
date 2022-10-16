@@ -7,7 +7,7 @@ const Basket = () => {
     <div>
       Итого:{' '}
       {basket.products.map((p) => (
-        <li key={p._id}>{p.name}</li>
+        <li key={p.product._id}>{p.product.name}</li>
       ))}
     </div>
   );

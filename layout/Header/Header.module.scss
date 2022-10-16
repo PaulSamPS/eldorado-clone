@@ -163,12 +163,55 @@
       color: var(--primary);
 
       svg {
-        stroke: var(--primary);
+        path {
+          fill: var(--primary);
+        }
       }
     }
 
     p {
       margin: 0;
+    }
+  }
+
+  .basketProduct {
+    width: 130px;
+    background-color: #434343;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 500;
+    padding: 7px 12px;
+    height: auto;
+    border-radius: 3px;
+    justify-content: space-between;
+    position: relative;
+
+    svg {
+      path {
+        fill: var(--white);
+      }
+      height: 24px;
+      width: 24px;
+    }
+    
+    .count {
+      background-color: var(--white);
+      font-size: 12px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      border-radius: 50%;
+      color: #434343;
+      position: absolute;
+      top: 3px;
+      left: 25px;
+    }
+
+    span {
+      font-size: 15px;
     }
   }
 }

@@ -5,26 +5,31 @@ import styles from './Header.module.scss';
 import { Button } from '../../components/Ui';
 import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '../../icons';
 import Link from 'next/link';
-import { $host } from '../../http';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { getBasket } from '../../redux/actions/basketAction';
+import { getBasket, getBasketItems } from '../../redux/actions/basketAction';
+import { priceRu } from '../../helpers/priceRu';
 
 const Header = ({ openModal }: HeaderProps) => {
   const name = useAppSelector((state) => state.loginUser.userInfo);
+  const { basket } = useAppSelector((state) => state.basketReducer);
   const dispatch = useAppDispatch();
   const isAuth = localStorage.getItem('AccessToken');
 
   const { userInfo } = useAppSelector((state) => state.loginUser);
 
   const userRole = userInfo.role === 'ADMIN';
-  console.log(userInfo._id);
-  const basket = async () => {
+  console.log(basket.products.length);
+  const handleBasket = async () => {
     await dispatch(getBasket(userInfo._id !== '' ? userInfo._id : undefined));
   };
 
   const logout = () => {
     localStorage.clear();
   };
+
+  React.useEffect(() => {
+    dispatch(getBasketItems());
+  }, []);
 
   return (
     <div className={styles.header}>
@@ -38,7 +43,7 @@ const Header = ({ openModal }: HeaderProps) => {
           <div className={styles.input}>
             <input placeholder='Поиск' type='text' />
           </div>
-          <Button appearance='primary' className={styles.searchBtn} onClick={basket}>
+          <Button appearance='primary' className={styles.searchBtn} onClick={handleBasket}>
             Поиск
             <SearchIcon className={styles.searchLogo} />
           </Button>
@@ -64,10 +69,18 @@ const Header = ({ openModal }: HeaderProps) => {
         </div>
       )}
       <Link href={'/basket'}>
-        <a className={styles.cart}>
-          <CartBoldIcon />
-          <p>Корзина</p>
-        </a>
+        {basket.products.length > 0 ? (
+          <a className={styles.basketProduct}>
+            <CartBoldIcon />
+            <div className={styles.count}>{basket.products.length}</div>
+            <span>{priceRu(basket.totalPrice)}</span>
+          </a>
+        ) : (
+          <a className={styles.cart}>
+            <CartBoldIcon />
+            <p>Корзина</p>
+          </a>
+        )}
       </Link>
     </div>
   );

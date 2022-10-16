@@ -9,12 +9,36 @@ import { FavouriteGreenIcon, FavouriteIcon } from '../../../../../icons';
 import { Rating, Review } from '../../../../ReusableComponents';
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { addToBasket } from '../../../../../redux/actions/basketAction';
+import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
 export const Card = ({ product, className, offset, ...props }: CardProps) => {
+  const { basket } = useAppSelector((state) => state.basketReducer);
   const [like, setLike] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(5);
   const dispatch = useAppDispatch();
+
+  const addToCart = async () => {
+    setIsLoading(true);
+    await dispatch(addToBasket(product._id, product.price))
+      .then(() => {
+        setIsLoading(false);
+        setIsIsInBasket(true);
+      })
+      .catch(() => {
+        setIsIsInBasket(false);
+      });
+  };
+
+  React.useEffect(() => {
+    if (basket.products.map((p) => p.product._id).includes(product._id)) {
+      setIsIsInBasket(true);
+    } else {
+      setIsIsInBasket(false);
+    }
+  }, [basket]);
 
   return (
     <div
@@ -40,10 +64,11 @@ export const Card = ({ product, className, offset, ...props }: CardProps) => {
       <div className={styles.bottom}>
         <Button
           appearance='primary'
-          className={styles.btn}
-          onClick={() => dispatch(addToBasket(product._id))}
+          className={cn(styles.btn, { [styles.inTheBasket]: isInBasket })}
+          onClick={addToCart}
+          disabled={isLoading}
         >
-          В корзину
+          {isInBasket ? 'В корзине' : 'В корзину'}
         </Button>
         <div onClick={() => setLike(!like)} className={styles.favourite}>
           {like ? <FavouriteGreenIcon /> : <FavouriteIcon />}
