@@ -1,12 +1,19 @@
 export const generateCountTextReviews = (review: number) => {
-  if (review >= 5 || review >= 25) {
+  let number = Math.abs(review);
+
+  number %= 100;
+
+  if (number >= 5 && number <= 20) {
     return 'отзывов';
   }
-  if (review === 1 || review === 21) {
+
+  number %= 10;
+
+  if (number === 1) {
     return 'отзыв';
   }
 
-  if (review > 1 || review >= 22 || review <= 24) {
+  if (number >= 2 && number <= 4) {
     return 'отзыва';
   }
 

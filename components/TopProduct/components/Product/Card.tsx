@@ -18,7 +18,7 @@ export function Card({ product, className, offset }: CardProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(5);
-  const [review, setReview] = React.useState<number>(22);
+  const [review, setReview] = React.useState<number>(51);
 
   const addToBasket = async () => {
     try {

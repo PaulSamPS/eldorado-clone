@@ -14,8 +14,7 @@ import { BasketInterface } from '../interfaces/basket.interface';
 import { Header } from '../layout/Header/Header';
 
 function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
-  console.log('basket', basket);
-
+  console.log(basket);
   return (
     <div>
       <Header />
