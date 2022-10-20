@@ -1,5 +1,6 @@
-import {DetailedHTMLProps, HTMLAttributes} from 'react'
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface ReviewProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    review: number
+export interface ReviewProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  review: number;
 }

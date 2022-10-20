@@ -1,3 +1,4 @@
+import React from 'react';
 import { HProps } from './H.props';
 import styles from './H.module.scss';
 

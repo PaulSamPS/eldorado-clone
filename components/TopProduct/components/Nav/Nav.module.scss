@@ -1,0 +1,22 @@
+.nav {
+  margin-bottom: 20px;
+
+  .btn {
+    background: $white-color2;
+    margin-right: 13px;
+    border: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: $white-color3;
+      color: $black-color;
+    }
+
+    &:focus {
+      background: $green-color;
+    }
+  }
+}

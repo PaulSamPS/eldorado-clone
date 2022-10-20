@@ -1,8 +1,12 @@
+@import "scss/index";
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Din proM", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @include container-1200px;
 }
 
 a {
@@ -10,37 +14,7 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "Din proS";
-  src: url("../fonts/din-pro-light.ttf");
-}
-
-@font-face {
-  font-family: "Din proM";
-  src: url("../fonts/din-pro-medium.ttf");
-}
-
-@font-face {
-  font-family: "Din proL";
-  src: url("../fonts/din-pro-bold.ttf");
-}
-
 * {
   box-sizing: border-box;
 }
 
-p {
-  margin: 0;
-}
-
-:root {
-  --black: #262626;
-  --graphit: #3f454b;
-  --black-light: #555555;
-  --white: white;
-  --gray: #c4c4c4;
-  --gray-border: #9d9d9d;
-  --gray-border-light: #d9d9d9;
-  --primary: #76bc21;
-  --red: #ce1037;
-}

@@ -4,7 +4,3 @@ export interface IMenu {
   img: string;
   link: string;
 }
-
-export interface IReduxMenu {
-  menu: any[];
-}

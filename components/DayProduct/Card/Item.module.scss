@@ -1,0 +1,128 @@
+
+.cardDayProduct {
+  flex-shrink: 0;
+  border-radius: 8px;
+  @include border($border-color4, 1px);
+  @include flex-column;
+  padding: 7px 12px 19px 20px;
+  width: 220px;
+  height: 300px;
+  transition: all ease .5s;
+
+  //&:hover {
+  //  button {
+  //    svg {
+  //      fill: var(--black);
+  //    }
+  //  }
+  //}
+
+  .img {
+    img {
+      height: 120px;
+      width: 120px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  }
+
+  .percent {
+    @include flex-center-center-column;
+    @include border-radius-50;
+    @include shadow-3;
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    background: $primary-color;
+    width: 80px;
+    height: 80px;
+    color: $white-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: "Din proS", sans-serif;
+
+    .totalPercent {
+      display: flex;
+      align-items: baseline;
+      font-size: 25px;
+      line-height: 18px;
+
+      div {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .rating {
+    @include flex-baseline;
+    gap: 20px;
+  }
+
+  .name {
+      font-family: "Din proS", sans-serif;
+      min-height: 53px;
+      max-height: 53px;
+      line-height: 18px;
+      margin-bottom: 9px;
+      font-size: 13px;
+      @include transition-all-02s;
+      cursor: pointer;
+      margin-top: 10px;
+
+      &:hover {
+        color: $primary-color;
+      }
+  }
+
+  .sale {
+    @include flex-align-center;
+
+    .oldPrice {
+      color: $gray-color2;
+      font-size: 16px;
+      margin-right: 10px;
+      text-decoration: line-through;
+      line-height: .8;
+      font-family: "Din proL", sans-serif;
+    }
+
+    .discount {
+      background: $primary-color;
+      color: $white-color;
+      padding: 1px 5px;
+      border-radius: 2px;
+      font-family: "Din proL", sans-serif;
+      font-size: 12px;
+    }
+  }
+
+  .bottom {
+    position: relative;
+    flex-grow: 1;
+    padding-top: 10px;
+
+    .price {
+      font-size: 22px;
+      line-height: 1.2;
+     font-family: "Din proL", sans-serif;
+    }
+
+    .cart {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      svg {
+        height: 30px;
+        width: 30px;
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
+//
+//a {
+//  text-decoration: none;
+//  color: var(--black);
+//}

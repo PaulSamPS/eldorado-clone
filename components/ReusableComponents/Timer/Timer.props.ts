@@ -1,4 +1,4 @@
-import {DetailedHTMLProps, HTMLAttributes} from 'react'
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface TimerProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
-}
+export interface TimerProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

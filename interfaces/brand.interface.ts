@@ -4,7 +4,3 @@ export interface IBrand {
   link: string;
   name: string;
 }
-
-export interface IReduxBrand {
-  brand: any[];
-}

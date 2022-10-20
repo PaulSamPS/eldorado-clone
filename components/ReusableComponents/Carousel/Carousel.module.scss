@@ -31,11 +31,9 @@
     margin: 33px auto 0;
 
     .slider {
+      @include flex-center-center;
+      @include transition-all-05s;
       margin: auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all ease .5s;
 
       img {
         object-fit: contain;
@@ -52,14 +50,12 @@
     overflow-x: hidden;
 
     .previewSlider {
+      @include flex-center-center;
+      @include border($border-color2, 1px);
+      @include transition-all-05s;
       min-width: 54.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #ECEDEE;
       margin-right: 9px;
       border-radius: 4px;
-      transition: all ease .5s;
       cursor: pointer;
 
       img {
@@ -70,7 +66,7 @@
     }
 
     .active {
-      border: 1px solid var(--primary);
+      border: 1px solid $primary-color;
     }
   }
 }

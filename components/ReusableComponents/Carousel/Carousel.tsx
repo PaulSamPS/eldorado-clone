@@ -1,16 +1,14 @@
 import React from 'react';
-import styles from './Carousel.module.scss';
-import Arrow from '../../Ui/Arrow/Arrow';
 import cn from 'classnames';
+import styles from './Carousel.module.scss';
 import { CarouselProps } from './Carousel.props';
 import { useSlider } from '../../../hooks/useSlider';
-import { useAppContext } from '../../../context/modalContext';
+import { Arrow } from '../../Ui';
 
 export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProps) => {
-  const { setModal } = useAppContext();
   const { offset, offsetPreview, slideIndex, left, right, dots } = useSlider({
     arrLength: currentProduct!.img.length,
-    imageWidth: imageWidth,
+    imageWidth,
     preview: true,
     imageWidthPreview: 62.5,
   });
@@ -32,7 +30,6 @@ export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProp
               alt={currentProduct.name}
               title={currentProduct.name}
               style={{ width: `${imageWidth}px`, height: `${imageWidth}px` }}
-              onClick={() => setModal(true)}
             />
           </div>
         ))}
@@ -45,7 +42,8 @@ export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProp
       )}
       <div className={styles.previewWrapper}>
         {currentProduct?.img.map((image: any, index: number) => (
-          <div
+          <button
+            type='button'
             key={image.fileName}
             onClick={() => dots(index)}
             style={{ transform: `translateX(${offsetPreview}px)` }}
@@ -57,7 +55,7 @@ export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProp
               src={`http://localhost:5000/product/${currentProduct.name}/${image.fileName}`}
               alt=''
             />
-          </div>
+          </button>
         ))}
       </div>
       {slideIndex > 0 && (

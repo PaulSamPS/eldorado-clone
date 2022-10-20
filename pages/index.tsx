@@ -1,50 +1,75 @@
+import type { GetServerSideProps } from 'next';
 import React from 'react';
-import ShopPageComponent from '../page-components/Shop/ShopPageComponent';
-import { GetStaticProps } from 'next';
-import { $host } from '../http';
-import { IProduct } from '../interfaces/product.interface';
+import axios from 'axios';
+import { withLayout } from '../layout/Layout';
 import { IMenu } from '../interfaces/menu.interface';
-import { useAppDispatch } from '../hooks/useAppDispatch';
-import { getProduct } from '../redux/actions/productAction';
-import { IBrand } from '../interfaces/brand.interface';
+import { Sidebar } from '../layout/Sidebar/Sidebar';
+import { IProduct } from '../interfaces/product.interface';
+import { TopProduct } from '../components/TopProduct/TopProduct';
+import { DayProduct } from '../components/DayProduct/DayProduct';
+import { $host } from '../http';
+import { Slider } from '../components/ReusableComponents';
+import { ISlider } from '../interfaces/slider.interface';
+import { BasketInterface } from '../interfaces/basket.interface';
+import { Header } from '../layout/Header/Header';
 
-const Home = ({ products, dayProducts, menu, brand }: HomeProps): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  React.useEffect(() => {
-    dispatch(getProduct());
-  }, []);
+function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
+  console.log('basket', basket);
 
   return (
-    <ShopPageComponent products={products} dayProducts={dayProducts} menu={menu} brand={brand} />
+    <div>
+      <Header />
+      <Sidebar menu={menu} />
+      <TopProduct product={products} />
+      <DayProduct dayProducts={dayProducts} />
+      {slider.map((s) => (
+        <Slider key={s._id} arr={s.l} arrowTop={37.5} arrowVertical={30} height={300} width={600} />
+      ))}
+      {slider.map((s) => (
+        <Slider
+          key={s._id}
+          arr={s.s}
+          height={110}
+          width={1200}
+          greenDots
+          arrowTop={19}
+          arrowVertical={65}
+          duration={2000}
+        />
+      ))}
+    </div>
   );
-};
+}
 
-export default Home;
+export default withLayout(Home);
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const getProducts = await $host.get<IProduct[]>('product');
-  const getDayProducts = await $host.get<IProduct[]>('day-products');
-  const getBrands = await $host.get<IBrand[]>('brand');
+export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ req }) => {
+  const { data: basket } = await axios.get<BasketInterface>('http://localhost:5000/api/basket', {
+    withCredentials: true,
+    headers: {
+      basket: req?.cookies?.basket!,
+    },
+  });
+  const { data: menu } = await $host.get<IMenu[]>('menu');
+  const { data: products } = await $host.get<IProduct[]>('products');
+  const { data: dayProducts } = await $host.get<IProduct[]>('day-products');
+  const { data: slider } = await $host.get<ISlider[]>('slider');
 
-  const getMenu = await $host.get<IMenu[]>('menu');
-  const products = getProducts.data;
-  const dayProducts = getDayProducts.data;
-  const menu = getMenu.data;
-  const brand = getBrands.data;
   return {
     props: {
+      menu,
       products,
       dayProducts,
-      menu,
-      brand,
+      slider,
+      basket,
     },
   };
 };
 
 interface HomeProps extends Record<string, unknown> {
-  products: IProduct[];
   menu: IMenu[];
+  products: IProduct[];
   dayProducts: IProduct[];
-  brand: IBrand[];
+  slider: ISlider[];
+  basket: BasketInterface;
 }

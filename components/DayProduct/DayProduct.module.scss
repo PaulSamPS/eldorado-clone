@@ -1,0 +1,30 @@
+.dayProductBlock {
+  @include flex-column;
+  position: relative;
+  width: 220px;
+
+  .top {
+    @include flex-baseline-between;
+  }
+
+  .wrapper {
+    display: flex;
+    overflow: hidden;
+
+    &:hover {
+      button {
+        svg {
+          fill: $black-color;
+        }
+      }
+    }
+  }
+
+  .bl {
+    position: unset;
+    @include flex-center-center;
+    bottom: -30px;
+    right: 35px;
+    height: 30px;
+  }
+}

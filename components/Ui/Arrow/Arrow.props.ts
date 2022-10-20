@@ -1,6 +1,7 @@
-import {ButtonHTMLAttributes, DetailedHTMLProps, ReactNode} from 'react'
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-export interface ArrowProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-    appearance: 'left' | 'right'
-    background: 'white' | 'none'
+export interface ArrowProps
+  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  appearance: 'left' | 'right';
+  background: 'white' | 'none';
 }

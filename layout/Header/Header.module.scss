@@ -1,11 +1,10 @@
 .header {
   padding: 10px 0;
-  display: flex;
-  align-items: center;
+  @include flex-align-center;
 
   .logo {
     margin: 0;
-    color: var(--red);
+    color: $red-color;
     text-transform: uppercase;
     cursor: pointer;
     width: 198px;
@@ -19,28 +18,26 @@
 
     .search {
       position: relative;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between;
       height: 40px;
 
       .input {
         width: 100%;
         position: relative;
-        display: flex;
-        align-items: center;
+        @include flex-align-center;
         flex-grow: 1;
         padding: 0 10px;
-        background: var(--white);
+        background: $white-color;
         transform: skewX(-12deg);
-        border: 2px solid var(--primary);
-        border-radius: 4px 0 0 4px;
+        @include border($primary-color, 2px);
+        @include border-radius-left;
 
         input {
           width: 100%;
           height: 100%;
           padding: 0 10px 0 0;
           font-size: 16px;
-          background: var(--white);
+          background: $white-color;
           border: none;
           outline: none;
           -webkit-appearance: none;
@@ -48,15 +45,13 @@
           transform: skewX(12deg);
 
           &::placeholder {
-            color: var(--gray);
+            color: $gray-color;
           }
         }
       }
 
       .searchBtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center-center;
         height: 40px;
         font-weight: 500;
         font-size: 15px;
@@ -90,32 +85,30 @@
   }
 
   .profile {
-    display: flex;
-    align-content: center;
+    @include flex-align-center;
     min-width: 200px;
     flex-direction: row;
 
     .login {
       font-size: 13px;
-      color: var(--black-light);
+      color: $black-light-color;
       cursor: pointer;
-      transition: all ease 0.2s;
+      @include transition-all-02s;
       padding-left: 25px;
-      display: flex;
-      align-items: center;
+      @include flex-align-center;
 
       svg {
-        fill: var(--black-light);
-        transition: all ease .2s;
+        fill: $black-light-color;
+        @include transition-all-02s;
         margin-right: 5px;
       }
 
 
       &:hover {
-        color: var(--primary);
+        color: $primary-color;
 
         svg {
-          fill: var(--primary);
+          fill: $primary-color;
         }
       }
 
@@ -132,39 +125,40 @@
       .logout {
         cursor: pointer;
         font-size: 13px;
-        color: var(--black-light);
-        transition: all ease .2s;
+        color: $black-light-color;
+        @include transition-all-02s;
         padding-left: 19px;
 
         &:hover {
-          color: var(--primary);
+          color: $primary-color;
         }
       }
   }
 
   .cart {
-    display: flex;
-    align-content: center;
+    @include flex-align-center;
     gap: 5px;
-    color: var(--black-light);
-    transition: all ease .2s;
+    color: $black-light-color;
+    @include transition-all-02s;
     font-family: "Din proS", sans-serif;
     cursor: pointer;
     margin-left: 10px;
     font-size: 15px;
 
     svg {
-      transition: all ease .2s;
+      path {
+        @include transition-all-02s;
+      }
       height: 16px;
       width: 16px;
     }
 
     &:hover {
-      color: var(--primary);
+      color: $primary-color;
 
       svg {
         path {
-          fill: var(--primary);
+          fill: $primary-color;
         }
       }
     }
@@ -176,35 +170,31 @@
 
   .basketProduct {
     width: 130px;
-    background-color: #434343;
-    display: flex;
-    align-items: center;
-    color: #fff;
+    background-color: $gray-deep-color;
+    @include flex-center-between;
+    color: $white-color;
     font-weight: 500;
     padding: 7px 12px;
     height: auto;
-    border-radius: 3px;
-    justify-content: space-between;
+    @include border-radius;
     position: relative;
 
     svg {
       path {
-        fill: var(--white);
+        fill: $white-color;
       }
       height: 24px;
       width: 24px;
     }
     
     .count {
-      background-color: var(--white);
+      background-color: $white-color;
       font-size: 12px;
       height: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center-center;
       width: 16px;
-      border-radius: 50%;
-      color: #434343;
+      @include border-radius-50;
+      color: $gray-deep-color;
       position: absolute;
       top: 3px;
       left: 25px;

@@ -1,14 +1,6 @@
 .sliderBlock {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   position: relative;
-
-  //h2 {
-  //  font-size: 24px;
-  //  margin: 0;
-  //  padding-bottom: 20px;
-  //  font-weight: 500;
-  //}
 
   .sliderWrapper {
     display: flex;
@@ -18,14 +10,14 @@
     &:hover {
       button {
         svg {
-          fill: var(--black);
+          fill: $black-color;
         }
       }
     }
 
     .slider {
       text-align: center;
-      transition: all ease .5s;
+      @include transition-all-05s;
 
       img {
         object-fit: cover;
@@ -34,12 +26,10 @@
   }
 
   .blockDots {
-    display: flex;
+    @include flex-center-center;
     bottom: -30px;
     right: 270px;
     position: unset;
-    justify-content: center;
-    align-items: center;
     height: 30px;
   }
 }

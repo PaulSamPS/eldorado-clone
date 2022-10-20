@@ -1,6 +1,7 @@
+import React from 'react';
+import cn from 'classnames';
 import styles from './Timer.module.scss';
 import { TimerProps } from './Timer.props';
-import cn from 'classnames';
 import { useTimer } from '../../../hooks/useTimer';
 
 export const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
@@ -8,7 +9,7 @@ export const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <span className={styles.timer} onClick={updateProducts}>
+      <span role='timer' className={styles.timer} onClick={updateProducts}>
         {hours < 10 ? `0${hours}` : hours}
         <div>:</div>
         {minutes < 10 ? `0${minutes}` : minutes}

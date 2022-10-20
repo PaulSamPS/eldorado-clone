@@ -1,8 +1,8 @@
 export interface IReduxType {
-    type: any[]
+  type: any[];
 }
 
 export interface IType {
-    id: number
-    name: string
+  id: number;
+  name: string;
 }

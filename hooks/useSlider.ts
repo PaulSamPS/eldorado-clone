@@ -33,22 +33,20 @@ export const useSlider = ({
 
   React.useEffect(() => {
     if (auto) {
-      const interval = setInterval(
-        () => {
-          if (slideIndex === arrLength - 1) {
-            setSlideIndex(0);
-            setOffset(0);
-          } else {
-            setOffset((currentOffset: number) => {
-              return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * arrLength));
-            });
-            setSlideIndex((slideIndex) => slideIndex + 1);
-          }
-        },
-        duration ? duration : 5000
-      );
+      const interval = setInterval(() => {
+        if (slideIndex === arrLength - 1) {
+          setSlideIndex(0);
+          setOffset(0);
+        } else {
+          setOffset((currentOffset: number) =>
+            Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * arrLength))
+          );
+          setSlideIndex((prevState) => prevState + 1);
+        }
+      }, duration || 5000);
       return () => clearInterval(interval);
     }
+    return () => {};
   }, [slideIndex, auto]);
 
   const right = () => {
@@ -56,30 +54,23 @@ export const useSlider = ({
       setSlideIndex(0);
       setOffset(0);
     } else {
-      setOffset((currentOffset: number) => {
-        return Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (arrLength - 1)));
-      });
+      setOffset((currentOffset: number) =>
+        Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (arrLength - 1)))
+      );
       setSlideIndex(slideIndex + 1);
       if (preview) {
-        setOffsetPreview((currentOffset: number) => {
-          return Math.max(
-            currentOffset - IMG_WIDTH_PREVIEW!,
-            -(IMG_WIDTH_PREVIEW! * (arrLength - 4))
-          );
-        });
+        setOffsetPreview((currentOffset: number) =>
+          Math.max(currentOffset - IMG_WIDTH_PREVIEW!, -(IMG_WIDTH_PREVIEW! * (arrLength - 4)))
+        );
       }
     }
   };
 
   const left = () => {
-    setOffset((currentOffset: number) => {
-      return Math.min(currentOffset + IMG_WIDTH, 0);
-    });
+    setOffset((currentOffset: number) => Math.min(currentOffset + IMG_WIDTH, 0));
     setSlideIndex(slideIndex === 0 ? 0 : slideIndex - 1);
     if (preview) {
-      setOffsetPreview((currentOffset: number) => {
-        return Math.min(currentOffset + IMG_WIDTH_PREVIEW!, 0);
-      });
+      setOffsetPreview((currentOffset: number) => Math.min(currentOffset + IMG_WIDTH_PREVIEW!, 0));
     }
   };
 
@@ -87,12 +78,9 @@ export const useSlider = ({
     setSlideIndex(index);
     setOffset(-(index * IMG_WIDTH));
     if (preview) {
-      setOffsetPreview((currentOffset: number) => {
-        return Math.max(
-          currentOffset - IMG_WIDTH_PREVIEW!,
-          -(IMG_WIDTH_PREVIEW! * (arrLength - 4))
-        );
-      });
+      setOffsetPreview((currentOffset: number) =>
+        Math.max(currentOffset - IMG_WIDTH_PREVIEW!, -(IMG_WIDTH_PREVIEW! * (arrLength - 4)))
+      );
     }
   };
 

@@ -1,25 +1,20 @@
-import { setClearDayProducts, setSuccessDayProducts } from '../redux/reducers/dayProducts.reducer';
 import React, { useState } from 'react';
-import { useAppDispatch } from './useAppDispatch';
-import { useAppSelector } from './useAppSelector';
 import { $host } from '../http';
-import { AxiosResponse } from 'axios';
 import { IProduct } from '../interfaces/product.interface';
 
 export const useTimer = () => {
-  const hour = 24 - new Date().getHours() - 1;
-  const min = 60 - new Date().getMinutes() - 1;
-  const sec = 60 - new Date().getSeconds();
-  const [hours, setHours] = useState(hour);
-  const [minutes, setMinutes] = useState(min);
-  const [seconds, setSeconds] = useState(sec);
-  const dispatch = useAppDispatch();
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+
+  React.useEffect(() => {
+    setHours(24 - new Date().getHours() - 1);
+    setMinutes(60 - new Date().getMinutes() - 1);
+    setSeconds(60 - new Date().getSeconds());
+  }, []);
 
   const updateProducts = async () => {
-    dispatch(setClearDayProducts());
-
-    const dayProducts = await $host.post<IProduct[]>('day-products');
-    dispatch(setSuccessDayProducts(dayProducts.data));
+    await $host.post<IProduct[]>('day-products');
   };
 
   React.useEffect(() => {

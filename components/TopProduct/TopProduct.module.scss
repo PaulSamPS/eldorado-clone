@@ -1,0 +1,35 @@
+.wrapperSwipe {
+  @include flex-column;
+  width: 940px;
+  position: relative;
+
+  .arrowLeft {
+    top: calc(30% - 40px);
+  }
+
+  .arrowRight {
+    top: calc(30% - 40px);
+    right: -22px;
+  }
+
+  &:hover {
+    .arrowLeft {
+      svg {
+        fill: $black-color;
+      }
+    }
+
+    .arrowRight {
+      svg {
+        fill: $black-color;
+      }
+    }
+  }
+
+  .cardBlock {
+    .cardGrid {
+      overflow-x: hidden;
+      display: flex;
+    }
+  }
+}

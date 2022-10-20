@@ -1,33 +1,33 @@
 .btn {
+  @include transition-all-05s;
   position: absolute;
   width: 60px;
   height: 50px;
   cursor: pointer;
-  transition: all ease .5s;
   border: 0;
 
   &:hover {
     svg {
-      fill: var(--black);
+      fill: $black-color;
     }
   }
 
   svg {
+    @include transition-all-02s;
     width: 24px;
     height: 24px;
-    transition: all ease .2s;
     margin-right: 21px;
 
     &:hover {
-      fill: var(--primary) !important;
+      fill: $primary-color !important;
       opacity: 1;
     }
   }
 }
 
 .backgroundWhite {
-  background: rgba(255,255,255,.7);
-  border-radius: 40px;
+  background: $white-color-opacity-70;
+  @include border-radius-40px;
 }
 
 .backgroundNone {

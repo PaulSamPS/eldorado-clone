@@ -1,40 +1,47 @@
 {
   "root": true,
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "google",
-    "plugin:jsdoc/recommended",
-    "next/core-web-vitals"
-  ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
   "plugins": [
-    "react",
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint"
   ],
   "rules": {
-    "max-len": "off",
-    "linebreak-style": "off",
-    "comma-dangle": "off",
-    "no-undef": "off",
-    "object-curly-spacing": "off",
-    "react/react-in-jsx-scope": "off",
-    "indent": "off",
-    "space-before-function-paren": "off",
-    "react/display-name": "off",
-    "operator-linebreak": "off",
-    "no-empty-pattern": "off"
-  }
+    "semi": "off",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "@typescript-eslint/indent": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/no-array-index-key": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "implicit-arrow-linebreak": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "function-paren-newline": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "no-param-reassign": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/function-component-definition": "off",
+    "jsx-quotes": "off",
+    "object-curly-newline": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "@typescript-eslint/semi": [
+      "warn"
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ]
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks"
+  ],
+  "parserOptions": {
+      "project": "./tsconfig.json"
+   }
 }

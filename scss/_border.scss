@@ -1,0 +1,23 @@
+@mixin border-radius {
+  border-radius: 4px;
+}
+
+@mixin border-radius-40px {
+  border-radius: 40px;
+}
+
+@mixin border-radius-left {
+  border-radius: 4px 0 0 4px;
+}
+
+@mixin border-radius-right {
+  border-radius: 0 4px 4px 0;
+}
+
+@mixin border-radius-50 {
+  border-radius: 50%;
+}
+
+@mixin border($color, $width) {
+  border: $width solid $color;
+}
