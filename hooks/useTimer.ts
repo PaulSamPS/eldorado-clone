@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { $host } from '../http';
+import { $host } from '../http/axios';
 import { IProduct } from '../interfaces/product.interface';
 
 export const useTimer = () => {

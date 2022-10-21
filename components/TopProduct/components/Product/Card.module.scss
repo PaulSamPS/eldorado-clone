@@ -38,7 +38,6 @@
   .name {
     cursor: pointer;
     display: -webkit-box;
-    font-family: "Din proS", sans-serif;
     -webkit-box-orient: vertical;
     color: $black-color;
     font-size: 13px;
@@ -57,10 +56,10 @@
 
   .price {
     margin-top: 22px;
-    font-size: 23px;
+    font-size: 34px;
     line-height: 40px;
     color: $black-color;
-    font-weight: 700;
+    @include fontDin;
     flex-grow: 1;
   }
 

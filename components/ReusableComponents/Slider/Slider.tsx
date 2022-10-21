@@ -6,15 +6,19 @@ import styles from './Slider.module.scss';
 import { useSlider } from '../../../hooks/useSlider';
 import { Dots } from '../Dots/Dots';
 import { Arrow } from '../../Ui';
+import { useScreenWidth } from '../../../hooks/useScreenWidth';
 
 export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Element => {
   const [auto, setAuto] = React.useState<boolean>(true);
-  const { offset, dots, left, right, slideIndex } = useSlider({
+  const screenWidth = useScreenWidth();
+  const { ...slider } = useSlider({
     imageWidth: props.width,
     arrLength: props.arr.length,
     duration: props.duration,
-    auto,
+    auto: screenWidth > 1000 ? auto : false,
   });
+
+  console.log(screenWidth);
 
   return (
     <div
@@ -32,7 +36,7 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
             className={styles.slider}
             key={slide._id}
             style={{
-              transform: `translateX(${offset}px)`,
+              transform: `translateX(${slider.offset}px)`,
               width: `${props.width}px`,
               height: `${props.height}px`,
             }}
@@ -48,27 +52,33 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
             </Link>
           </div>
         ))}
-        <Arrow
-          appearance='left'
-          background='white'
-          onClick={left}
-          style={{ top: `${props.arrowTop}%`, left: `-${props.arrowVertical}px` }}
-        />
-        <Arrow
-          appearance='right'
-          background='white'
-          onClick={right}
-          style={{ top: `${props.arrowTop}%`, right: `-${props.arrowVertical}px` }}
-        />
+        {screenWidth > 1000 && (
+          <>
+            <Arrow
+              appearance='left'
+              background='white'
+              onClick={slider.left}
+              style={{ top: `${props.arrowTop}%`, left: `-${props.arrowVertical}px` }}
+            />
+            <Arrow
+              appearance='right'
+              background='white'
+              onClick={slider.right}
+              style={{ top: `${props.arrowTop}%`, right: `-${props.arrowVertical}px` }}
+            />
+          </>
+        )}
       </div>
-      <div className={styles.blockDots}>
-        <Dots
-          slideIndex={slideIndex}
-          dots={dots}
-          arr={props.arr}
-          appearance={greenDots ? 'activeGreen' : undefined}
-        />
-      </div>
+      {screenWidth > 1000 && (
+        <div className={styles.blockDots}>
+          <Dots
+            slideIndex={slider.slideIndex}
+            dots={slider.dots}
+            arr={props.arr}
+            appearance={greenDots ? 'activeGreen' : undefined}
+          />
+        </div>
+      )}
     </div>
   );
 };

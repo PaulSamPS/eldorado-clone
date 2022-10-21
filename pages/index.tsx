@@ -7,7 +7,7 @@ import { Sidebar } from '../layout/Sidebar/Sidebar';
 import { IProduct } from '../interfaces/product.interface';
 import { TopProduct } from '../components/TopProduct/TopProduct';
 import { DayProduct } from '../components/DayProduct/DayProduct';
-import { $host } from '../http';
+import { $host } from '../http/axios';
 import { Slider } from '../components/ReusableComponents';
 import { ISlider } from '../interfaces/slider.interface';
 import { BasketInterface } from '../interfaces/basket.interface';
@@ -29,7 +29,7 @@ function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
           key={s._id}
           arr={s.s}
           height={110}
-          width={1200}
+          width={800}
           greenDots
           arrowTop={19}
           arrowVertical={65}

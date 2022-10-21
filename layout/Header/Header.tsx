@@ -8,7 +8,12 @@ import { priceRu } from '../../helpers/priceRu';
 
 export const Header = () => {
   const { basket } = useContext(AppContext);
-  console.log(basket);
+  const count = basket.products.reduce((prev, curr) => prev + curr.qty, 0);
+  const [basketCount, setBasketCount] = React.useState<number>(count);
+
+  React.useEffect(() => {
+    setBasketCount(count);
+  }, [basket]);
 
   return (
     <div className={styles.header}>
@@ -38,7 +43,7 @@ export const Header = () => {
         {basket && basket.products.length > 0 ? (
           <a className={styles.basketProduct}>
             <CartBoldIcon />
-            <div className={styles.count}>{basket.products.length}</div>
+            <div className={styles.count}>{basketCount}</div>
             <span>{priceRu(basket.totalPrice)}</span>
           </a>
         ) : (

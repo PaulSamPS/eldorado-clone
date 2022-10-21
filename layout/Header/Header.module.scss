@@ -20,6 +20,7 @@
       position: relative;
       @include flex-between;
       height: 40px;
+      font-weight: 500;
 
       .input {
         width: 100%;
@@ -29,7 +30,7 @@
         padding: 0 10px;
         background: $white-color;
         transform: skewX(-12deg);
-        @include border($primary-color, 2px);
+        @include border($primary-color, 1px);
         @include border-radius-left;
 
         input {
@@ -43,17 +44,19 @@
           -webkit-appearance: none;
           appearance: none;
           transform: skewX(12deg);
+          @include fontGraphicLight;
 
           &::placeholder {
             color: $gray-color;
+            @include fontGraphicLight;
           }
         }
       }
 
       .searchBtn {
         @include flex-center-center;
+        @include fontGraphicLight;
         height: 40px;
-        font-weight: 500;
         font-size: 15px;
         line-height: 15px;
         padding: 10px 12px;
@@ -63,7 +66,7 @@
           display: block;
           position: absolute;
           top: 0;
-          right: 80px;
+          right: 85px;
           width: 25px;
           height: 40px;
           background-color: inherit;
@@ -88,9 +91,10 @@
     @include flex-align-center;
     min-width: 200px;
     flex-direction: row;
+    margin-right: 30px;
 
     .login {
-      font-size: 13px;
+      font-size: 15px;
       color: $black-light-color;
       cursor: pointer;
       @include transition-all-02s;
@@ -140,7 +144,7 @@
     gap: 5px;
     color: $black-light-color;
     @include transition-all-02s;
-    font-family: "Din proS", sans-serif;
+    font-weight: 400;
     cursor: pointer;
     margin-left: 10px;
     font-size: 15px;
@@ -169,7 +173,7 @@
   }
 
   .basketProduct {
-    width: 130px;
+    column-gap: 20px;
     background-color: $gray-deep-color;
     @include flex-center-between;
     color: $white-color;
@@ -178,26 +182,39 @@
     height: auto;
     @include border-radius;
     position: relative;
+    @include transition-all-02s;
 
     svg {
       path {
+        @include transition-all-02s;
         fill: $white-color;
       }
       height: 24px;
       width: 24px;
     }
+
+    &:hover {
+      color: $green-color2;
+
+      svg {
+        path {
+          fill: $green-color2;
+        }
+      }
+    }
     
     .count {
       background-color: $white-color;
-      font-size: 12px;
-      height: 16px;
+      font-size: 10px;
+      height: 20px;
+      width: 20px;
       @include flex-center-center;
-      width: 16px;
       @include border-radius-50;
       color: $gray-deep-color;
       position: absolute;
       top: 3px;
       left: 25px;
+      @include border($gray-deep-color, 2px);
     }
 
     span {

@@ -6,6 +6,8 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 1;
+    column-gap: 3px;
+    @include fontGraphicMedium;
 
     div {
       line-height: 12px;

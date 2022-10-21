@@ -6,7 +6,7 @@ import { useSlider } from '../../hooks/useSlider';
 import { IProduct } from '../../interfaces/product.interface';
 import { H, Arrow } from '../Ui';
 import { Dots, Timer } from '../ReusableComponents';
-import { $host } from '../../http';
+import { $host } from '../../http/axios';
 
 export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider({

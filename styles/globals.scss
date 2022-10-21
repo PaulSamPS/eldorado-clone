@@ -9,6 +9,21 @@ body {
   @include container-1200px;
 }
 
+@font-face {
+  font-family: 'Din2014';
+  src: url('../fonts/DINPro-CondensedBold.ttf');
+}
+
+@font-face {
+  font-family: 'Graphik LC Light';
+  src: url('../fonts/Graphik LC Light Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Graphik LC Medium';
+  src: url('../fonts/Graphik LC Web Medium Regular.ttf');
+}
+
 a {
   color: inherit;
   text-decoration: none;

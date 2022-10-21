@@ -1,4 +1,5 @@
 .sidebar {
+  @include fontGraphicMedium;
   .type {
     list-style-type: none;
     @include flex-align-center;
@@ -29,7 +30,6 @@
     .link {
       text-decoration: none;
       color: $black-color;
-      font-weight: 500;
       font-size: 15px;
       @include transition-all-02s;
 
@@ -39,7 +39,7 @@
         background-size: 16px auto;
         position: absolute;
         left: 5px;
-        top: 12px;
+        top: 11px;
         width: 35px;
         height: 16px;
         @include transition-all-02s;

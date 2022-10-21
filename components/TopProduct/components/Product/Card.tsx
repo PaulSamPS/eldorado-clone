@@ -1,51 +1,22 @@
 import cn from 'classnames';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-import { getCookie } from 'cookies-next';
 import styles from './Card.module.scss';
 import { CardProps } from './Card.props';
 import { Rating, Review } from '../../../ReusableComponents';
 import { Button } from '../../../Ui';
 import { priceRu } from '../../../../helpers/priceRu';
 import { FavouriteGreenIcon, FavouriteIcon } from '../../../../icons';
-import { $host } from '../../../../http';
-import { BasketInterface } from '../../../../interfaces/basket.interface';
 import { AppContext } from '../../../../context/appContext';
+import { addToBasketHttp } from '../../../../http/addToBasketHttp';
 
-export function Card({ product, className, offset }: CardProps) {
-  const { setBasket, basket } = useContext(AppContext);
-  const [like, setLike] = React.useState<boolean>(false);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
+export const Card = ({ product, className, offset }: CardProps) => {
+  const { basket, setBasket } = useContext(AppContext);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(51);
-
-  const addToBasket = async () => {
-    try {
-      setIsLoading(true);
-      const basketCookie = getCookie('basket');
-      const res = await $host.post<BasketInterface>(
-        'basket/add',
-        {
-          productId: product._id,
-          productPrice: product.price,
-        },
-        {
-          withCredentials: true,
-          headers: {
-            basket: basketCookie,
-          },
-        }
-      );
-      if (setBasket) {
-        setBasket(res.data);
-      }
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
+  const [isLike, setIsLike] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const item = basket.products.map((p) => p.product._id).includes(product._id);
@@ -55,9 +26,23 @@ export function Card({ product, className, offset }: CardProps) {
     }
   }, [basket]);
 
+  const addToBasket = async () => {
+    setIsLoading(true);
+    try {
+      const { newBasket } = await addToBasketHttp(product);
+      if (setBasket) {
+        setBasket(newBasket);
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const onPressEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
-      setLike(!like);
+      setIsLike(!isLike);
     }
   };
 
@@ -89,13 +74,13 @@ export function Card({ product, className, offset }: CardProps) {
         </Button>
         <button
           type='button'
-          onClick={() => setLike(!like)}
+          onClick={() => setIsLike(!isLike)}
           onKeyDown={(e) => onPressEnter(e)}
           className={styles.favourite}
         >
-          {like ? <FavouriteGreenIcon /> : <FavouriteIcon />}
+          {isLike ? <FavouriteGreenIcon /> : <FavouriteIcon />}
         </button>
       </div>
     </div>
   );
-}
+};
