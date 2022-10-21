@@ -2,7 +2,7 @@ import React, { KeyboardEvent } from 'react';
 import cn from 'classnames';
 import { RatingProps } from './Rating.props';
 import styles from './Rating.module.scss';
-import { StarIcon } from '../../../icons';
+import { StarIcon } from '@/icons';
 
 export const Rating = ({
   isEditable = false,

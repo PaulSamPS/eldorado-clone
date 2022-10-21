@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './DayProduct.module.scss';
 import { DayProductProps } from './DayProduct.props';
 import { Item } from './Card';
-import { useSlider } from '../../hooks/useSlider';
-import { IProduct } from '../../interfaces/product.interface';
-import { H, Arrow } from '../Ui';
-import { Dots, Timer } from '../ReusableComponents';
-import { $host } from '../../http/axios';
+import { useSlider } from '@/hooks';
+import { IProduct } from '@/interfaces';
+import { H, Arrow } from '@/components/Ui';
+import { Dots, Timer } from '@/components/ReusableComponents';
+import { $host } from '@/http';
 
 export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider({

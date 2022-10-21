@@ -3,8 +3,8 @@ import cn from 'classnames';
 import { TopProductProps } from './TopProduct.props';
 import styles from './TopProduct.module.scss';
 import { Card, Nav } from './components';
-import { IProduct } from '../../interfaces/product.interface';
-import { H, Arrow } from '../Ui';
+import { IProduct } from '@/interfaces';
+import { H, Arrow } from '@/components/Ui';
 
 export const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = React.useState<number>(0);

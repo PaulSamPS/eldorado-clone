@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './Timer.module.scss';
 import { TimerProps } from './Timer.props';
-import { useTimer } from '../../../hooks/useTimer';
+import { useTimer } from '@/hooks';
 
 export const Timer = ({ className, ...props }: TimerProps): JSX.Element => {
   const { hours, minutes, seconds, updateProducts } = useTimer();

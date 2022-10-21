@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
-import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '../../icons';
-import { Button } from '../../components/Ui';
-import { AppContext } from '../../context/appContext';
-import { priceRu } from '../../helpers/priceRu';
+import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '@/icons';
+import { Button } from '@/components/Ui';
+import { priceRu } from '@/helpers';
+import { BasketContext } from '@/context';
 
 export const Header = () => {
-  const { basket } = useContext(AppContext);
+  const { basket } = useContext(BasketContext);
   const count = basket.products.reduce((prev, curr) => prev + curr.qty, 0);
   const [basketCount, setBasketCount] = React.useState<number>(count);
 

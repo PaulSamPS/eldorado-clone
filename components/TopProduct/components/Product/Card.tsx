@@ -3,15 +3,15 @@ import Link from 'next/link';
 import React, { useContext } from 'react';
 import styles from './Card.module.scss';
 import { CardProps } from './Card.props';
-import { Rating, Review } from '../../../ReusableComponents';
-import { Button } from '../../../Ui';
-import { priceRu } from '../../../../helpers/priceRu';
-import { FavouriteGreenIcon, FavouriteIcon } from '../../../../icons';
-import { AppContext } from '../../../../context/appContext';
-import { addToBasketHttp } from '../../../../http/addToBasketHttp';
+import { Rating, Review } from '@/components/ReusableComponents';
+import { Button } from '@/components/Ui';
+import { priceRu } from '@/helpers';
+import { FavouriteGreenIcon, FavouriteIcon } from '@/icons';
+import { addToBasketHttp } from '@/http';
+import { BasketContext } from '@/context';
 
 export const Card = ({ product, className, offset }: CardProps) => {
-  const { basket, setBasket } = useContext(AppContext);
+  const { basket, setBasket } = useContext(BasketContext);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(51);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);

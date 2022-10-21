@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { LayoutProps } from './Layout.props';
-import { Header } from './Header/Header';
-import { AppInterface } from '../interfaces/app.interface';
-import { AppContextProvider } from '../context/appContext';
+import { Header } from './Header';
+import { AppInterface } from '@/interfaces';
+import { AppContextProvider } from '@/context';
 
 const Layout = ({ children }: LayoutProps) => (
   <>
+    <Header />
     <main>{children}</main>
   </>
 );

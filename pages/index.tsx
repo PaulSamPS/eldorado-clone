@@ -1,23 +1,16 @@
 import type { GetServerSideProps } from 'next';
 import React from 'react';
 import axios from 'axios';
-import { withLayout } from '../layout/Layout';
-import { IMenu } from '../interfaces/menu.interface';
-import { Sidebar } from '../layout/Sidebar/Sidebar';
-import { IProduct } from '../interfaces/product.interface';
-import { TopProduct } from '../components/TopProduct/TopProduct';
-import { DayProduct } from '../components/DayProduct/DayProduct';
-import { $host } from '../http/axios';
-import { Slider } from '../components/ReusableComponents';
-import { ISlider } from '../interfaces/slider.interface';
-import { BasketInterface } from '../interfaces/basket.interface';
-import { Header } from '../layout/Header/Header';
+import { withLayout } from '@/layout';
+import { IMenu, IProduct, ISlider, BasketInterface } from '@/interfaces';
+import { DayProduct, TopProduct, Sidebar } from '@/components';
+import { $host } from '@/http';
+import { Slider } from '@/components/ReusableComponents';
 
 function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
   console.log(basket);
   return (
     <div>
-      <Header />
       <Sidebar menu={menu} />
       <TopProduct product={products} />
       <DayProduct dayProducts={dayProducts} />
@@ -29,7 +22,7 @@ function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
           key={s._id}
           arr={s.s}
           height={110}
-          width={800}
+          width={1200}
           greenDots
           arrowTop={19}
           arrowVertical={65}

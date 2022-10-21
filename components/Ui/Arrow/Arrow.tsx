@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { ArrowProps } from './Arrow.props';
 import styles from './Arrow.module.scss';
-import { ArrowIcon } from '../../../icons';
+import { ArrowIcon } from '@/icons';
 
 export const Arrow = ({ className, appearance, background, ...props }: ArrowProps): JSX.Element => (
   <button

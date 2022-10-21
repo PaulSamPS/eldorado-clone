@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../Ui';
+import { Button } from '@/components/Ui';
 import styles from './Nav.module.scss';
 
 export const Nav = () => (

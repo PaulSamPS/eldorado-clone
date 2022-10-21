@@ -3,10 +3,9 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { SliderProps } from './Slider.props';
 import styles from './Slider.module.scss';
-import { useSlider } from '../../../hooks/useSlider';
-import { Dots } from '../Dots/Dots';
-import { Arrow } from '../../Ui';
-import { useScreenWidth } from '../../../hooks/useScreenWidth';
+import { useSlider, useScreenWidth } from '@/hooks';
+import { Dots } from '@/components/ReusableComponents';
+import { Arrow } from '@/components/Ui';
 
 export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Element => {
   const [auto, setAuto] = React.useState<boolean>(true);
@@ -17,8 +16,6 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
     duration: props.duration,
     auto: screenWidth > 1000 ? auto : false,
   });
-
-  console.log(screenWidth);
 
   return (
     <div

@@ -2,8 +2,8 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './Carousel.module.scss';
 import { CarouselProps } from './Carousel.props';
-import { useSlider } from '../../../hooks/useSlider';
-import { Arrow } from '../../Ui';
+import { useSlider } from '@/hooks';
+import { Arrow } from '@/components//Ui';
 
 export const Carousel = ({ currentProduct, className, imageWidth }: CarouselProps) => {
   const { offset, offsetPreview, slideIndex, left, right, dots } = useSlider({

@@ -1,19 +1,19 @@
 import React, { createContext, PropsWithChildren, useState } from 'react';
 import { BasketInterface } from '../interfaces/basket.interface';
 
-export interface IAppContext {
+export interface IBasketContext {
   basket: BasketInterface;
   setBasket?: (newBasket: BasketInterface) => void;
 }
 
-export const AppContext = createContext<IAppContext>({
+export const BasketContext = createContext<IBasketContext>({
   basket: {} as BasketInterface,
 });
 
 export const AppContextProvider = ({
   children,
   basket,
-}: PropsWithChildren<IAppContext>): JSX.Element => {
+}: PropsWithChildren<IBasketContext>): JSX.Element => {
   const [basketState, setBasketState] = useState<BasketInterface>(basket);
 
   const setBasket = (newBasket: BasketInterface) => {
@@ -21,6 +21,8 @@ export const AppContextProvider = ({
   };
 
   return (
-    <AppContext.Provider value={{ basket: basketState, setBasket }}>{children}</AppContext.Provider>
+    <BasketContext.Provider value={{ basket: basketState, setBasket }}>
+      {children}
+    </BasketContext.Provider>
   );
 };

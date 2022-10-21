@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { SidebarProps } from './Sidebar.props';
 import styles from './Sidebar.module.scss';
-import { IMenu } from '../../interfaces/menu.interface';
+import { IMenu } from '@/interfaces';
 
 export const Sidebar = ({ menu }: SidebarProps) => (
   <div className={styles.sidebar}>
