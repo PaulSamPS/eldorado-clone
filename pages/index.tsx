@@ -3,34 +3,11 @@ import React from 'react';
 import axios from 'axios';
 import { withLayout } from '@/layout';
 import { IMenu, IProduct, ISlider, BasketInterface } from '@/interfaces';
-import { DayProduct, TopProduct, Sidebar } from '@/components';
 import { $host } from '@/http';
-import { Slider } from '@/components/ReusableComponents';
+import { MainPageComponents } from '@/pageComponents';
 
-function Home({ menu, products, dayProducts, slider, basket }: HomeProps) {
-  console.log(basket);
-  return (
-    <div>
-      <Sidebar menu={menu} />
-      <TopProduct product={products} />
-      <DayProduct dayProducts={dayProducts} />
-      {slider.map((s) => (
-        <Slider key={s._id} arr={s.l} arrowTop={37.5} arrowVertical={30} height={300} width={600} />
-      ))}
-      {slider.map((s) => (
-        <Slider
-          key={s._id}
-          arr={s.s}
-          height={110}
-          width={1200}
-          greenDots
-          arrowTop={19}
-          arrowVertical={65}
-          duration={2000}
-        />
-      ))}
-    </div>
-  );
+function Home({ ...props }: HomeProps) {
+  return <MainPageComponents {...props} />;
 }
 
 export default withLayout(Home);

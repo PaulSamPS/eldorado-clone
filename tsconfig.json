@@ -24,7 +24,8 @@
       "@/hooks": ["hooks"],
       "@/http": ["http"],
       "@/context": ["context"],
-      "@/layout": ["layout"]
+      "@/layout": ["layout"],
+      "@/pageComponents": ["pageComponents"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

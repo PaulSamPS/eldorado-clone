@@ -7,7 +7,7 @@ import { useSlider, useScreenWidth } from '@/hooks';
 import { Dots } from '@/components/ReusableComponents';
 import { Arrow } from '@/components/Ui';
 
-export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Element => {
+export const Slider = ({ greenDots = false, className, ...props }: SliderProps): JSX.Element => {
   const [auto, setAuto] = React.useState<boolean>(true);
   const screenWidth = useScreenWidth();
   const { ...slider } = useSlider({
@@ -19,13 +19,13 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
 
   return (
     <div
-      className={styles.sliderBlock}
+      className={cn(styles.wrapper, className)}
       style={{ width: `${props.width}px` }}
       onMouseEnter={() => setAuto(false)}
       onMouseLeave={() => setAuto(true)}
     >
       <div
-        className={cn(styles.sliderWrapper, props.className)}
+        className={styles.sliderWrapper}
         style={{ width: `${props.width}px`, height: `${props.height}px` }}
       >
         {props.arr.map((slide: any) => (

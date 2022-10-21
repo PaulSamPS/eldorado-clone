@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './DayProduct.module.scss';
 import { DayProductProps } from './DayProduct.props';
 import { Item } from './Card';
@@ -8,7 +9,7 @@ import { H, Arrow } from '@/components/Ui';
 import { Dots, Timer } from '@/components/ReusableComponents';
 import { $host } from '@/http';
 
-export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
+export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider({
     imageWidth: 220,
     arrLength: dayProducts.length,
@@ -19,12 +20,12 @@ export const DayProduct = ({ dayProducts }: DayProductProps): JSX.Element => {
   };
 
   return (
-    <div className={styles.dayProductBlock}>
+    <div className={cn(styles.wrapper, className)}>
       <div className={styles.top}>
         <H tag='h2'>Товары дня</H>
         <Timer className={styles.timer} onClick={setDayProducts} />
       </div>
-      <div className={styles.wrapper}>
+      <div className={styles.dayProductBlock}>
         {dayProducts.map((product: IProduct) => (
           <Item key={product._id} product={product} appearance='dayProduct' offset={offset} />
         ))}

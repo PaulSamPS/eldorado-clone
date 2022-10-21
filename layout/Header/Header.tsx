@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 import styles from './Header.module.scss';
 import { UserIcon, SearchIcon, CartBoldIcon, LogoIcon } from '@/icons';
 import { Button } from '@/components/Ui';
 import { priceRu } from '@/helpers';
 import { BasketContext } from '@/context';
+import { HeaderProps } from './Header.props';
 
-export const Header = () => {
+export const Header = ({ className }: HeaderProps) => {
   const { basket } = useContext(BasketContext);
   const count = basket.products.reduce((prev, curr) => prev + curr.qty, 0);
   const [basketCount, setBasketCount] = React.useState<number>(count);
@@ -16,7 +18,7 @@ export const Header = () => {
   }, [basket]);
 
   return (
-    <div className={styles.header}>
+    <div className={cn(styles.header, className)}>
       <Link href='/'>
         <a>
           <LogoIcon className={styles.logo} title='Эльдорадо' />

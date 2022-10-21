@@ -1,0 +1,37 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 250px minmax(320px, 660px) minmax(220px, 1fr);
+  grid-template-rows: auto 1fr auto;
+
+  min-height: 100vh;
+  gap: 40px 30px;
+  margin-top: 25px;
+  grid-template-areas:
+		"sidebar sliderTop dayProduct"
+		"sidebar topProduct topProduct"
+		"sliderBot sliderBot sliderBot";
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.sliderTop {
+  grid-area: sliderTop;
+}
+
+.dayProduct {
+  grid-area: dayProduct;
+}
+
+.topProduct {
+  grid-area: topProduct;
+}
+
+.sliderBot {
+  grid-area: sliderBot;
+}
+
+.footer {
+  grid-area: footer;
+}

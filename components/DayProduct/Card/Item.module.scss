@@ -2,20 +2,12 @@
 .cardDayProduct {
   flex-shrink: 0;
   border-radius: 8px;
-  @include border($border-color4, 1px);
+  @include border($border-color4, 2px);
   @include flex-column;
   padding: 7px 12px 19px 20px;
   width: 220px;
   height: 300px;
   transition: all ease .5s;
-
-  //&:hover {
-  //  button {
-  //    svg {
-  //      fill: var(--black);
-  //    }
-  //  }
-  //}
 
   .img {
     img {

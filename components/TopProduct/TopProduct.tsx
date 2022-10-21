@@ -6,7 +6,7 @@ import { Card, Nav } from './components';
 import { IProduct } from '@/interfaces';
 import { H, Arrow } from '@/components/Ui';
 
-export const TopProduct = ({ className, product }: TopProductProps): JSX.Element => {
+export const TopProduct = ({ product, className }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
   const IMG_WIDTH = 182;
