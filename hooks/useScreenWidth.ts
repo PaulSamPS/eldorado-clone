@@ -13,11 +13,11 @@ export const useScreenWidth = (): number => {
 
   React.useEffect(() => {
     const resizeWindow = () => {
-      setScreenWidth(window.innerWidth);
+      setScreenWidth(window.outerWidth);
     };
     window.addEventListener('resize', debounce(resizeWindow));
     resizeWindow();
-    return () => window.removeEventListener('resize', resizeWindow);
+    return () => window.removeEventListener('resize', debounce(resizeWindow));
   }, []);
 
   return screenWidth;

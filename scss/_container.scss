@@ -2,3 +2,11 @@
   width: 1200px;
   margin: 0 auto;
 }
+
+@mixin container-768px {
+  width: 768px;
+  margin: 0 auto;
+}
+
+
+

@@ -222,3 +222,10 @@
     }
   }
 }
+
+
+@include _desktop {
+  .header {
+    @include flex-column;
+  }
+}

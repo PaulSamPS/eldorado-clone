@@ -35,3 +35,32 @@
 .footer {
   grid-area: footer;
 }
+
+@include _desktop {
+  .wrapper {
+    grid-template-columns: minmax(320px, 660px) minmax(220px, 1fr);
+    grid-template-rows: auto 1fr auto;
+
+    gap: 30px 20px;
+    grid-template-areas:
+		"sliderTop dayProduct"
+		"topProduct topProduct"
+		"sliderBot sliderBot";
+  }
+
+  .sidebar {
+    display: none !important;
+  }
+}
+
+@include _laptop {
+  .wrapper {
+    grid-template-columns: minmax(320px, 1fr);
+    grid-template-areas:
+			"sliderTop"
+			"dayProduct"
+			"topProduct"
+            "sliderBot";
+    gap: 10px;
+  }
+}

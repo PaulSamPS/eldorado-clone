@@ -7,12 +7,6 @@
     overflow: hidden;
     border-radius: 10px;
 
-    @media screen and (max-width: 1000px ){
-      scroll-snap-type: x mandatory;
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-
     &:hover {
       button {
         svg {
@@ -25,10 +19,6 @@
       text-align: center;
 
       @include transition-all-05s;
-
-      @media screen and (max-width: 1000px ){
-        scroll-snap-align: start;
-      }
 
       img {
         object-fit: cover;
@@ -43,4 +33,19 @@
     position: unset;
     height: 30px;
   }
+}
+
+@include _tablet {
+ .wrapper {
+   .sliderWrapper {
+     scroll-snap-type: x mandatory;
+     overflow-x: scroll;
+     -webkit-overflow-scrolling: touch;
+     scroll-behavior: smooth;
+   }
+
+   .slider {
+     scroll-snap-align: start;
+   }
+ }
 }

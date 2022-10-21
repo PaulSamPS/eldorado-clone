@@ -5,10 +5,13 @@ import styles from './TopProduct.module.scss';
 import { Card, Nav } from './components';
 import { IProduct } from '@/interfaces';
 import { H, Arrow } from '@/components/Ui';
+import { useScreenWidth } from '@/hooks';
+import { generateWidth } from '@/helpers';
 
 export const TopProduct = ({ product, className }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
+  const screenWidth = useScreenWidth();
   const IMG_WIDTH = 182;
 
   const prevSlide = () => {
@@ -44,7 +47,10 @@ export const TopProduct = ({ product, className }: TopProductProps): JSX.Element
         className={styles.arrowRight}
       />
       <Nav />
-      <div className={styles.cardBlock}>
+      <div
+        className={styles.cardBlock}
+        style={{ width: `${generateWidth({ width: screenWidth, min: 320, max: 940 })}px` }}
+      >
         <div className={styles.cardGrid}>
           {product.map((p: IProduct) => (
             <Card key={p._id} product={p} offset={offset} />

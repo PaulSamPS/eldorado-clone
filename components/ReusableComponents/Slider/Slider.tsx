@@ -14,8 +14,9 @@ export const Slider = ({ greenDots = false, className, ...props }: SliderProps):
     imageWidth: props.width,
     arrLength: props.arr.length,
     duration: props.duration,
-    auto: screenWidth > 1000 ? auto : false,
+    auto: screenWidth > 768 ? auto : false,
   });
+  console.log(props.width, '0');
 
   return (
     <div
@@ -26,7 +27,10 @@ export const Slider = ({ greenDots = false, className, ...props }: SliderProps):
     >
       <div
         className={styles.sliderWrapper}
-        style={{ width: `${props.width}px`, height: `${props.height}px` }}
+        style={{
+          width: `${props.snap ? props.width + 100 : props.width}px`,
+          height: `${props.height}px`,
+        }}
       >
         {props.arr.map((slide: any) => (
           <div
@@ -34,7 +38,7 @@ export const Slider = ({ greenDots = false, className, ...props }: SliderProps):
             key={slide._id}
             style={{
               transform: `translateX(${slider.offset}px)`,
-              width: `${props.width}px`,
+              width: `${props.snap ? props.width + 100 : props.width}px`,
               height: `${props.height}px`,
             }}
           >
@@ -49,7 +53,7 @@ export const Slider = ({ greenDots = false, className, ...props }: SliderProps):
             </Link>
           </div>
         ))}
-        {screenWidth > 1000 && (
+        {screenWidth > 768 && (
           <>
             <Arrow
               appearance='left'
@@ -66,7 +70,7 @@ export const Slider = ({ greenDots = false, className, ...props }: SliderProps):
           </>
         )}
       </div>
-      {screenWidth > 1000 && (
+      {screenWidth > 768 && (
         <div className={styles.blockDots}>
           <Dots
             slideIndex={slider.slideIndex}
