@@ -1,6 +1,5 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useScreenWidth } from './useScreenWidth';
 
 interface ISlider {
   imageWidth: number;
@@ -30,7 +29,6 @@ export const useSlider = ({
     setSlideIndex(0);
     setOffsetPreview(0);
     setOffset(0);
-    console.log('111');
   }, [query]);
 
   React.useEffect(() => {
