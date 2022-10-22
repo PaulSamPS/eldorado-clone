@@ -6,11 +6,11 @@ interface IGenerateWidth {
 
 export const generateWidth = ({ width, min, max }: IGenerateWidth): number => {
   if (width >= max) {
-    return 1200;
+    return max;
   }
 
   if (width <= min) {
-    return 320;
+    return min;
   }
 
   return width;

@@ -18,7 +18,7 @@ export const Header = ({ className }: HeaderProps) => {
   }, [basket]);
 
   return (
-    <div className={cn(styles.header, className)}>
+    <div className={cn(styles.wrapper, className)}>
       <Link href='/'>
         <a>
           <LogoIcon className={styles.logo} title='Эльдорадо' />

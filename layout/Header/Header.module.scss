@@ -1,4 +1,4 @@
-.header {
+.wrapper {
   padding: 10px 0;
   @include flex-align-center;
 
@@ -223,9 +223,10 @@
   }
 }
 
-
-@include _desktop {
-  .header {
+@include _laptop {
+  .wrapper {
     @include flex-column;
+
+    padding: 0 20px;
   }
 }

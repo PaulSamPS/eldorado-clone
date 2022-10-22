@@ -6,14 +6,12 @@ import { Card, Nav } from './components';
 import { IProduct } from '@/interfaces';
 import { H, Arrow } from '@/components/Ui';
 import { useScreenWidth } from '@/hooks';
-import { generateWidth } from '@/helpers';
 
-export const TopProduct = ({ product, snap, className }: TopProductProps): JSX.Element => {
+export const TopProduct = ({ product, className }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
-  const [width, setWidth] = React.useState<number>(0);
   const screenWidth = useScreenWidth();
-  const IMG_WIDTH = 182;
+  const IMG_WIDTH = 235.2;
 
   const prevSlide = () => {
     setOffset((currentOffset: number) => Math.min(currentOffset + IMG_WIDTH, 0));
@@ -21,25 +19,21 @@ export const TopProduct = ({ product, snap, className }: TopProductProps): JSX.E
   };
 
   const nextSlide = () => {
-    if (slideIndex === product.length - 5) {
+    if (slideIndex === product.length - 4) {
       setSlideIndex(0);
       setOffset(0);
     } else {
       setOffset((currentOffset: number) =>
-        Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (product.length - 5)))
+        Math.max(currentOffset - IMG_WIDTH, -(IMG_WIDTH * (product.length - 4)))
       );
       setSlideIndex(slideIndex + 1);
     }
   };
 
-  React.useEffect(() => {
-    setWidth(generateWidth({ width: screenWidth, min: 320, max: 940 }));
-  }, [screenWidth]);
-
   return (
     <div className={cn(styles.wrapperSwipe, className)}>
       <H tag='h2'>Рекомендуем вам</H>
-      {screenWidth > 768 && (
+      {screenWidth > 1000 && (
         <>
           <Arrow
             appearance='left'
@@ -57,7 +51,7 @@ export const TopProduct = ({ product, snap, className }: TopProductProps): JSX.E
       )}
       <Nav />
       <div className={styles.cardBlock}>
-        <div className={styles.cardGrid} style={{ width: `${snap ? width + 100 : width}px` }}>
+        <div className={styles.cardGrid} style={{ width: '100%' }}>
           {product.map((p: IProduct) => (
             <Card key={p._id} product={p} offset={offset} className={styles.card} />
           ))}

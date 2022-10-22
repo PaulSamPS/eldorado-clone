@@ -3,7 +3,7 @@ import { Button } from '@/components/Ui';
 import styles from './Nav.module.scss';
 
 export const Nav = () => (
-  <div className={styles.nav}>
+  <div className={styles.wrapper}>
     <Button appearance='ghost' className={styles.btn}>
       Персональная подборка
     </Button>

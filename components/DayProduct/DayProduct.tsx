@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from './DayProduct.module.scss';
 import { DayProductProps } from './DayProduct.props';
 import { Item } from './Card';
-import { useSlider } from '@/hooks';
+import { useScreenWidth, useSlider } from '@/hooks';
 import { IProduct } from '@/interfaces';
 import { H, Arrow } from '@/components/Ui';
 import { Dots, Timer } from '@/components/ReusableComponents';
@@ -14,6 +14,8 @@ export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Ele
     imageWidth: 220,
     arrLength: dayProducts.length,
   });
+
+  const screenWidth = useScreenWidth();
 
   const setDayProducts = async () => {
     await $host.post('day-products');
@@ -27,14 +29,26 @@ export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Ele
       </div>
       <div className={styles.dayProductBlock}>
         {dayProducts.map((product: IProduct) => (
-          <Item key={product._id} product={product} appearance='dayProduct' offset={offset} />
+          <Item
+            key={product._id}
+            product={product}
+            appearance='dayProduct'
+            offset={offset}
+            className={styles.item}
+          />
         ))}
-        <Arrow appearance='left' background='white' onClick={left} />
-        <Arrow appearance='right' background='white' onClick={right} />
+        {screenWidth > 1000 && (
+          <>
+            <Arrow appearance='left' background='white' onClick={left} />
+            <Arrow appearance='right' background='white' onClick={right} />
+          </>
+        )}
       </div>
-      <div className={styles.bl}>
-        <Dots className={styles.dots} slideIndex={slideIndex} dots={dots} arr={dayProducts} />
-      </div>
+      {screenWidth > 1000 && (
+        <div className={styles.bl}>
+          <Dots className={styles.dots} slideIndex={slideIndex} dots={dots} arr={dayProducts} />
+        </div>
+      )}
     </div>
   );
 };

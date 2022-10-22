@@ -3,12 +3,15 @@ import { LayoutProps } from './Layout.props';
 import { Header } from './Header';
 import { AppInterface } from '@/interfaces';
 import { AppContextProvider } from '@/context';
+import styles from './Layout.module.scss';
+import { MobileMenu } from '@/components';
 
 const Layout = ({ children }: LayoutProps) => (
-  <>
+  <div className={styles.wrapper}>
     <Header />
     <main>{children}</main>
-  </>
+    <MobileMenu />
+  </div>
 );
 
 export const withLayout = <T extends Record<string, unknown> & AppInterface>(

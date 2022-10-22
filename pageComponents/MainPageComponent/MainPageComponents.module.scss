@@ -38,10 +38,10 @@
 
 @include _desktop {
   .wrapper {
-    grid-template-columns: minmax(320px, 660px) minmax(220px, 1fr);
+    grid-template-columns: minmax(240px, 1fr) 220px;
     grid-template-rows: auto 1fr auto;
 
-    gap: 30px 20px;
+    gap: 30px 60px;
     grid-template-areas:
 		"sliderTop dayProduct"
 		"topProduct topProduct"
@@ -55,12 +55,12 @@
 
 @include _laptop {
   .wrapper {
-    grid-template-columns: minmax(320px, 1fr);
+    padding: 0 20px;
+    grid-template-columns: minmax(240px, 1fr);
     grid-template-areas:
 			"sliderTop"
 			"dayProduct"
 			"topProduct"
             "sliderBot";
-    gap: 10px;
   }
 }

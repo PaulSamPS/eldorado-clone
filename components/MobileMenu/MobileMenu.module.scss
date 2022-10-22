@@ -1,0 +1,19 @@
+.wrapper {
+  height: 70px;
+  background-color: #262626;
+  -webkit-box-shadow: 0 -2px 7px rgb(0 0 0 / 8%);
+  box-shadow: 0 -2px 7px rgb(0 0 0 / 8%);
+  position: sticky;
+  bottom: 0;
+  z-index: 15;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  color: white;
+  width: 100%;
+
+  display: none;
+
+  @include _laptop {
+    display: block;
+  }
+}

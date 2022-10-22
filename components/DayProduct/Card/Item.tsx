@@ -1,17 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 import { ItemProps } from './Item.props';
 import styles from './Item.module.scss';
 import { priceRu } from '@/helpers';
 import { Rating, Review } from '@/components/ReusableComponents';
 import { CartIcon } from '@/icons';
 
-export const Item = ({ ...props }: ItemProps): JSX.Element => {
+export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
   const [rating, setRating] = React.useState<number>(4);
   const [review, setReview] = React.useState<number>(4);
 
   return (
-    <div className={styles.cardDayProduct} style={{ transform: `translateX(${props.offset}px)` }}>
+    <div
+      className={cn(styles.wrapper, className)}
+      style={{ transform: `translateX(${props.offset}px)` }}
+    >
       <div className={styles.img}>
         <Link href={`/today/${props.product._id}`}>
           <a>

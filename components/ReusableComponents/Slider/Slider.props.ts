@@ -9,5 +9,4 @@ export interface SliderProps
   arrowTop: number;
   arrowVertical: number;
   duration?: number;
-  snap: boolean;
 }

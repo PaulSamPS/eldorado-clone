@@ -35,7 +35,7 @@
   }
 }
 
-@include _tablet {
+@include _laptop {
  .wrapper {
    .sliderWrapper {
      scroll-snap-type: x mandatory;

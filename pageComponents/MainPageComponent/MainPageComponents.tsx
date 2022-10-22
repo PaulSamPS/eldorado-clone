@@ -9,7 +9,7 @@ import { generateWidth } from '@/helpers';
 
 export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
   const screenWidth = useScreenWidth();
-  console.log(screenWidth);
+
   return (
     <div className={styles.wrapper}>
       <Sidebar menu={props.menu} className={styles.sidebar} />
@@ -22,29 +22,23 @@ export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
             arrowTop={37.5}
             arrowVertical={30}
             height={300}
-            width={generateWidth({ width: screenWidth, min: 320, max: 660 })}
-            snap={screenWidth <= 768}
+            width={generateWidth({ width: screenWidth, min: 240, max: 660 })}
           />
         ))}
       </div>
       <DayProduct dayProducts={props.dayProducts} className={styles.dayProduct} />
-      <TopProduct
-        product={props.products}
-        className={styles.topProduct}
-        snap={screenWidth <= 768}
-      />
+      <TopProduct product={props.products} className={styles.topProduct} />
       {props.slider.map((s) => (
         <Slider
           className={styles.sliderBot}
           key={s._id}
           arr={s.s}
           height={110}
-          width={generateWidth({ width: screenWidth, min: 320, max: 1200 })}
+          width={generateWidth({ width: screenWidth, min: 240, max: 1200 })}
           greenDots
           arrowTop={19}
           arrowVertical={65}
           duration={2000}
-          snap={screenWidth <= 768}
         />
       ))}
     </div>
