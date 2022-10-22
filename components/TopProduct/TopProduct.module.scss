@@ -29,6 +29,7 @@
     .cardGrid {
       overflow-x: hidden;
       display: flex;
+      column-gap: 10px;
     }
   }
 }
@@ -39,6 +40,9 @@
     overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .card {

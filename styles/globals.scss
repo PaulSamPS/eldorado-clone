@@ -8,12 +8,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-@include _tablet {
-  body {
-    @include container-768px;
-  }
-}
-
 @font-face {
   font-family: 'Din2014';
   src: url('../fonts/DINPro-CondensedBold.ttf');

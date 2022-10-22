@@ -1,12 +1,15 @@
 .wrapper {
-  @include flex-column;
+  display: flex;
+  flex-direction: column;
+  width: 232px;
+  flex: 0 0 232px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 16px 20px;
+  position: relative;
   @include transition-all-05s;
   //width: 192px;
   //flex: 0 0 192px;
-  min-height: 100%;
-  position: relative;
-  padding: 16px;
-  margin: 4px 1.500px;
 
   &:hover {
     @include shadow-1;
@@ -101,6 +104,14 @@
         width: 30px;
         transform: rotate(180deg);
       }
+    }
+  }
+}
+
+@include _tablet {
+  .wrapper {
+    &:hover {
+      box-shadow: none;
     }
   }
 }

@@ -22,7 +22,7 @@ export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
             arrowTop={37.5}
             arrowVertical={30}
             height={300}
-            width={660}
+            width={generateWidth({ width: screenWidth, min: 320, max: 660 })}
             snap={screenWidth <= 768}
           />
         ))}
