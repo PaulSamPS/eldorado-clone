@@ -28,7 +28,11 @@ export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
         ))}
       </div>
       <DayProduct dayProducts={props.dayProducts} className={styles.dayProduct} />
-      <TopProduct product={props.products} className={styles.topProduct} />
+      <TopProduct
+        product={props.products}
+        className={styles.topProduct}
+        snap={screenWidth <= 768}
+      />
       {props.slider.map((s) => (
         <Slider
           className={styles.sliderBot}

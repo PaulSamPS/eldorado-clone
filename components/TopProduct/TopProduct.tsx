@@ -8,9 +8,10 @@ import { H, Arrow } from '@/components/Ui';
 import { useScreenWidth } from '@/hooks';
 import { generateWidth } from '@/helpers';
 
-export const TopProduct = ({ product, className }: TopProductProps): JSX.Element => {
+export const TopProduct = ({ product, snap, className }: TopProductProps): JSX.Element => {
   const [offset, setOffset] = React.useState<number>(0);
   const [slideIndex, setSlideIndex] = React.useState<number>(0);
+  const [width, setWidth] = React.useState<number>(0);
   const screenWidth = useScreenWidth();
   const IMG_WIDTH = 182;
 
@@ -31,29 +32,34 @@ export const TopProduct = ({ product, className }: TopProductProps): JSX.Element
     }
   };
 
+  React.useEffect(() => {
+    setWidth(generateWidth({ width: screenWidth, min: 320, max: 940 }));
+  }, [screenWidth]);
+
   return (
     <div className={cn(styles.wrapperSwipe, className)}>
       <H tag='h2'>Рекомендуем вам</H>
-      <Arrow
-        appearance='left'
-        background='white'
-        onClick={prevSlide}
-        className={styles.arrowLeft}
-      />
-      <Arrow
-        appearance='right'
-        background='white'
-        onClick={nextSlide}
-        className={styles.arrowRight}
-      />
+      {screenWidth > 768 && (
+        <>
+          <Arrow
+            appearance='left'
+            background='white'
+            onClick={prevSlide}
+            className={styles.arrowLeft}
+          />
+          <Arrow
+            appearance='right'
+            background='white'
+            onClick={nextSlide}
+            className={styles.arrowRight}
+          />
+        </>
+      )}
       <Nav />
-      <div
-        className={styles.cardBlock}
-        style={{ width: `${generateWidth({ width: screenWidth, min: 320, max: 940 })}px` }}
-      >
-        <div className={styles.cardGrid}>
+      <div className={styles.cardBlock}>
+        <div className={styles.cardGrid} style={{ width: `${snap ? width + 100 : width}px` }}>
           {product.map((p: IProduct) => (
-            <Card key={p._id} product={p} offset={offset} />
+            <Card key={p._id} product={p} offset={offset} className={styles.card} />
           ))}
         </div>
       </div>

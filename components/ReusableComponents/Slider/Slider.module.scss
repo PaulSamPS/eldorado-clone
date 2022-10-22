@@ -46,6 +46,10 @@
 
    .slider {
      scroll-snap-align: start;
+
+     img {
+       object-fit: contain !important;
+     }
    }
  }
 }
