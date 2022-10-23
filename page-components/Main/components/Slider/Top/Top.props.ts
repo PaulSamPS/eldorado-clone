@@ -1,10 +1,9 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { ISliderItem } from '@/interfaces';
+import { ISlider } from '@/interfaces';
 
-export interface SliderProps
+export interface TopProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   width: number;
-  offset: number;
   maxHeight: number;
-  item: ISliderItem;
+  arr: ISlider[];
 }

@@ -1,4 +1,4 @@
-interface ISliderItem {
+export interface ISliderItem {
   name: string;
   img: string;
   _id: string;

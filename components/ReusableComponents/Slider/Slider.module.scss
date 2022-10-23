@@ -1,58 +1,22 @@
 .wrapper {
-  @include flex-column;
-  position: relative;
+  text-align: center;
 
-  .sliderWrapper {
-    display: flex;
-    overflow: hidden;
-    border-radius: 10px;
+  @include transition-all-05s;
 
-    &:hover {
-      button {
-        svg {
-          fill: $black-color;
-        }
-      }
-    }
-
-    .slider {
-      text-align: center;
-
-      @include transition-all-05s;
-
-      img {
-        object-fit: cover;
-      }
-    }
-  }
-
-  .blockDots {
-    @include flex-center-center;
-    bottom: -30px;
-    right: 270px;
-    position: unset;
-    height: 30px;
+  img {
+    object-fit: cover;
+    display: block;
   }
 }
 
 @include _laptop {
  .wrapper {
-   .sliderWrapper {
-     scroll-snap-type: x mandatory;
-     overflow-x: scroll;
-     -webkit-overflow-scrolling: touch;
-     scroll-behavior: smooth;
-     &::-webkit-scrollbar {
-       display: none;
-     }
-   }
+   scroll-snap-align: start;
+   border-radius: 10px;
 
-   .slider {
-     scroll-snap-align: start;
-
-     img {
-       object-fit: contain !important;
-     }
+   img {
+     border-radius: 10px;
+     object-fit: contain !important;
    }
  }
 }
