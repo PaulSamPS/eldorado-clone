@@ -4,10 +4,10 @@ import axios from 'axios';
 import { withLayout } from '@/layout';
 import { IMenu, IProduct, ISlider, BasketInterface } from '@/interfaces';
 import { $host } from '@/http';
-import { Main } from '@/page-components';
+import { MainPageComponents } from '../page-components';
 
 function Home({ ...props }: HomeProps) {
-  return <Main {...props} />;
+  return <MainPageComponents {...props} />;
 }
 
 export default withLayout(Home);

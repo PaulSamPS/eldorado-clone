@@ -25,7 +25,7 @@ export const Dots = ({ slideIndex, dots, ...props }: DotsProps): JSX.Element => 
   }, [slideIndex, props.arr]);
 
   return (
-    <div className={cn(styles.dots, props.className)} {...props}>
+    <div {...props} className={cn(styles.dots, props.className)}>
       {dotsArray.map((d, index) => (
         <span key={index}>{d}</span>
       ))}

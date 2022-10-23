@@ -10,35 +10,35 @@
 		"sidebar sliderTop dayProduct"
 		"sidebar topProduct topProduct"
 		"sliderBot sliderBot sliderBot";
-}
 
-.sidebar {
-  grid-area: sidebar;
-}
+  .sidebar {
+    grid-area: sidebar;
+  }
 
-.sliderTop {
-  grid-area: sliderTop;
-}
+  .sliderTop {
+    grid-area: sliderTop;
+  }
 
-.dayProduct {
-  grid-area: dayProduct;
-}
+  .dayProduct {
+    grid-area: dayProduct;
+  }
 
-.topProduct {
-  grid-area: topProduct;
-}
+  .topProduct {
+    grid-area: topProduct;
+  }
 
-.sliderBot {
-  grid-area: sliderBot;
-}
+  .sliderBot {
+    grid-area: sliderBot;
+  }
 
-.footer {
-  grid-area: footer;
+  .footer {
+    grid-area: footer;
+  }
 }
 
 @include _desktop {
   .wrapper {
-    grid-template-columns: minmax(240px, 1fr) 220px;
+    grid-template-columns: minmax(240px, 660px) 220px;
     grid-template-rows: auto 1fr auto;
 
     gap: 30px 60px;

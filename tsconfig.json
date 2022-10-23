@@ -25,7 +25,7 @@
       "@/http": ["http"],
       "@/context": ["context"],
       "@/layout": ["layout"],
-      "@/page-components": ["page-components"]
+      "@/pageComponents": ["pageComponents"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
