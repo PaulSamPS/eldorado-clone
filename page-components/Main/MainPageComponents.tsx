@@ -4,7 +4,7 @@ import { DayProduct, Sidebar, TopProduct } from '@/components';
 import { Slider } from '@/components/ReusableComponents';
 import { H } from '@/components/Ui';
 import { useScreenWidth } from '@/hooks';
-import { generateWidth } from '@/helpers';
+import { generateWidth, WidthContainer } from '@/helpers';
 import { MainPageComponentsProps } from './Main.props';
 
 export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
@@ -26,13 +26,13 @@ export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
       </div>
       <DayProduct dayProducts={props.dayProducts} className={styles.dayProduct} />
       <TopProduct product={props.products} className={styles.topProduct} />
-      {screenWidth > 1000 && (
+      {screenWidth > WidthContainer && (
         <div className={styles.sliderBot}>
           {props.slider.map((s) => (
             <Slider
               key={s._id}
               arr={s.s}
-              height={110}
+              height={screenWidth <= 1300 ? 88 : 110}
               width={generateWidth({ width: screenWidth, min: 240, max: 1200 })}
               greenDots
               duration={2000}

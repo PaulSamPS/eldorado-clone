@@ -28,6 +28,7 @@
   .cardBlock {
     .cardGrid {
       overflow-x: hidden;
+      column-gap: 2px;
       display: flex;
     }
   }
@@ -37,10 +38,6 @@
 @include _desktop {
   .card {
     width: 25% !important;
-  }
-
-  .arrowRight {
-    right: 12px !important;
   }
 }
 

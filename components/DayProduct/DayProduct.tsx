@@ -8,6 +8,7 @@ import { IProduct } from '@/interfaces';
 import { H, Arrow } from '@/components/Ui';
 import { Dots, Timer } from '@/components/ReusableComponents';
 import { $host } from '@/http';
+import { WidthContainer } from '@/helpers';
 
 export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Element => {
   const { offset, dots, left, right, slideIndex } = useSlider({
@@ -37,7 +38,7 @@ export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Ele
             className={styles.item}
           />
         ))}
-        {screenWidth > 1000 && (
+        {screenWidth > WidthContainer && (
           <>
             <Arrow appearance='left' background='white' onClick={left} />
             <Arrow appearance='right' background='white' onClick={right} />

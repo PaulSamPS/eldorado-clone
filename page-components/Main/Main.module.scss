@@ -4,7 +4,7 @@
   grid-template-rows: auto 1fr auto;
 
   min-height: 100vh;
-  gap: 40px 30px;
+  gap: 40px 0;
   margin-top: 25px;
   grid-template-areas:
 		"sidebar sliderTop dayProduct"
@@ -13,6 +13,7 @@
 
   .sidebar {
     grid-area: sidebar;
+    margin-right: 10px;
   }
 
   .sliderTop {
@@ -38,7 +39,7 @@
 
 @include _desktop {
   .wrapper {
-    grid-template-columns: minmax(240px, 660px) 220px;
+    grid-template-columns: minmax(240px, 660px) minmax(220px, 1fr);
     grid-template-rows: auto 1fr auto;
 
     gap: 30px 60px;

@@ -1,0 +1,82 @@
+.basket {
+  @include flex-align-center;
+  gap: 5px;
+  color: $black-light-color;
+  @include transition-all-02s;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 15px;
+
+  svg {
+    path {
+      @include transition-all-02s;
+    }
+    height: 16px;
+    width: 16px;
+  }
+
+  &:hover {
+    color: $primary-color;
+
+    svg {
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.basketProduct {
+  column-gap: 20px;
+  background-color: $gray-deep-color;
+  @include flex-center-between;
+  color: $white-color;
+  font-weight: 500;
+  padding: 7px 12px;
+  height: auto;
+  @include border-radius;
+  position: relative;
+  @include transition-all-02s;
+
+  svg {
+    path {
+      @include transition-all-02s;
+      fill: $white-color;
+    }
+    height: 24px;
+    width: 24px;
+  }
+
+  &:hover {
+    color: $green-color2;
+
+    svg {
+      path {
+        fill: $green-color2;
+      }
+    }
+  }
+
+  .count {
+    background-color: $white-color;
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    @include flex-center-center;
+    @include border-radius-50;
+    color: $gray-deep-color;
+    position: absolute;
+    top: 3px;
+    left: 25px;
+    @include border($gray-deep-color, 2px);
+  }
+
+  span {
+    font-size: 15px;
+  }
+}

@@ -3,6 +3,7 @@
   position: relative;
   width: 220px;
   margin-right: 32px;
+  margin-left: 38px;
 
   .top {
     @include flex-baseline-between;
@@ -33,6 +34,7 @@
 @include _laptop {
   .wrapper {
     width: 100%;
+    margin: 0;
 
     .dayProductBlock {
       scroll-snap-type: x mandatory;

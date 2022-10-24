@@ -7,7 +7,7 @@ const nextConfig = {
     additionalData: `@import "./scss/_index.scss";`,
   },
   images: {
-    domains: ['localhost:5000']
+    domains: ['localhost:5000'],
   },
   webpack(config, options) {
     config.module.rules.push({
@@ -17,14 +17,16 @@ const nextConfig = {
         prettier: false,
         svgo: true,
         svgoConfig: {
-          plugins: [{
-            name: 'preset-default',
-            params: {
-              override: {
-                removeViewBox: false
-              }
-            }
-          }],
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                override: {
+                  removeViewBox: false,
+                },
+              },
+            },
+          ],
         },
         titleProp: true,
       },
@@ -33,6 +35,6 @@ const nextConfig = {
 
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

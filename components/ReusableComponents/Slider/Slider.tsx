@@ -5,17 +5,18 @@ import styles from './Slider.module.scss';
 import { useSlider, useScreenWidth } from '@/hooks';
 import { Dots } from '@/components/ReusableComponents';
 import { Arrow } from '@/components/Ui';
+import { WidthContainer, offsetGenerateWidth } from '@/helpers';
 
 export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Element => {
   const [auto, setAuto] = React.useState<boolean>(true);
   const screenWidth = useScreenWidth();
   const { ...slider } = useSlider({
-    imageWidth: props.width,
+    imageWidth: screenWidth > 1300 ? props.width : offsetGenerateWidth(props.width, screenWidth),
     arrLength: props.arr.length,
-    duration: props.duration,
-    auto: screenWidth > 1000 ? auto : false,
+    duration: screenWidth > WidthContainer ? props.duration : undefined,
+    // auto: false,
+    auto: screenWidth > WidthContainer ? auto : false,
   });
-  console.log(props.width, '0');
 
   return (
     <div
@@ -33,20 +34,24 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
             className={styles.slider}
             style={{
               transform: `translateX(${slider.offset}px)`,
-              width: screenWidth < 1000 ? '100%' : `${props.width}`,
+              width: screenWidth < WidthContainer ? '100%' : `${props.width}`,
             }}
           >
             <img
               src={`http://localhost:5000/slider/${l.name}/${l.img}`}
               alt='slide'
               style={{
-                width: `${screenWidth <= 1000 ? props.width - 100 : props.width}px`,
+                width: `${
+                  screenWidth <= WidthContainer
+                    ? props.width - 100
+                    : offsetGenerateWidth(props.width, screenWidth)
+                }px`,
               }}
             />
           </div>
         ))}
       </div>
-      {screenWidth > 1000 && (
+      {screenWidth > WidthContainer && (
         <Dots
           className={styles.dots}
           slideIndex={slider.slideIndex}
@@ -55,7 +60,7 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
           appearance={greenDots ? 'activeGreen' : undefined}
         />
       )}
-      {screenWidth > 1000 && (
+      {screenWidth > WidthContainer && (
         <>
           <Arrow
             appearance='left'

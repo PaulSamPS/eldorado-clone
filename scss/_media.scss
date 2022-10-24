@@ -11,13 +11,19 @@
 }
 
 @mixin _laptop {
-  @media all and (max-width: 1000px) {
+  @media all and (max-width: 1050px) {
     @content
   }
 }
 
 @mixin _desktop {
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1300px) {
+    @content
+  }
+}
+
+@mixin _desktopL {
+  @media all and (max-width: 1320px) {
     @content
   }
 }

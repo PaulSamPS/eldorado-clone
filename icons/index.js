@@ -15,6 +15,10 @@ import LocationIcon from './location.svg';
 import ZoomIcon from './zoom.svg';
 import Icon360 from './360.svg';
 import WriteIcon from './write.svg';
+import MobileMainIcon from './mobileMain.svg';
+import MobileCatalogIcon from './mobileCatalog.svg';
+import MobileLoginIcon from './mobileLogin.svg';
+import MobileMenuIcon from './mobileMenu.svg';
 
 export {
   ArrowIcon,
@@ -34,4 +38,8 @@ export {
   ZoomIcon,
   Icon360,
   WriteIcon,
+  MobileMainIcon,
+  MobileCatalogIcon,
+  MobileLoginIcon,
+  MobileMenuIcon,
 };

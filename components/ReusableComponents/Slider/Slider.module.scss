@@ -3,12 +3,9 @@
 
   .sliderWrapper {
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     border-radius: 10px;
     position: relative;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     &::-webkit-scrollbar {
       display: none;
       width: 0;
@@ -24,10 +21,14 @@
 
     .slider {
       text-align: center;
-
       @include transition-all-05s;
+      width: 100%;
 
       img {
+        height: 100%;
+        width: -moz-available;          /* WebKit игнор. */
+        width: -webkit-fill-available;  /* Mozilla игнор. */
+        width: fill-available;
         object-fit: cover;
         display: block;
       }
@@ -36,9 +37,6 @@
 
   .dots {
     @include flex-center-center;
-    bottom: -30px;
-    right: 270px;
-    position: absolute;
     height: 30px;
   }
 }
@@ -46,7 +44,10 @@
 
 @include _laptop {
   .sliderWrapper {
-    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: scroll !important;
     border-radius: unset !important;
     column-gap: 10px;
 
@@ -56,7 +57,6 @@
 
       img {
         border-radius: 10px;
-        object-fit: contain !important;
       }
     }
   }
