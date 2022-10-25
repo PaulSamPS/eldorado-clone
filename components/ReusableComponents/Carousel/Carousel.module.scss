@@ -69,4 +69,24 @@
       border: 1px solid $primary-color;
     }
   }
+
+  @include _desktop {
+    .leftBot {
+      left: -40px;
+    }
+
+    .rightBot {
+      right: -40px;
+    }
+  }
+
+  @include _laptop {
+    .leftBot {
+      left: 15px;
+    }
+
+    .rightBot {
+      right: 15px;
+    }
+  }
 }

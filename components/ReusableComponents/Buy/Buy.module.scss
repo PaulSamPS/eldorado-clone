@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  @include border($gray-light-color, 1px);
+  border: 1px solid $gray-light-color !important;
   box-shadow: 0 3px 15px 0 #00000019;
   margin-right: 25px;
 
@@ -48,6 +48,7 @@
       font-size: 17px;
       position: relative;
       padding: 10px 30px 10px 60px;
+      white-space: nowrap;
 
       svg {
         position: absolute;
