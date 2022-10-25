@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import styles from './Basket.module.scss';
 import { priceRu } from '@/helpers';
-import { BasketContext } from '@/context';
+import { AppContext } from '@/context';
 import { CartBoldIcon } from '@/icons';
 import { BasketProps } from './Basket.props';
 
 export const Basket = ({ className }: BasketProps) => {
-  const { basket } = useContext(BasketContext);
+  const { basket } = useContext(AppContext);
   const count = basket.products.reduce((prev, curr) => prev + curr.qty, 0);
   const [basketCount, setBasketCount] = React.useState<number>(count);
 

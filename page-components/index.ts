@@ -1,1 +1,2 @@
-export * from './Main/MainPageComponents';
+export * from './Main/Main';
+export * from './Today/Today';

@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  @include border($gray-light-color, 1px);
+  box-shadow: 0 3px 15px 0 #00000019;
+  margin-right: 25px;
+
+  .topBuy {
+    display: flex;
+    flex-direction: column;
+    padding: 17px 22px 30px;
+
+    .sale {
+      @include fontDin;
+      display: flex;
+      align-items: center;
+
+      .oldPrice {
+        @include fontDin;
+        color: $gray-color2;
+        font-size: 24px;
+        margin-right: 10px;
+        text-decoration: line-through;
+        line-height: .8;
+      }
+
+      .discount {
+        background: $primary-color;
+        color: $white-color;
+        padding: 1px 5px;
+        border-radius: 2px;
+        @include fontDin;
+
+        font-size: 15px;
+      }
+    }
+
+    .price {
+      font-size: 40px;
+      @include fontDin;
+
+      margin-bottom: 20px;
+    }
+
+    button {
+      height: 50px;
+      @include fontGraphicMedium;
+      font-size: 17px;
+      position: relative;
+      padding: 10px 30px 10px 60px;
+
+      svg {
+        position: absolute;
+        left: 40px;
+        top: 0;
+      }
+    }
+  }
+
+  hr {
+    border-top: 1px solid $gray-light-color;
+    width: 100%;
+  }
+
+  .deliveryBlock {
+    padding: 17px 22px 30px;
+    display: flex;
+    flex-direction: column;
+
+    .location {
+      font-size: 12px;
+      @include fontGraphicLight;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+
+      a {
+        color: $primary-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -17,7 +17,7 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
       style={{ transform: `translateX(${props.offset}px)` }}
     >
       <div className={styles.img}>
-        <Link href={`/today/${props.product._id}`}>
+        <Link href={{ pathname: '/today', query: { id: props.product._id } }}>
           <a>
             <img
               src={`http://localhost:5000/product/${props.product.name}/${props.product.img[0].fileName}`}
@@ -40,7 +40,7 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
         <Rating rating={rating} isEditable={false} />
         <Review review={review} />
       </div>
-      <Link href={`/today/${props.product._id}`}>
+      <Link href={{ pathname: '/today', query: { id: props.product._id } }}>
         <a className={styles.name}>{props.product.name}</a>
       </Link>
       <div className={styles.sale}>

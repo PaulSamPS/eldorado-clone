@@ -19,5 +19,5 @@
 }
 
 @mixin border($color, $width) {
-  border: $width solid $color;
+  border: $width solid $color !important;
 }

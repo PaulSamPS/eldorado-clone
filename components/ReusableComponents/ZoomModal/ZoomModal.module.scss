@@ -1,0 +1,17 @@
+.wrapper {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 45px;
+  height: 45px;
+  margin: 0 0 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px 0 #0000003d, 0 1px 3px 0 #0000001e;
+  background-color: var(--white);
+  border: solid 1px var(--gray-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}

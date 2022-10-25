@@ -8,10 +8,10 @@ import { Button } from '@/components/Ui';
 import { priceRu } from '@/helpers';
 import { FavouriteGreenIcon, FavouriteIcon } from '@/icons';
 import { addToBasketHttp } from '@/http';
-import { BasketContext } from '@/context';
+import { AppContext } from '@/context';
 
 export const Card = ({ product, className, offset }: CardProps) => {
-  const { basket, setBasket } = useContext(BasketContext);
+  const { basket, setBasket } = useContext(AppContext);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(51);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);

@@ -11,4 +11,6 @@ export interface AppInterface {
   slider: ISlider[];
   menu: IMenu[];
   brand: IBrand[];
+  oneProduct: IProduct;
+  productsYesterday: IProduct[];
 }

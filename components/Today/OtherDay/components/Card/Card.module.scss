@@ -1,0 +1,81 @@
+.active {
+  @include border($primary-color, 1px);
+  box-shadow: 0 2px 3px 0 rgb(168 212 112 / 51%)
+}
+.card {
+  width: 300px;
+  min-height: 100px;
+  box-shadow: 2px 3px 6px 0 rgb(211 215 206 / 64%);
+  padding: 15px 13px 14px 25px;
+  border-radius: 2px;
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all ease .2s;
+  border: 1px solid transparent;
+  position: relative;
+
+  &:hover {
+    @include border($primary-color, 1px);
+    box-shadow: 0 2px 3px 0 rgb(168 212 112 / 51%)
+  }
+
+  .percent {
+    color: $white-color;
+    @include flex-center-center;
+    @include fontDin;
+    font-size: 24px;
+    letter-spacing: -1px;
+    background-color: $primary-color;
+    height: 40px;
+    width: 60px;
+    clip-path: polygon(97% 0,90% 100%,0 100%,0 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .left {
+    img {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+    }
+  }
+
+  .right {
+    flex: 1;
+    .sale {
+      @include flex-align-center;
+      @include fontDin;
+
+      .oldPrice {
+        @include fontDin;
+        color: $gray-color2;
+        text-decoration: line-through;
+        font-size: 20px;
+      }
+      .discount {
+        background-color: $primary-color;
+        color: $white-color;
+        height: 18px;
+        line-height: 18px;
+        float: left;
+        padding: 0 8px 0 9px;
+        border-radius: 2px;
+        font-size: 15px;
+      }
+    }
+    .price {
+      font-size: 30px;
+      @include fontDin;
+    }
+
+    .name {
+      @include fontGraphicLight;
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+}

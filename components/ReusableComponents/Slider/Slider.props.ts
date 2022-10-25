@@ -1,11 +1,11 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface SliderProps
+export interface SliderProps<T>
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   width: number;
   height: number;
   greenDots?: boolean;
-  arr: any[];
+  arr: Array<T>;
   arrowVertical?: number;
   duration?: number;
 }

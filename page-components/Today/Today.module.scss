@@ -1,0 +1,75 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 300px minmax(320px, 860px);
+
+  min-height: 100vh;
+  gap: 40px 40px;
+  margin-top: 25px;
+  padding: 0 20px;
+  grid-template-areas:
+		"otherDay main"
+        "yesterday main";
+
+  .otherDay {
+    grid-area: otherDay;
+  }
+
+  .main {
+      grid-area: main;
+      width: 100%;
+    .top {
+      padding: 0 27px;
+      border-radius: 2px;
+      @include flex-center-between;
+      background-color: $primary-color;
+      color: $white-color;
+
+      h2 {
+        color: $white-color;
+        @include fontDin;
+        padding: 0;
+        font-size: 30px;
+        line-height: 60px;
+      }
+
+     .endAction {
+       display: flex;
+       align-items: center;
+       span {
+         font-size: 14px;
+         @include fontGraphicLight;
+       }
+
+       .timer {
+         margin-left: 10px;
+         span {
+           @include fontDin;
+           color: $white-color;
+           font-size: 30px;
+
+           div {
+             line-height: 23px;
+           }
+         }
+       }
+     }
+    }
+  }
+
+  .yesterday {
+    grid-area: yesterday;
+  }
+
+  @include _laptop {
+    grid-template-columns: minmax(320px, 960px);
+    grid-template-areas:
+		"otherDay"
+        "main"
+        "yesterday";
+
+    .yesterday {
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+  }
+}

@@ -11,7 +11,7 @@
     font-size: 12px;
     @include transition-all-02s;
     cursor: pointer;
-    font-family: "Din proS", sans-serif;
+    @include fontGraphicLight;
 
     &:hover {
       color: $primary-color;

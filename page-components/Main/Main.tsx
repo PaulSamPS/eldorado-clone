@@ -7,7 +7,7 @@ import { useScreenWidth } from '@/hooks';
 import { generateWidth, WidthContainer } from '@/helpers';
 import { MainPageComponentsProps } from './Main.props';
 
-export const MainPageComponents = ({ ...props }: MainPageComponentsProps) => {
+export const Main = ({ ...props }: MainPageComponentsProps) => {
   const screenWidth = useScreenWidth();
 
   return (

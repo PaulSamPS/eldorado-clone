@@ -6,8 +6,9 @@ import { useSlider, useScreenWidth } from '@/hooks';
 import { Dots } from '@/components/ReusableComponents';
 import { Arrow } from '@/components/Ui';
 import { WidthContainer, offsetGenerateWidth } from '@/helpers';
+import { ISliderItem } from '@/interfaces';
 
-export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Element => {
+export const Slider = ({ greenDots = false, ...props }: SliderProps<ISliderItem>): JSX.Element => {
   const [auto, setAuto] = React.useState<boolean>(true);
   const screenWidth = useScreenWidth();
   const { ...slider } = useSlider({
@@ -31,6 +32,7 @@ export const Slider = ({ greenDots = false, ...props }: SliderProps): JSX.Elemen
       <div className={styles.sliderWrapper}>
         {props.arr.map((l) => (
           <div
+            key={l._id}
             className={styles.slider}
             style={{
               transform: `translateX(${slider.offset}px)`,

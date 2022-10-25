@@ -1,28 +1,37 @@
 import React, { createContext, PropsWithChildren, useState } from 'react';
-import { BasketInterface } from '../interfaces/basket.interface';
+import { BasketInterface } from '@/interfaces';
 
-export interface IBasketContext {
+export interface IAppContext {
   basket: BasketInterface;
   setBasket?: (newBasket: BasketInterface) => void;
+  modal: boolean;
+  setModal?: (newModal: boolean) => void;
 }
 
-export const BasketContext = createContext<IBasketContext>({
+export const AppContext = createContext<IAppContext>({
   basket: {} as BasketInterface,
+  modal: false,
 });
 
 export const AppContextProvider = ({
   children,
   basket,
-}: PropsWithChildren<IBasketContext>): JSX.Element => {
+  modal,
+}: PropsWithChildren<IAppContext>): JSX.Element => {
   const [basketState, setBasketState] = useState<BasketInterface>(basket);
+  const [modalState, setModalState] = useState<boolean>(modal);
 
   const setBasket = (newBasket: BasketInterface) => {
     setBasketState(newBasket);
   };
 
+  const setModal = (newModal: boolean) => {
+    setModalState(newModal);
+  };
+
   return (
-    <BasketContext.Provider value={{ basket: basketState, setBasket }}>
+    <AppContext.Provider value={{ basket: basketState, setBasket, modal: modalState, setModal }}>
       {children}
-    </BasketContext.Provider>
+    </AppContext.Provider>
   );
 };

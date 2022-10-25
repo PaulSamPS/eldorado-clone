@@ -1,0 +1,25 @@
+.wrapper {
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  background: $primary-color;
+  width: 120px;
+  height: 120px;
+ @include flex-center-center-column;
+  color: $white-color;
+  border-radius: 50%;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px 0 $gray-color2;
+  z-index: 10;
+
+  .totalPercent {
+    @include flex-baseline;
+    @include fontGraphicMedium;
+    font-size: 36px;
+  }
+
+  span {
+    @include fontGraphicLight;
+    font-size: 18px;
+  }
+}
