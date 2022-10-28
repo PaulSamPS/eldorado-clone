@@ -15,4 +15,15 @@
       display: none;
     }
   }
+
+  @include _mobileM {
+    .wrapper {
+      flex-direction: column;
+
+      .search {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
 }

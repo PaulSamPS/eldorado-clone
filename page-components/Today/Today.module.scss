@@ -59,7 +59,7 @@
     grid-area: yesterday;
   }
 
-  @include _laptop {
+  @include _desktop {
     padding: 0 20px;
     grid-template-columns: minmax(320px, 960px);
     grid-template-areas:
@@ -70,6 +70,14 @@
     .yesterday {
       margin-top: 0;
       margin-bottom: 40px;
+    }
+  }
+
+  @include _mobile {
+    .top {
+      .text {
+        display: none;
+      }
     }
   }
 }

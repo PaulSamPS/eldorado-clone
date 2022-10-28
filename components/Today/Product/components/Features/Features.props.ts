@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { IProduct } from '../../../../../interfaces/product.interface';
+import { IProduct } from '@/interfaces';
 
 export interface FeaturesProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

@@ -60,4 +60,47 @@
       width: 320px;
     }
   }
+
+  @include _tablet {
+    .info {
+      display: block;
+
+      .left {
+        width: 100%;
+      }
+
+      .right {
+        width: 100%;
+        display: flex;
+
+        .buy {
+          width: 50%;
+        }
+
+        .features {
+          margin-top: 0;
+          padding: 0 20px;
+        }
+      }
+    }
+    .rules {
+      padding: 35px 0 40px 0;
+    }
+  }
+
+  @include _mobile {
+    .info {
+      .right {
+        flex-direction: column;
+
+        .buy {
+          width: 100%;
+        }
+
+        .features {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
 }

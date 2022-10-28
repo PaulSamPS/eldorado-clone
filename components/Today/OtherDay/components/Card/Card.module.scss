@@ -1,5 +1,5 @@
 .active {
-  @include border($primary-color, 1px);
+  border: 1px solid $primary-color !important;
   box-shadow: 0 2px 3px 0 rgb(168 212 112 / 51%)
 }
 .card {

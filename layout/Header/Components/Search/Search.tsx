@@ -1,10 +1,12 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './Search.module.scss';
 import { Button } from '@/components/Ui';
 import { SearchIcon } from '@/icons';
+import { SearchProps } from './Search.props';
 
-export const Search = () => (
-  <div className={styles.wrapper}>
+export const Search = ({ className }: SearchProps) => (
+  <div className={cn(styles.wrapper, className)}>
     <div className={styles.search}>
       <div className={styles.input}>
         <input placeholder='Поиск' type='text' />

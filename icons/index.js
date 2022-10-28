@@ -10,7 +10,7 @@ import SearchIcon from './search.svg';
 import UserIcon from './user.svg';
 import CloseIcon from './close.svg';
 import CatalogIcon from './catalog.svg';
-import CartButtonIcon from './cartButton.svg';
+import AddToCartIcon from './addToCart.svg';
 import LocationIcon from './location.svg';
 import ZoomIcon from './zoom.svg';
 import Icon360 from './360.svg';
@@ -33,7 +33,7 @@ export {
   UserIcon,
   CloseIcon,
   CatalogIcon,
-  CartButtonIcon,
+  AddToCartIcon,
   LocationIcon,
   ZoomIcon,
   Icon360,

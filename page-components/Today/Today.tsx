@@ -18,7 +18,7 @@ export const Today = ({ currentProduct, productsYesterday, dayProducts }: TodayP
       <div className={styles.top}>
         <H tag='h2'>Товар дня</H>
         <div className={styles.endAction}>
-          <span>До конца действия супер-цены осталось:</span>
+          <span className={styles.text}>До конца действия супер-цены осталось:</span>
           <Timer className={styles.timer} />
         </div>
       </div>

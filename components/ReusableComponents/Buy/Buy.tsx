@@ -4,7 +4,7 @@ import styles from './Buy.module.scss';
 import { priceRu } from '@/helpers';
 import { Button } from '@/components/Ui';
 import { BuyProps } from './Buy.props';
-import { CartButtonIcon, LocationIcon } from '@/icons';
+import { AddToCartIcon, LocationIcon } from '@/icons';
 
 export const Buy = ({ currentProduct, className }: BuyProps) => (
   <div className={cn(styles.wrapper, className)}>
@@ -17,7 +17,10 @@ export const Buy = ({ currentProduct, className }: BuyProps) => (
       </div>
       <span className={styles.price}>{priceRu(currentProduct!.price)}</span>
       <Button appearance='primary'>
-        <CartButtonIcon /> Купить сейчас
+        <div className={styles.iconBasket}>
+          <AddToCartIcon /> <span />
+        </div>
+        Купить сейчас
       </Button>
     </div>
     <hr />

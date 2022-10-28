@@ -1,6 +1,6 @@
 .wrapper {
   margin-top: 40px;
-  @include _laptop {
+  @include _desktop {
     .product {
       display: flex;
       scroll-snap-type: x mandatory;

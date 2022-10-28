@@ -1,5 +1,5 @@
 .wrapper {
-  @include _laptop {
+  @include _desktop {
     .product {
       display: flex;
       scroll-snap-type: x mandatory;

@@ -1,11 +1,17 @@
+@mixin _mobileM {
+  @media all and (max-width: 500px) {
+    @content
+  }
+}
+
 @mixin _mobile {
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 650px) {
     @content
   }
 }
 
 @mixin _tablet {
-  @media all and (max-width: 768px) {
+  @media all and (max-width: 850px) {
     @content
   }
 }
