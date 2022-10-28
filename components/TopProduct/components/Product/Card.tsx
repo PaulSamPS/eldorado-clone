@@ -1,44 +1,19 @@
 import cn from 'classnames';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Card.module.scss';
 import { CardProps } from './Card.props';
 import { Rating, Review } from '@/components/ReusableComponents';
 import { Button } from '@/components/Ui';
 import { priceRu } from '@/helpers';
 import { FavouriteGreenIcon, FavouriteIcon } from '@/icons';
-import { addToBasketHttp } from '@/http';
-import { AppContext } from '@/context';
+import { useAddToBasket } from '@/hooks';
 
 export const Card = ({ product, className, offset }: CardProps) => {
-  const { basket, setBasket } = useContext(AppContext);
   const [rating, setRating] = React.useState<number>(5);
   const [review, setReview] = React.useState<number>(51);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
   const [isLike, setIsLike] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    const item = basket.products.map((p) => p.product._id).includes(product._id);
-
-    if (item) {
-      setIsIsInBasket(item);
-    }
-  }, [basket]);
-
-  const addToBasket = async () => {
-    setIsLoading(true);
-    try {
-      const { newBasket } = await addToBasketHttp(product);
-      if (setBasket) {
-        setBasket(newBasket);
-      }
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { isLoading, isInBasket, addToBasket } = useAddToBasket(product);
 
   const onPressEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {

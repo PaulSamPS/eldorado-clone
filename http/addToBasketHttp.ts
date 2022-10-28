@@ -1,7 +1,6 @@
 import { getCookie } from 'cookies-next';
 import { $host } from './axios';
-import { BasketInterface } from '../interfaces/basket.interface';
-import { IProduct } from '../interfaces/product.interface';
+import { BasketInterface, IProduct } from '@/interfaces';
 
 interface AddToBasketHttp {
   newBasket: BasketInterface;

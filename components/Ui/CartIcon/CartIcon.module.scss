@@ -1,0 +1,71 @@
+.added {
+  span {
+    &:before {
+      width: 5px !important;
+      transform: rotate(-135deg) translate(5%,-10%) !important;
+      background-color: $primary-color !important;
+    }
+
+    &:after {
+      width: 10px !important;
+      transform: rotate(-45deg) translate(20%,10%) !important;
+      background-color: $primary-color !important;
+    }
+  }
+
+  svg {
+    fill: $primary-color !important;
+  }
+}
+
+.addedWhite {
+  span {
+    &:before {
+      background-color: $white-color !important;
+    }
+
+    &:after {
+      background-color: $white-color !important;
+    }
+  }
+
+  svg {
+    fill: $white-color !important;
+  }
+}
+
+.iconBasket {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+
+  span {
+    &:before {
+      content: "";
+      display: block;
+      height: 2px;
+      top: 5px;
+      left: 7px;
+      width: 9px;
+      position: absolute;
+      @include transition-all-02s;
+      background-color: $white-color;
+      border-radius: 2px;
+      transform: rotate(90deg);
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 9px;
+      position: absolute;
+      @include transition-all-02s;
+      top: 5px;
+      left: 7px;
+      background-color: $white-color;
+      border-radius: 2px;
+    }
+  }
+}

@@ -5,11 +5,13 @@ import { ItemProps } from './Item.props';
 import styles from './Item.module.scss';
 import { priceRu } from '@/helpers';
 import { Rating, Review } from '@/components/ReusableComponents';
-import { CartIcon } from '@/icons';
+import { CartIcon } from '@/components/Ui';
+import { useAddToBasket } from '@/hooks';
 
 export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
   const [rating, setRating] = React.useState<number>(4);
   const [review, setReview] = React.useState<number>(4);
+  const { addToBasket } = useAddToBasket(props.product);
 
   return (
     <div
@@ -51,9 +53,7 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
       </div>
       <div className={styles.bottom}>
         <span className={styles.price}>{priceRu(props.product.price)}</span>
-        <div className={styles.cart}>
-          <CartIcon />
-        </div>
+        <CartIcon className={styles.icon} onClick={addToBasket} product={props.product} />
       </div>
     </div>
   );

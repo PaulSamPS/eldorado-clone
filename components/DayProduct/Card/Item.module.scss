@@ -92,6 +92,7 @@
     position: relative;
     flex-grow: 1;
     padding-top: 10px;
+    @include flex-center-between;
 
     .price {
       font-size: 22px;
@@ -99,15 +100,36 @@
      font-family: "Din proL", sans-serif;
     }
 
-    .cart {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    .icon {
+      position: relative;
+      cursor: pointer;
 
+      span {
+        @include transition-all-02s;
+        &:before {
+          background-color: $gray-color;
+        }
+        &:after {
+          background-color: $gray-color;
+        }
+      }
       svg {
-        height: 30px;
-        width: 30px;
-        transform: rotateY(180deg);
+        @include transition-all-02s;
+        fill: $gray-color;
+      }
+
+      &:hover {
+       span {
+         &:before {
+           background-color: $primary-color;
+         }
+         &:after {
+           background-color: $primary-color;
+         }
+       }
+        svg {
+          fill: $primary-color;
+        }
       }
     }
   }

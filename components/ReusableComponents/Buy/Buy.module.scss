@@ -44,49 +44,14 @@
     }
 
     button {
+      @include flex-align-center;
+      column-gap: 10px;
       height: 50px;
       @include fontGraphicMedium;
       font-size: 17px;
       position: relative;
       padding: 10px 30px 10px 60px;
       white-space: nowrap;
-
-      .iconBasket {
-        span {
-          &:before {
-            content: "";
-            display: block;
-            height: 2px;
-            top: 15px;
-            width: 9px;
-            position: absolute;
-            @include transition-all-02s;
-            background-color: $white-color;
-            border-radius: 2px;
-            left: 47px;
-            transform: rotate(90deg);
-          }
-
-          &:after {
-            content: "";
-            display: block;
-            height: 2px;
-            width: 9px;
-            position: absolute;
-            @include transition-all-02s;
-            top: 15px;
-            left: 47px;
-            background-color: $white-color;
-            border-radius: 2px;
-          }
-        }
-
-        svg {
-          position: absolute;
-          left: 40px;
-          top: 10px;
-        }
-      }
     }
   }
 

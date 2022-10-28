@@ -15,7 +15,6 @@ export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Ele
     imageWidth: 220,
     arrLength: dayProducts.length,
   });
-
   const screenWidth = useScreenWidth();
 
   const setDayProducts = async () => {
