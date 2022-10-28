@@ -1,5 +1,6 @@
 import { getCookie } from 'cookies-next';
 import React, { useContext } from 'react';
+import { useRouter } from 'next/router';
 import { BasketInterface, IProduct } from '@/interfaces';
 import { AppContext } from '@/context';
 import { $host } from '@/http';
@@ -14,15 +15,14 @@ export const useAddToBasket = (product: IProduct): IUseAddToBasket => {
   const { basket, setBasket } = useContext(AppContext);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isInBasket, setIsIsInBasket] = React.useState<boolean>(false);
+  const { query } = useRouter();
 
   const basketCookie = getCookie('basket');
   React.useEffect(() => {
     const item = basket.products.map((p) => p.product._id).includes(product._id);
 
-    if (item) {
-      setIsIsInBasket(item);
-    }
-  }, [basket]);
+    setIsIsInBasket(item);
+  }, [basket, query]);
 
   const addToBasket = async () => {
     setIsLoading(true);

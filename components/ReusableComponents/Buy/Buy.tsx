@@ -8,7 +8,7 @@ import { LocationIcon } from '@/icons';
 import { useAddToBasket } from '@/hooks';
 
 export const Buy = ({ currentProduct, className }: BuyProps) => {
-  const { isInBasket } = useAddToBasket(currentProduct!);
+  const { isInBasket, addToBasket } = useAddToBasket(currentProduct!);
   return (
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.topBuy}>
@@ -19,8 +19,8 @@ export const Buy = ({ currentProduct, className }: BuyProps) => {
           </span>
         </div>
         <span className={styles.price}>{priceRu(currentProduct!.price)}</span>
-        <Button appearance='primary'>
-          <CartIcon product={currentProduct!} appearance='button' />
+        <Button appearance='primary' onClick={addToBasket}>
+          <CartIcon isInBasket={isInBasket!} appearance='button' />
           {isInBasket ? 'В корзине' : 'Купить сейчас'}
         </Button>
       </div>

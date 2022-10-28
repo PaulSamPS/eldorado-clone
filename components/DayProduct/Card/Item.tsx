@@ -11,7 +11,7 @@ import { useAddToBasket } from '@/hooks';
 export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
   const [rating, setRating] = React.useState<number>(4);
   const [review, setReview] = React.useState<number>(4);
-  const { addToBasket } = useAddToBasket(props.product);
+  const { isInBasket, addToBasket } = useAddToBasket(props.product);
 
   return (
     <div
@@ -53,7 +53,7 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
       </div>
       <div className={styles.bottom}>
         <span className={styles.price}>{priceRu(props.product.price)}</span>
-        <CartIcon className={styles.icon} onClick={addToBasket} product={props.product} />
+        <CartIcon className={styles.icon} onClick={addToBasket} isInBasket={isInBasket} />
       </div>
     </div>
   );
