@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { $host } from '@/http';
 import { BasketInterface, IProduct } from '@/interfaces';
@@ -41,5 +41,4 @@ interface TodayProps extends Record<string, unknown> {
   dayProducts: IProduct[];
   oneProduct: IProduct;
   productsYesterday: IProduct[];
-  basket: BasketInterface;
 }

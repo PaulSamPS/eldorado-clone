@@ -1,6 +1,8 @@
 .filled {
   svg {
-    fill: $primary-color;
+    path {
+      fill: $primary-color;
+    }
   }
 }
 

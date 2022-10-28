@@ -1,0 +1,33 @@
+.wrapper {
+  padding-top: 15px;
+  border-bottom: 1px solid $white-color5;
+  padding-bottom: 35px;
+
+  .top {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    margin-bottom: 10px;
+    .name {
+      font-size: 14px;
+      color: $graphite-color;
+      line-height: 17px;
+    }
+  }
+  .bottom {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+
+    .date {
+      display: block;
+      font-size: 14px;
+      color: $gray-color5;
+    }
+
+    .text {
+      overflow: hidden;
+      font-size: 14px;
+      color: $graphite-color;
+      line-height: 17px;
+    }
+  }
+}

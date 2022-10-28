@@ -9,7 +9,8 @@ export const Rating = ({
   isFully = false,
   ...props
 }: RatingProps): JSX.Element => {
-  const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<div />));
+  const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
+  console.log(props.rating);
 
   const handleSpace = (index: number, e: KeyboardEvent<SVGElement>) => {
     if (e.code !== 'Space' || !props.setRating) {
@@ -60,8 +61,10 @@ export const Rating = ({
     <div className={props.className}>
       {isEditable ? (
         <div className={styles.starBlock}>
-          {ratingArray.map(() => (
-            <div className={styles.starReview}>{props.rating}</div>
+          {ratingArray.map((r, index) => (
+            <div key={index} className={styles.starReview}>
+              {r}
+            </div>
           ))}
         </div>
       ) : (

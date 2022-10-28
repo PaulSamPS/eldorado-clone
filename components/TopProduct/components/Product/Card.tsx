@@ -24,18 +24,24 @@ export const Card = ({ product, className, offset }: CardProps) => {
   return (
     <div className={cn(styles.wrapper, className)} style={{ transform: `translateX(${offset}px)` }}>
       <div className={styles.img}>
-        <img
-          src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
-          alt={product.name}
-          title={product.name}
-        />
+        <Link href={{ pathname: '/product', query: { id: product._id } }}>
+          <a>
+            <img
+              src={`http://localhost:5000/product/${product.name}/${product.img[0].fileName}`}
+              alt={product.name}
+              title={product.name}
+            />
+          </a>
+        </Link>
       </div>
       <div className={styles.rating}>
         <Rating rating={rating} isEditable={false} />
         <Review review={review} />
       </div>
-      <Link href={`product/${product._id}`}>
-        <span className={styles.name}>{product.name}</span>
+      <Link href={{ pathname: '/product', query: { id: product._id } }}>
+        <a>
+          <span className={styles.name}>{product.name}</span>
+        </a>
       </Link>
       <span className={styles.price}>{priceRu(product.price)}</span>
       <div className={styles.bottom}>

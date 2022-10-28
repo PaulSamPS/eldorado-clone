@@ -1,0 +1,22 @@
+.wrapper {
+  @include flex-center-between;
+  border-bottom: 1px solid $white-color5;
+  padding: 25px 0;
+
+  label {
+    font-size: 12px;
+    color: $gray-color4;
+    line-height: 30px;
+  }
+
+  select {
+    outline: none;
+    margin-left: 10px;
+  }
+
+  .btnReview {
+    @include flex-align-center;
+    column-gap: 10px;
+    padding: 7px 30px;
+  }
+}

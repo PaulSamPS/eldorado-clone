@@ -13,4 +13,5 @@ export interface AppInterface {
   brand: IBrand[];
   oneProduct: IProduct;
   productsYesterday: IProduct[];
+  product: IProduct;
 }
