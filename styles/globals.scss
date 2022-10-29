@@ -1,5 +1,7 @@
 @import "scss/index";
-
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   padding: 0;

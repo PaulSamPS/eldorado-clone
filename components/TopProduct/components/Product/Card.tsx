@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import Link from 'next/link';
 import React from 'react';
+import { useRouter } from 'next/router';
 import styles from './Card.module.scss';
 import { CardProps } from './Card.props';
 import { Rating, Review } from '@/components/ReusableComponents';
@@ -14,6 +15,12 @@ export const Card = ({ product, className, offset }: CardProps) => {
   const [review, setReview] = React.useState<number>(51);
   const [isLike, setIsLike] = React.useState<boolean>(false);
   const { isLoading, isInBasket, addToBasket } = useAddToBasket(product);
+
+  const { push } = useRouter();
+
+  const handlePush = async () => {
+    await push({ pathname: '/basket' });
+  };
 
   const onPressEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
@@ -49,7 +56,7 @@ export const Card = ({ product, className, offset }: CardProps) => {
           appearance='primary'
           className={cn(styles.btn, { [styles.inTheBasket]: isInBasket })}
           disabled={isLoading}
-          onClick={addToBasket}
+          onClick={isInBasket ? handlePush : addToBasket}
         >
           {isInBasket ? 'В корзине' : 'В корзину'}
         </Button>

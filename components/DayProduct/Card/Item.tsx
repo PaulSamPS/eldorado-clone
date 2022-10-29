@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 import { ItemProps } from './Item.props';
 import styles from './Item.module.scss';
 import { priceRu } from '@/helpers';
@@ -12,6 +13,11 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
   const [rating, setRating] = React.useState<number>(4);
   const [review, setReview] = React.useState<number>(4);
   const { isInBasket, addToBasket } = useAddToBasket(props.product);
+  const { push } = useRouter();
+
+  const handlePush = async () => {
+    await push({ pathname: '/basket' });
+  };
 
   return (
     <div
@@ -53,7 +59,11 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
       </div>
       <div className={styles.bottom}>
         <span className={styles.price}>{priceRu(props.product.price)}</span>
-        <CartIcon className={styles.icon} onClick={addToBasket} isInBasket={isInBasket} />
+        <CartIcon
+          className={styles.icon}
+          onClick={isInBasket ? handlePush : addToBasket}
+          isInBasket={isInBasket}
+        />
       </div>
     </div>
   );
