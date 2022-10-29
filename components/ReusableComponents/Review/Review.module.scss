@@ -1,5 +1,6 @@
 .review {
-  @include flex-align-center;
+  display: flex;
+  align-content: center;
   color: $graphite-color2;
 
   .reviewIcon {

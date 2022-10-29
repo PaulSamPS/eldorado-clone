@@ -10,6 +10,7 @@
     .name {
       font-size: 14px;
       color: $graphite-color;
+      @include fontGraphicMedium;
       line-height: 17px;
     }
   }

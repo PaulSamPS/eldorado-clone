@@ -10,7 +10,7 @@ const Product: FC<ProductProps> = ({ product }) => {
   const [itemIndex, setItemIndex] = React.useState<number>(0);
   const [is360, setIs360] = React.useState<boolean>(false);
   const [review] = React.useState<number>(1);
-  const [rating, setRating] = React.useState<number>(4);
+  const [rating, setRating] = React.useState<number>(1);
   const [sort, setSort] = React.useState<string>('Пользе');
   const [writeFeedback, setWriteFeedback] = React.useState<boolean>(false);
 
