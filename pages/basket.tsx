@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { withLayout } from '@/hoc';
 import { BasketInterface, IMenu, IProduct, ISlider } from '@/interfaces';
 import { $host } from '@/http';
+import { AppContext } from '@/context';
 
-const Basket = () => <div>123</div>;
+const Basket = () => {
+  const { basket } = useContext(AppContext);
+
+  return (
+    <div>
+      {basket.products.map((p) => (
+        <li>
+          {p.product.name} <span>{p.qty}</span>
+        </li>
+      ))}
+    </div>
+  );
+};
 
 export default withLayout(Basket);
 
