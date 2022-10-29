@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Link from 'next/link';
 import styles from './Basket.module.scss';
 import { priceRu } from '@/helpers';
 import { AppContext } from '@/context';
@@ -14,6 +13,7 @@ export const Basket = ({ className }: BasketProps) => {
   React.useEffect(() => {
     setBasketCount(count);
   }, [basket]);
+
   return (
     <div className={className}>
       {basket && basket.products.length > 0 ? (

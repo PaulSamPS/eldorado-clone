@@ -10,7 +10,6 @@ export const Rating = ({
   ...props
 }: RatingProps): JSX.Element => {
   const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
-  console.log(props.rating);
 
   const handleSpace = (index: number, e: KeyboardEvent<SVGElement>) => {
     if (e.code !== 'Space' || !props.setRating) {

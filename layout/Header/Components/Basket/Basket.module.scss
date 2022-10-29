@@ -42,6 +42,7 @@
   @include border-radius;
   position: relative;
   @include transition-all-02s;
+  cursor: pointer;
 
   svg {
     path {
