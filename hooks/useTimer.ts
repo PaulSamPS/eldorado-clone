@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { $host } from '../http/axios';
-import { IProduct } from '../interfaces/product.interface';
+import React, { useContext, useState } from 'react';
+import { $host } from '@/http';
+import { IProduct } from '@/interfaces';
+import { AppContext } from '@/context';
 
 export const useTimer = () => {
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
+  const { setDayProducts } = useContext(AppContext);
 
   React.useEffect(() => {
     setHours(24 - new Date().getHours() - 1);
@@ -14,7 +16,8 @@ export const useTimer = () => {
   }, []);
 
   const updateProducts = async () => {
-    await $host.post<IProduct[]>('day-products');
+    const { data: products } = await $host.post<IProduct[]>('day-products');
+    await setDayProducts!(products);
   };
 
   React.useEffect(() => {

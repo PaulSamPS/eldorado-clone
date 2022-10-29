@@ -24,7 +24,7 @@ export const Main = ({ ...props }: MainPageComponentsProps) => {
           />
         ))}
       </div>
-      <DayProduct dayProducts={props.dayProducts} className={styles.dayProduct} />
+      <DayProduct className={styles.dayProduct} />
       <TopProduct product={props.products} className={styles.topProduct} />
       {screenWidth > WidthContainer && (
         <div className={styles.sliderBot}>

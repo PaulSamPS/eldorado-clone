@@ -4,7 +4,7 @@ import axios from 'axios';
 import { BasketInterface, IProduct } from '@/interfaces';
 import { $host } from '@/http';
 import Product from '../page-components/Product/Product';
-import { withLayout } from '@/layout';
+import { withLayout } from '@/hoc';
 
 const ProductPage = ({ product }: ProductProps) => <Product product={product} />;
 

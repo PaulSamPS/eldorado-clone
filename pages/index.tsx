@@ -1,10 +1,10 @@
 import type { GetServerSideProps } from 'next';
 import React from 'react';
 import axios from 'axios';
-import { withLayout } from '@/layout';
 import { IMenu, IProduct, ISlider, BasketInterface } from '@/interfaces';
 import { $host } from '@/http';
-import { Main } from '../page-components';
+import { Main } from '@/page-components';
+import { withLayout } from '@/hoc';
 
 function Home({ ...props }: HomeProps) {
   return <Main {...props} />;

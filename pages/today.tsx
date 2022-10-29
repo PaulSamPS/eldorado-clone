@@ -4,7 +4,7 @@ import axios from 'axios';
 import { $host } from '@/http';
 import { BasketInterface, IProduct } from '@/interfaces';
 import { Today } from '@/page-components';
-import { withLayout } from '@/layout';
+import { withLayout } from '@/hoc';
 
 const TodayId = ({ dayProducts, oneProduct, productsYesterday }: TodayProps) => (
   <Today

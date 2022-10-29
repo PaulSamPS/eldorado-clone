@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 import styles from './DayProduct.module.scss';
 import { DayProductProps } from './DayProduct.props';
@@ -9,23 +9,26 @@ import { H, Arrow } from '@/components/Ui';
 import { Dots, Timer } from '@/components/ReusableComponents';
 import { $host } from '@/http';
 import { WidthContainer } from '@/helpers';
+import { AppContext } from '@/context';
 
-export const DayProduct = ({ dayProducts, className }: DayProductProps): JSX.Element => {
+export const DayProduct = ({ className }: DayProductProps): JSX.Element => {
+  const { dayProducts, setDayProducts } = useContext(AppContext);
   const { offset, dots, left, right, slideIndex } = useSlider({
     imageWidth: 220,
     arrLength: dayProducts.length,
   });
   const screenWidth = useScreenWidth();
 
-  const setDayProducts = async () => {
-    await $host.post('day-products');
+  const setDayProductsFn = async () => {
+    const { data: products } = await $host.post('day-products');
+    await setDayProducts!(products);
   };
 
   return (
     <div className={cn(styles.wrapper, className)}>
       <div className={styles.top}>
         <H tag='h2'>Товары дня</H>
-        <Timer className={styles.timer} onClick={setDayProducts} />
+        <Timer className={styles.timer} onClick={setDayProductsFn} />
       </div>
       <div className={styles.dayProductBlock}>
         {dayProducts.map((product: IProduct) => (
