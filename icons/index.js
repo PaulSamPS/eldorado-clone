@@ -19,6 +19,7 @@ import MobileMainIcon from './mobileMain.svg';
 import MobileCatalogIcon from './mobileCatalog.svg';
 import MobileLoginIcon from './mobileLogin.svg';
 import MobileMenuIcon from './mobileMenu.svg';
+import RemoveIcon from './remove.svg';
 
 export {
   ArrowIcon,
@@ -42,4 +43,5 @@ export {
   MobileCatalogIcon,
   MobileLoginIcon,
   MobileMenuIcon,
+  RemoveIcon,
 };

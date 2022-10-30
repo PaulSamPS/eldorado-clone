@@ -10,13 +10,14 @@ const nav = [
 ];
 
 export const Nav = () => {
-  const [currentIndex, setCurrentIndex] = React.useState<number>(2);
-  console.log(nav.length);
+  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+
   return (
     <div className={styles.wrapper}>
       {nav.map((n, index) => (
         <div
           key={n.id}
+          onClick={() => setCurrentIndex(index)}
           className={cn(styles.triangles, {
             [styles.activeWhite]: currentIndex === index,
             [styles.activeGray]: index < currentIndex,
