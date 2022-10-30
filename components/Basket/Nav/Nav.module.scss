@@ -1,0 +1,71 @@
+.wrapper {
+  @include flex-align-center;
+  @include border($gray-color6, 1px);
+  box-shadow: 0 1px 0 #fdfdfd, 0 1px 0 #fdfdfd inset;
+
+  .activeWhite {
+    background: #f5f5f5 url('https://static.eldorado.ru/static/images/redesign3/basketNavArrow-white.png') no-repeat scroll 100% -40px !important;
+  }
+
+  .activeGray {
+    background: #f5f5f5 url('https://static.eldorado.ru/static/images/redesign3/basketNavArrow-white.png') no-repeat scroll 100% 0 !important;
+    color: $primary-color;
+    @include fontGraphicMedium
+  }
+
+  .lastGray {
+    background: #f5f5f5 url('https://static.eldorado.ru/static/images/redesign3/basketNavArrow-white.png') no-repeat scroll 100% 50px !important;
+  }
+
+  div {
+    position: relative;
+    height: 41px;
+    @include flex-center-center;
+    width: 100%;
+
+    &:last-child {
+      .triangles {
+        background: $white-color ;
+      }
+    }
+
+    //&:after {
+    //  content: "";
+    //  display: block;
+    //  height: 1px;
+    //  top: 11px;
+    //  width: 30px;
+    //  transform: rotate(-135deg) translate(5%, -10%) !important;
+    //  background-color: $gray-color !important;
+    //  position: absolute;
+    //  right: -22px;
+    //}
+    //
+    //&:before {
+    //  content: "";
+    //  display: block;
+    //  height: 1px;
+    //  width: 30px;
+    //  position: absolute;
+    //  @include transition-all-02s;
+    //  transform: rotate(135deg) translate(5%, -10%) !important;
+    //  bottom: 11px;
+    //  right: -22px;
+    //  background-color: $gray-color;
+    //  border-radius: 2px;
+    //}
+
+    .triangles {
+      background: $white-color url('https://static.eldorado.ru/static/images/redesign3/basketNavArrow-white.png') no-repeat scroll 100% 0;
+      //background: #f5f5f5 url('https://static.eldorado.ru/static/images/redesign2.3/basketNavArrow.png') no-repeat scroll 100% 0;
+    }
+
+
+    span {
+      width: 100%;
+      text-align: center;
+      @include fontGraphicLight;
+      font-size: 15px;
+    }
+  }
+}
