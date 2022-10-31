@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 import styles from './Card.module.scss';
 import { priceRu } from '@/helpers';
 import { useAddToBasket } from '@/hooks';
 import { CardProps } from './Card.props';
+import { CloseIcon } from '@/icons';
 
-export const Card = ({ product }: CardProps) => {
+export const Card = ({ product, className }: CardProps) => {
   const { addToBasket, decrease } = useAddToBasket(product.product);
 
   return (
-    <div className={styles.wrapper} key={product.product._id}>
+    <div className={cn(styles.wrapper, className)} key={product.product._id}>
       <div className={styles.image}>
         <img
           src={`http://localhost:5000/product/${product.product.name}/${product.product.img[0].fileName}`}
@@ -29,6 +31,9 @@ export const Card = ({ product }: CardProps) => {
         <div className={styles.increase} onClick={addToBasket} />
       </div>
       <span className={styles.totalSum}>{priceRu(product.product.price * product.qty)}</span>
+      <div className={styles.delete}>
+        <CloseIcon />
+      </div>
     </div>
   );
 };

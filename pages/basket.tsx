@@ -4,7 +4,6 @@ import axios from 'axios';
 import { withLayout } from '@/hoc';
 import { BasketInterface, IMenu } from '@/interfaces';
 import { $host } from '@/http';
-import { AppContext } from '@/context';
 import { Basket } from '../page-components/Basket/Basket';
 
 const BasketPage = () => <Basket />;

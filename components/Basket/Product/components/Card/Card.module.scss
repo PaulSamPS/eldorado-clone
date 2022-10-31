@@ -1,9 +1,10 @@
 .wrapper {
   border-top: 1px solid #d9dadc;
-  padding: 20px 0;
+  padding: 20px 0 20px 30px;
   display: grid;
   grid-template-columns: 150px minmax(384px, 552px) 180px 110px 156px auto ;
   justify-items: center;
+  position: relative;
 
   .image {
     height: 150px;
@@ -18,6 +19,9 @@
 
   .productName {
     @include transition-all-02s;
+    justify-self: flex-start;
+    padding-left: 30px;
+    font-size: 14px;
 
     &:hover {
       color: $primary-color;
@@ -119,5 +123,12 @@
     color: #3f454b;
     font-size: 20px;
     @include fontDin;
+  }
+
+  .delete {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    cursor: pointer;
   }
 }
