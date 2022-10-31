@@ -4,6 +4,8 @@ import { RemoveIcon } from '@/icons';
 import styles from './Product.module.scss';
 import { AppContext } from '@/context';
 import { priceRu } from '@/helpers';
+import { useAddToBasket } from '@/hooks';
+import { Card } from './components';
 
 const header = [
   { id: 0, name: 'Товар' },
@@ -29,21 +31,7 @@ export const Product = () => {
         </div>
       </div>
       {basket.products.map((p) => (
-        <div className={styles.card} key={p.product._id}>
-          <div className={styles.image}>
-            <img
-              src={`http://localhost:5000/product/${p.product.name}/${p.product.img[0].fileName}`}
-              alt={p.product.name}
-              title={p.product.name}
-            />
-          </div>
-          <Link href={{ pathname: '/product', query: { id: p.product._id } }}>
-            <a className={styles.productName}>{p.product.name}</a>
-          </Link>
-          <span className={styles.price}>{priceRu(p.product.price)}</span>
-          <div>{p.qty}</div>
-          <span>{priceRu(p.product.price * p.qty)}</span>
-        </div>
+        <Card key={p.product._id} product={p} />
       ))}
     </div>
   );

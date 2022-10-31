@@ -9,6 +9,7 @@ interface IUseAddToBasket {
   isLoading: boolean;
   isInBasket: boolean;
   addToBasket: () => void;
+  decrease: () => void;
 }
 
 export const useAddToBasket = (product: IProduct): IUseAddToBasket => {
@@ -50,5 +51,30 @@ export const useAddToBasket = (product: IProduct): IUseAddToBasket => {
     }
   };
 
-  return { isLoading, isInBasket, addToBasket };
+  const decrease = async () => {
+    setIsLoading(true);
+    try {
+      const { data: newBasket } = await $host.post<BasketInterface>(
+        'basket/decrease',
+        {
+          productId: product._id,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            basket: basketCookie,
+          },
+        }
+      );
+      if (setBasket) {
+        setBasket(newBasket);
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return { isLoading, isInBasket, addToBasket, decrease };
 };

@@ -1,7 +1,7 @@
 import { IUser } from './user.interface';
 import { IProduct } from './product.interface';
 
-interface BasketProduct {
+export interface BasketProduct {
   product: IProduct;
   qty: number;
 }

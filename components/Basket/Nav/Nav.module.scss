@@ -6,12 +6,17 @@
   .activeWhite {
     background-color: #f5f5f5 !important;
     background-position: 100% -40px !important;
+    span {
+      font-family: 'Graphik LC Medium', sans-serif !important;
+    }
   }
 
   .activeGray {
     background-color: #f5f5f5 !important;
     color: $primary-color;
-    @include fontGraphicMedium;
+    span {
+      font-family: 'Graphik LC Medium', sans-serif !important;
+    }
   }
 
   .lastGray {

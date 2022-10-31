@@ -21,43 +21,10 @@
       width: 100%;
       font-size: 14px;
       display: grid;
-      grid-template-columns: minmax(384px, 552px) 180px 96px 156px auto;
+      grid-template-columns: minmax(384px, 552px) 180px 110px 156px auto;
       justify-items: center;
       color: #aca7a4;
       padding: 20px 0 18px 0;
-    }
-  }
-
-  .card {
-    border-top: 1px solid #d9dadc;
-    padding: 20px 0;
-    display: grid;
-    grid-template-columns: 150px minmax(384px, 552px) 180px 96px 156px auto ;
-    justify-items: center;
-
-    .image {
-      height: 150px;
-      width: 150px;
-
-      img {
-        object-fit: contain;
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    .productName {
-      @include transition-all-02s;
-
-      &:hover {
-        color: $primary-color;
-      }
-    }
-
-    .price {
-      @include fontDin;
-      color: #9d9d9d;
-      font-size: 20px;
     }
   }
 }
