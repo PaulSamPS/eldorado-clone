@@ -13,7 +13,7 @@ export const Buy = ({ currentProduct, className }: BuyProps) => {
   const { push } = useRouter();
 
   const handlePush = async () => {
-    await push({ pathname: '/basket' });
+    await push({ pathname: '/personal/basket' });
   };
 
   return (

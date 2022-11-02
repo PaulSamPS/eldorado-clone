@@ -19,7 +19,7 @@ export const Card = ({ product, className, offset }: CardProps) => {
   const { push } = useRouter();
 
   const handlePush = async () => {
-    await push({ pathname: '/basket' });
+    await push({ pathname: '/personal/basket' });
   };
 
   const onPressEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {

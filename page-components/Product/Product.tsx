@@ -6,7 +6,7 @@ import { Buy, Carousel, Rating, Review, ZoomModal } from '@/components/ReusableC
 import { Rotate360 } from '@/components';
 import { Icon360 } from '@/icons';
 
-const Product: FC<ProductProps> = ({ product }) => {
+export const Product: FC<ProductProps> = ({ product }) => {
   const [itemIndex, setItemIndex] = React.useState<number>(0);
   const [is360, setIs360] = React.useState<boolean>(false);
   const [review] = React.useState<number>(1);
@@ -49,5 +49,3 @@ const Product: FC<ProductProps> = ({ product }) => {
     </div>
   );
 };
-
-export default Product;

@@ -3,8 +3,8 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { BasketInterface, IProduct } from '@/interfaces';
 import { $host } from '@/http';
-import Product from '../page-components/Product/Product';
 import { withLayout } from '@/hoc';
+import { Product } from '@/page-components';
 
 const ProductPage = ({ product }: ProductProps) => <Product product={product} />;
 

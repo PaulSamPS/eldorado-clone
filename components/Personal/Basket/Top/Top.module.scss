@@ -1,0 +1,28 @@
+.wrapper {
+  @include flex-align-center;
+
+  .clearBasket {
+    @include flex-align-center;
+    column-gap: 5px;
+    cursor: pointer;
+    width: 212px;
+
+    span {
+      border-bottom: 1px dashed #7B7B7B;
+      color: #7B7B7B;
+      @include fontGraphicMedium;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  }
+
+  .name {
+    width: 100%;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: minmax(384px, 552px) 180px 110px 156px auto;
+    justify-items: center;
+    color: #aca7a4;
+    padding: 20px 0 18px 0;
+  }
+}
