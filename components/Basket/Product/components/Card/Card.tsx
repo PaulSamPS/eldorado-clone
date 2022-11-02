@@ -8,7 +8,7 @@ import { CardProps } from './Card.props';
 import { CloseIcon } from '@/icons';
 
 export const Card = ({ product, className }: CardProps) => {
-  const { addToBasket, decrease } = useAddToBasket(product.product);
+  const { addToBasket, decrease, increaseInput } = useAddToBasket(product.product);
 
   return (
     <div className={cn(styles.wrapper, className)} key={product.product._id}>
@@ -24,11 +24,15 @@ export const Card = ({ product, className }: CardProps) => {
       </Link>
       <span className={styles.price}>{priceRu(product.product.price)}</span>
       <div className={styles.qty}>
-        <div className={styles.decrease} onClick={decrease} />
+        <button className={styles.decrease} onClick={decrease} disabled={product.qty <= 1} />
         <div className={styles.count}>
-          <input value={product.qty} />
+          <input value={product.qty} onChange={(e) => increaseInput(e.target.value)} />
         </div>
-        <div className={styles.increase} onClick={addToBasket} />
+        <button
+          className={styles.increase}
+          onClick={addToBasket}
+          disabled={product.qty >= product.product.inStock}
+        />
       </div>
       <span className={styles.totalSum}>{priceRu(product.product.price * product.qty)}</span>
       <div className={styles.delete}>

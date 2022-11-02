@@ -36,7 +36,7 @@ export const Product = () => {
         <div className={styles.left}>
           <H tag='h1'>Выберите способ доставки</H>
           <label htmlFor='method'>
-            <input type='radio' name='method' checked />
+            <input type='radio' name='method' checked readOnly />
             <span>Самовывоз</span>
           </label>
         </div>

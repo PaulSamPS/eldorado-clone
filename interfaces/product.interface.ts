@@ -19,6 +19,7 @@ export interface IProduct {
   img: IImg[];
   rotate3d: IImg[];
   price: number;
+  inStock: number;
   oldPrice: number;
   typeId: number;
   brandId: number;

@@ -10,6 +10,7 @@ interface IUseAddToBasket {
   isInBasket: boolean;
   addToBasket: () => void;
   decrease: () => void;
+  increaseInput: (qty: string) => void;
 }
 
 export const useAddToBasket = (product: IProduct): IUseAddToBasket => {
@@ -76,5 +77,31 @@ export const useAddToBasket = (product: IProduct): IUseAddToBasket => {
     }
   };
 
-  return { isLoading, isInBasket, addToBasket, decrease };
+  const increaseInput = async (qty: string) => {
+    setIsLoading(true);
+    try {
+      const { data: newBasket } = await $host.post<BasketInterface>(
+        'basket/increase-input',
+        {
+          productId: product._id,
+          qty: qty.length < 1 ? 1 : qty,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            basket: basketCookie,
+          },
+        }
+      );
+      if (setBasket) {
+        setBasket(newBasket);
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return { isLoading, isInBasket, addToBasket, decrease, increaseInput };
 };

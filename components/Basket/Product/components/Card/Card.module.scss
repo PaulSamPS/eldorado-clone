@@ -44,6 +44,19 @@
     display: flex;
     height: fit-content;
 
+    button {
+      border: none;
+      background: none;
+
+      &:disabled {
+        cursor: unset;
+
+        &:before {
+          background: #cbcbcb;
+        }
+      }
+    }
+
     .decrease {
       width: 30px;
       height: 30px;

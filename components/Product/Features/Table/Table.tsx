@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import styles from './Table.module.scss';
 import cn from 'classnames';
+import styles from './Table.module.scss';
 import { TableProps } from './Table.props';
 
 export const Table: FC<TableProps> = ({ features }) => {
