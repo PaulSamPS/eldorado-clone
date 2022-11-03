@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cn from 'classnames';
 import styles from './Nav.module.scss';
+import { StepContext } from '@/context';
 
 const nav = [
   { id: 0, name: 'Ваша корзина' },
@@ -10,17 +11,18 @@ const nav = [
 ];
 
 export const Nav = () => {
-  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const { step, setStep } = useContext(StepContext);
 
   return (
     <div className={styles.wrapper}>
       {nav.map((n, index) => (
         <div
           key={n.id}
-          onClick={() => setCurrentIndex(index)}
+          onClick={index < step ? () => setStep(index) : undefined}
+          style={{ cursor: index < step ? 'pointer' : 'unset' }}
           className={cn(styles.triangles, {
-            [styles.activeWhite]: currentIndex === index,
-            [styles.activeGray]: index < currentIndex,
+            [styles.activeWhite]: step === index,
+            [styles.activeGray]: index < step,
           })}
         >
           <div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
-import { withLayout, withStepsLayout } from '@/hoc';
+import { withLayout } from '@/hoc';
 import { BasketInterface, IMenu } from '@/interfaces';
 import { $host } from '@/http';
-import { Basket } from '@/page-components/Personal';
+import { Steps } from '@/layout';
 
-const BasketPage = () => <Basket />;
+const Basket = () => <Steps />;
 
-export default withLayout(withStepsLayout(BasketPage));
+export default withLayout(Basket);
 
 export const getServerSideProps: GetServerSideProps<BasketProps> = async ({ req }) => {
   const { data: basket } = await axios.get<BasketInterface>('http://localhost:5000/api/basket', {

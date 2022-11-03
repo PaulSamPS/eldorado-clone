@@ -18,7 +18,7 @@ export const Basket = ({ className }: BasketProps) => {
   return (
     <div className={className}>
       {basket && basket.products.length > 0 ? (
-        <Link href={{ pathname: '/personal/basket' }}>
+        <Link href={{ pathname: '/basket' }}>
           <a className={styles.basketProduct}>
             <CartBoldIcon />
             <div className={styles.count}>{basketCount}</div>

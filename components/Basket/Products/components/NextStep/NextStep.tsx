@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import styles from './NextStep.module.scss';
 import { Button, H } from '@/components/Ui';
 import { priceRu } from '@/helpers';
-import { AppContext } from '@/context';
+import { AppContext, StepContext } from '@/context';
 
 export const NextStep = () => {
   const { basket } = useContext(AppContext);
+  const { nextStep } = useContext(StepContext);
 
   return (
     <div className={styles.wrapper}>
@@ -31,7 +32,9 @@ export const NextStep = () => {
             <span>Всего к оплате</span>
             <span className={styles.totalValue}>{priceRu(basket.totalPrice)}</span>
           </li>
-          <Button appearance='primary'>Продолжить</Button>
+          <Button appearance='primary' onClick={nextStep}>
+            Продолжить
+          </Button>
         </ul>
       </div>
     </div>

@@ -16,7 +16,7 @@ export const Item = ({ className, ...props }: ItemProps): JSX.Element => {
   const { push } = useRouter();
 
   const handlePush = async () => {
-    await push({ pathname: '/personal/basket' });
+    await push({ pathname: '/basket' });
   };
 
   return (
