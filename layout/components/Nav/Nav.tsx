@@ -24,7 +24,7 @@ export const Nav = () => (
       {nav.map((n) => (
         <li key={n.id} className={styles.item}>
           <a
-            href='layout/Main/components/Nav/Nav#'
+            href='layout/components/Nav/Nav#'
             className={cn({ [styles.red]: n.name.toLowerCase() === 'все акции' })}
           >
             {n.name}

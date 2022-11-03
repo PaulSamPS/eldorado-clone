@@ -1,2 +1,1 @@
-export * from '@/page-components/Basket/Steps';
-export * from './Main/Layout';
+export * from './Layout';

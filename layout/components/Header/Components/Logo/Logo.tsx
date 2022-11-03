@@ -4,7 +4,7 @@ import styles from './Logo.module.scss';
 import { LogoIcon } from '@/icons';
 
 export const Logo = () => (
-  <Link href='/'>
+  <Link href='/pages'>
     <a>
       <LogoIcon className={styles.wrapper} title='Эльдорадо' />
     </a>
