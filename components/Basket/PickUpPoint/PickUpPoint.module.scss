@@ -72,5 +72,102 @@
         }
       }
     }
+
+    .body {
+      width: 100%;
+      border-radius: 2px;
+      border: 1px solid #d9d9d9;
+      padding: 20px;
+
+      h2 {
+        font-size: 19px;
+        border-bottom: 1px solid $gray-light-color;
+      }
+
+      .shop {
+        @include transition-all-02s;
+        border: 1px solid transparent;
+        margin-top: 20px;
+
+        &:hover {
+          border-radius: 8px;
+          border: 1px solid #ececec;
+        }
+
+        .shopName {
+          @include flex-align-center;
+          column-gap: 10px;
+          padding: 10px 0;
+          border-bottom: 1px solid #ececec;
+
+          a {
+            color: $primary-color;
+            @include fontGraphicMedium;
+            @include flex-align-center;
+            column-gap: 10px;
+            font-size: 13px;
+
+            .eldorado {
+              height: 22px;
+              width: 22px;
+              background-repeat: no-repeat;
+              display: block;
+              background-image: url('/shopEldorado.webp');
+            }
+          }
+        }
+
+        .productList {
+          padding: 0 20px;
+          .product {
+            border-bottom: 1px solid #ececec;
+            font-size: 12px;
+            @include flex-center-between;
+            padding: 15px 0;
+
+            .name {
+              color: $gray-color2;
+              white-space: normal;
+            }
+            .times {
+              color: $primary-color;
+              @include fontGraphicLight;
+            }
+          }
+        }
+
+        .nextStep {
+          display: flex;
+          column-gap: 15px;
+          padding: 20px;
+
+          .map {
+            height: 100px;
+            width: 140px;
+            background-color: $primary-color;
+          }
+
+          .address {
+            font-size: 11px;
+            flex: 1;
+
+            p {
+              &:first-child {
+                margin: 0;
+              }
+
+              &:last-child {
+                margin: 0;
+              }
+            }
+          }
+
+          button {
+            height: fit-content;
+            margin-right: 40px;
+          }
+        }
+      }
+    }
   }
 }
