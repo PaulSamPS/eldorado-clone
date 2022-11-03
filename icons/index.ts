@@ -20,7 +20,9 @@ import MobileCatalogIcon from './mobileCatalog.svg';
 import MobileLoginIcon from './mobileLogin.svg';
 import MobileMenuIcon from './mobileMenu.svg';
 import RemoveIcon from './remove.svg';
-import EmptyBasket from './emptyBasket.svg';
+import EmptyBasketIcon from './emptyBasket.svg';
+import ListIcon from './list.svg';
+import OnMapIcon from './onMap.svg';
 
 export {
   ArrowIcon,
@@ -45,5 +47,7 @@ export {
   MobileLoginIcon,
   MobileMenuIcon,
   RemoveIcon,
-  EmptyBasket,
+  EmptyBasketIcon,
+  ListIcon,
+  OnMapIcon,
 };
