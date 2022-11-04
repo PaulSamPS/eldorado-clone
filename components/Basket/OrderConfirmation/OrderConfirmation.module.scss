@@ -1,0 +1,46 @@
+.wrapper {
+
+  h2 {
+    font-size: 18px;
+    padding: 20px 0 0;
+  }
+
+  span {
+    font-size: 11px;
+    color: #555555;
+  }
+
+  .form {
+    width: 820px;
+    border-radius: 2px;
+    border: 1px solid $gray-light-color;
+    background-color: $white-color;
+    padding: 20px;
+
+    .input {
+      position: relative;
+
+      label {
+        position: absolute;
+        left: 12px;
+        top: 7px;
+        font-size: 11px;
+        color: $gray-color2;
+      }
+    }
+
+    input {
+      padding: 24px 12px 8px;
+      width: 420px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      outline: none;
+      border-radius: 2px;
+
+      &:focus {
+        border: 1px solid #a8d470;
+        box-shadow: 0 0 2px 0 rgb(168 212 112 / 70%);
+      }
+    }
+  }
+}

@@ -16,6 +16,11 @@
   align-items: center;
 }
 
+@mixin flex-align-self-start {
+  display: flex;
+  align-items: self-start;
+}
+
 @mixin flex-center-between {
   display: flex;
   align-items: center;

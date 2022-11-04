@@ -1,80 +1,11 @@
 .wrapper {
-  .left {
-    width: 820px;
+  margin-bottom: 40px;
 
-    .top {
-      @include flex-center-between;
-      margin: 20px 0;
+  .content {
+    @include flex-between;
 
-      h2 {
-        padding: 0;
-        font-size: 20px;
-      }
-      .activeBtn {
-        color: $primary-color !important;
-        border: 1px solid $primary-color !important;
-        svg {
-          path {
-            fill: $primary-color;
-          }
-        }
-      }
-
-      .buttons {
-        @include flex-align-center;
-        column-gap: 10px;
-
-        button {
-          border-radius: 3px;
-          @include flex-center-center;
-          width: 95px;
-          height: 30px;
-          color: $gray-color2;
-          border: 1px solid #d8d8d8;
-          line-height: 28px;
-          padding: 0;
-          font-size: 12px;
-          column-gap: 10px;
-
-          &:hover {
-            background-color: unset;
-          }
-        }
-      }
-
-      .city {
-        @include flex-align-center;
-        cursor: pointer;
-
-        .label {
-          padding-right: 10px;
-          line-height: 32px;
-          font-size: 14px;
-          color: $black-color;
-          @include fontGraphicMedium;
-        }
-
-        .select {
-          width: 342px;
-          border: 1px solid #dadada;
-          @include flex-align-center;
-          border-radius: 2px;
-          background: url('/icon-triangles.png') 95% 50% no-repeat;
-          background-size: 7px 13px;
-
-          .value {
-            width: 100%;
-            font-size: 12px;
-            color: #3f454b;
-            padding: 9px 40px 9px 10px;
-            @include fontGraphicMedium;
-          }
-        }
-      }
-    }
-
-    .body {
-      width: 100%;
+    .shopList {
+      width: 820px;
       border-radius: 2px;
       border: 1px solid #d9d9d9;
       padding: 20px;
@@ -82,91 +13,6 @@
       h2 {
         font-size: 19px;
         border-bottom: 1px solid $gray-light-color;
-      }
-
-      .shop {
-        @include transition-all-02s;
-        border: 1px solid transparent;
-        margin-top: 20px;
-
-        &:hover {
-          border-radius: 8px;
-          border: 1px solid #ececec;
-        }
-
-        .shopName {
-          @include flex-align-center;
-          column-gap: 10px;
-          padding: 10px 0;
-          border-bottom: 1px solid #ececec;
-
-          a {
-            color: $primary-color;
-            @include fontGraphicMedium;
-            @include flex-align-center;
-            column-gap: 10px;
-            font-size: 13px;
-
-            .eldorado {
-              height: 22px;
-              width: 22px;
-              background-repeat: no-repeat;
-              display: block;
-              background-image: url('/shopEldorado.webp');
-            }
-          }
-        }
-
-        .productList {
-          padding: 0 20px;
-          .product {
-            border-bottom: 1px solid #ececec;
-            font-size: 12px;
-            @include flex-center-between;
-            padding: 15px 0;
-
-            .name {
-              color: $gray-color2;
-              white-space: normal;
-            }
-            .times {
-              color: $primary-color;
-              @include fontGraphicLight;
-            }
-          }
-        }
-
-        .nextStep {
-          display: flex;
-          column-gap: 15px;
-          padding: 20px;
-
-          .map {
-            height: 100px;
-            width: 140px;
-            background-color: $primary-color;
-          }
-
-          .address {
-            font-size: 11px;
-            flex: 1;
-
-            p {
-              &:first-child {
-                margin: 0;
-              }
-
-              &:last-child {
-                margin: 0;
-              }
-            }
-          }
-
-          button {
-            height: fit-content;
-            margin-right: 40px;
-          }
-        }
       }
     }
   }

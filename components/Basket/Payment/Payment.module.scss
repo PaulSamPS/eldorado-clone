@@ -1,0 +1,30 @@
+.wrapper {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  @include flex-between;
+
+  .payment {
+    width: 820px;
+    border-radius: 2px;
+    border: 1px solid $gray-light-color;
+    background-color: $white-color;
+    padding: 20px;
+    height: fit-content;
+
+    .method {
+      background: #F9F9F9;
+      padding: 20px 10px;
+
+      input {
+        margin: 0;
+      }
+
+      label {
+        font-size: 14px;
+        @include fontGraphicMedium;
+        @include flex-align-self-start;
+        column-gap: 10px;
+      }
+    }
+  }
+}

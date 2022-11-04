@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { ReviewProps } from './Review.props';
 import styles from './Review.module.scss';
 import { ReviewIcon } from '@/icons';
-import { generateCountTextReviews } from '@/helpers';
+import { endOf } from '@/helpers';
 
 export const Review = ({ review, children, className, ...props }: ReviewProps): JSX.Element => (
   <div className={cn(styles.review, className)} {...props}>
@@ -13,7 +13,7 @@ export const Review = ({ review, children, className, ...props }: ReviewProps): 
     ) : (
       <span>
         {review} &nbsp;
-        {generateCountTextReviews(review)}
+        {endOf(review, 'отзыв', 'отзыва', 'отзывов')}
       </span>
     )}
   </div>

@@ -1,0 +1,59 @@
+.wrapper {
+  border: 1px solid $gray-light-color;
+  width: 300px;
+  border-radius: 2px;
+  padding: 15px;
+  height: fit-content;
+
+  h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  .count {
+    @include fontGraphicMedium;
+    font-size: 14px;
+    padding: 15px 0;
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  .info {
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    padding-top: 15px;
+
+    .item {
+      padding-bottom: 15px;
+      @include fontGraphicLight;
+      @include flex-center-between;
+      font-size: 13px;
+    }
+  }
+
+  .total {
+    @include flex-center-between;
+    padding: 15px 0;
+
+    .text {
+      @include fontGraphicLight;
+      font-size: 13px;
+    }
+
+    .totalPrice {
+      @include fontDin;
+      font-size: 20px;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .offer {
+    padding-top: 15px;
+    font-size: 11px;
+    color: #aca7a4;
+  }
+}
