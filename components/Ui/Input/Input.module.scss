@@ -13,11 +13,34 @@
     background: $white-color;
 
     font-size: 13px;
-    font-family: "Din pro",sans-serif;
+    @include fontGraphicLight;
     line-height: 22px;
 
     &::placeholder {
       color: $gray-color;
+    }
+  }
+
+  .form {
+    width: 300px;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+  .auth {
+    padding: 24px 12px 8px;
+    width: 420px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: unset;
+
+    &:focus {
+      border: 1px solid #a8d470;
+      box-shadow: 0 0 2px 0 rgb(168 212 112 / 70%);
     }
   }
 

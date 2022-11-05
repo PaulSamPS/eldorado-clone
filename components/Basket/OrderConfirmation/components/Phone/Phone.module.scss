@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  @include flex-column;
+  row-gap: 30px;
+
+  label {
+    position: absolute;
+    left: 12px;
+    top: 7px;
+    font-size: 11px;
+    color: $gray-color2;
+  }
+
+  input {
+    padding: 24px 12px 8px;
+    width: 420px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    border-radius: 2px;
+
+    &:focus {
+      border: 1px solid #a8d470;
+      box-shadow: 0 0 2px 0 rgb(168 212 112 / 70%);
+    }
+  }
+
+  .btn {
+    width: 160px;
+  }
+}

@@ -15,13 +15,13 @@ export const ModalReview: FC<ModalReviewProps> = ({ setWriteFeedback, rating, se
       <div className={styles.label}>
         <label htmlFor='name'>
           Ваше имя <span>*</span>
-          <Input name='name' type='text' />
+          <Input appearance='form' name='name' type='text' />
         </label>
       </div>
       <div className={styles.label}>
         <label htmlFor='email'>
           Email <span>*</span>
-          <Input name='email' type='email' />
+          <Input appearance='form' name='email' type='email' />
         </label>
       </div>
       <label htmlFor='rating'>

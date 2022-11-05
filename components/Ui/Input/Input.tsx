@@ -5,7 +5,7 @@ import styles from './Input.module.scss';
 
 export const Input = forwardRef(
   (
-    { className, error, ...props }: InputProps,
+    { appearance, className, error, ...props }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => (
     <div className={cn(className, styles.inputWrapper)}>
@@ -13,6 +13,8 @@ export const Input = forwardRef(
         ref={ref}
         className={cn(styles.input, {
           [styles.error]: error,
+          [styles.form]: appearance === 'form',
+          [styles.auth]: appearance === 'auth',
         })}
         {...props}
       />
