@@ -1,8 +1,9 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import NumberFormat from 'react-number-format';
 import styles from './Phone.module.scss';
 import { Button } from '@/components/Ui';
 import { $host } from '@/http';
+import { CodeInput } from './components';
 
 type InputValueState = {
   formattedValue: string;
@@ -11,48 +12,22 @@ type InputValueState = {
 
 export const Phone = () => {
   const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
-  const [codes, setCodes] = React.useState<string[]>(['', '', '', '']);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(false);
-  const [usId, setUsId] = React.useState<string>('');
-  console.log(usId);
+  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(true);
+  const [userId, setUserId] = React.useState<string>('');
+  const [isAuth, setIsAuth] = React.useState<boolean>(false);
 
   const onSubmitPhone = async () => {
     try {
       setIsLoading(true);
       const res = await $host.post('code/get', { phone: values.formattedValue });
-      setUsId(res.data._id);
+      setUserId(res.data._id);
       setIIsEnterCode(true);
     } catch (e) {
-      console.warn('Ошибка при отправке СМС', e);
+      setIIsEnterCode(false);
+      console.warn('Ошибка при звонке', e);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const onSubmit = async (code: string) => {
-    try {
-      setIsLoading(true);
-      await $host.post('code/enter-code', { code, userId: usId });
-    } catch (e) {
-      alert('Ошибка при активации');
-      setCodes(['', '', '', '']);
-    }
-    setIsLoading(false);
-  };
-
-  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const index = Number(event.target.getAttribute('id'));
-    const { value } = event.target;
-    setCodes((prev) => {
-      const newArr = [...prev];
-      newArr[index] = value;
-      return newArr;
-    });
-    if (event.target.nextSibling) {
-      (event.target.nextSibling as HTMLInputElement).focus();
-    } else {
-      onSubmit([...codes, value].join(''));
     }
   };
 
@@ -65,31 +40,24 @@ export const Phone = () => {
         placeholder='+7 (123) 456-78-90'
         value={values.formattedValue}
         onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
+        disabled={isAuth}
       />
       <label htmlFor='phone'>Телефон</label>
-      {!isEnterCode ? (
-        <Button
-          appearance='primary'
-          className={styles.btn}
-          disabled={!values}
-          onClick={onSubmitPhone}
-        >
-          Получить код
-        </Button>
-      ) : (
-        <div className={styles.codeInput}>
-          {codes.map((code, index) => (
-            <input
-              key={index}
-              type='tel'
-              placeholder='X'
-              maxLength={1}
-              id={String(index)}
-              onChange={handleChangeInput}
-              value={code}
-            />
-          ))}
-        </div>
+      {!isAuth && (
+        <>
+          {!isEnterCode ? (
+            <Button
+              appearance='primary'
+              className={styles.btn}
+              disabled={!values}
+              onClick={onSubmitPhone}
+            >
+              Получить код
+            </Button>
+          ) : (
+            <CodeInput userId={userId} setIsAuth={setIsAuth} />
+          )}
+        </>
       )}
     </div>
   );

@@ -1,0 +1,79 @@
+.codeInput {
+  display: grid;
+  grid-template-columns: 162px 238px;
+  grid-column-gap: 20px;
+  grid-row-gap: 24px;
+
+  .code {
+    height: 50px;
+    background-color: #efefef;
+    @include fontGraphicMedium;
+    @include flex-center-center;
+    column-gap: 10px;
+    font-size: 16px;
+
+    &:after {
+      content: url('/arrowRight.svg');
+      display: block;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .enterCode {
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      padding: 0;
+
+      background: #ffffff;
+      box-sizing: border-box;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.03);
+      border-radius: 2px;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      margin: 0 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  button {
+    color: $primary-color;
+    height: 50px;
+    padding: 8px 15px;
+    @include fontGraphicMedium;
+    font-size: 16px;
+
+    &:hover {
+      background-color: unset;
+      color: $primary-color;
+    }
+  }
+
+  .options {
+    @include flex-column;
+    justify-content: space-between;
+
+    p {
+      margin: 0;
+      border-bottom: 1px dashed #9D9D9D;
+      font-size: 12px;
+      display: inline-block;
+      color: #9D9D9D;
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+}
