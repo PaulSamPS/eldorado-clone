@@ -9,4 +9,10 @@
     font-size: 11px;
     color: $gray-color2;
   }
+
+  .firstName, .lastName {
+    input {
+      text-transform: capitalize !important;
+    }
+  }
 }

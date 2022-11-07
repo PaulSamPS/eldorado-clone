@@ -9,11 +9,11 @@ export const Inputs = () => (
       <label htmlFor='e-mail'>E-mail</label>
     </div>
     <div className={styles.input}>
-      <Input appearance='auth' name='first name' type='text' />
+      <Input className={styles.firstName} appearance='auth' name='first name' type='text' />
       <label htmlFor='first name'>Имя</label>
     </div>
     <div className={styles.input}>
-      <Input appearance='auth' name='last name' type='text' />
+      <Input className={styles.lastName} appearance='auth' name='last name' type='text' />
       <label htmlFor='last name'>Фамилия</label>
     </div>
   </>
