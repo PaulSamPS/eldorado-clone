@@ -1,19 +1,20 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
-import styles from './Phone.module.scss';
+import styles from './Auth.module.scss';
 import { Button } from '@/components/Ui';
 import { $host } from '@/http';
 import { CodeInput } from './components';
+import { AuthProps } from '@/components/ReusableComponents/Auth/Auth.props';
 
 type InputValueState = {
   formattedValue: string;
   value: string;
 };
 
-export const Phone = () => {
+export const Auth = ({ setIsModal }: AuthProps) => {
   const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(true);
+  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(false);
   const [userId, setUserId] = React.useState<string>('');
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
 
@@ -40,7 +41,7 @@ export const Phone = () => {
         placeholder='+7 (123) 456-78-90'
         value={values.formattedValue}
         onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
-        disabled={isAuth}
+        disabled={isAuth || isEnterCode}
       />
       <label htmlFor='phone'>Телефон</label>
       {!isAuth && (
@@ -49,13 +50,13 @@ export const Phone = () => {
             <Button
               appearance='primary'
               className={styles.btn}
-              disabled={!values}
+              disabled={values.value ? values.value.length < 10 : true}
               onClick={onSubmitPhone}
             >
               Получить код
             </Button>
           ) : (
-            <CodeInput userId={userId} setIsAuth={setIsAuth} />
+            <CodeInput userId={userId} setIsAuth={setIsAuth} setIsModal={setIsModal!} />
           )}
         </>
       )}

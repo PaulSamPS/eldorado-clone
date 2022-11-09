@@ -1,0 +1,53 @@
+.overlay {
+  &:before {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #000000;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    opacity: 1;
+    position: fixed;
+    width: fit-content;
+    top: 25%;
+    left: 30%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    row-gap: 20px;
+    font-size: 13px;
+    z-index: 99999;
+
+    .error {
+      color: var(--red);
+      position: absolute;
+      top: 67px;
+      right: 0;
+      left: 0;
+      font-size: 11px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      transition: all ease .2s;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

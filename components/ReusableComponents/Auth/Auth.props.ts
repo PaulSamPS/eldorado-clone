@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface CodeInputProps
+export interface AuthProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  userId: string;
-  setIsAuth: (isAuth: boolean) => void;
+  setIsModal?: (isModal: boolean) => void;
 }

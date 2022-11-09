@@ -7,3 +7,5 @@ export * from './Timer/Timer';
 export * from './ZoomModal/ZoomModal';
 export * from './Buy/Buy';
 export * from './Total/Total';
+export * from './Modal/Modal';
+export * from './Auth/Auth';

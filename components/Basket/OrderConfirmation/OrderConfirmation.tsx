@@ -1,8 +1,8 @@
 import React from 'react';
-import { Total } from '@/components/ReusableComponents';
+import { Total, Auth } from '@/components/ReusableComponents';
 import { H } from '@/components/Ui';
 import styles from './OrderConfirmation.module.scss';
-import { Inputs, Phone } from './components';
+import { Inputs } from './components';
 
 export const OrderConfirmation = () => (
   <div className={styles.wrapper}>
@@ -10,7 +10,7 @@ export const OrderConfirmation = () => (
     <span className={styles.subtitle}>все поля формы обязательны для заполнения</span>
     <div className={styles.content}>
       <div className={styles.form}>
-        <Phone />
+        <Auth />
         <Inputs />
       </div>
       <Total />

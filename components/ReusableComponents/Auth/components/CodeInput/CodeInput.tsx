@@ -4,15 +4,17 @@ import { $host } from '@/http';
 import { CodeInputProps } from './CodeInput.props';
 import { Button } from '@/components/Ui';
 
-export const CodeInput = ({ userId, setIsAuth }: CodeInputProps) => {
+export const CodeInput = ({ userId, setIsAuth, setIsModal }: CodeInputProps) => {
   const [codes, setCodes] = React.useState<string[]>(['', '', '', '']);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const onSubmit = async (code: string) => {
     try {
       setIsLoading(true);
-      await $host.post('code/enter-code', { code, userId });
+      const res = await $host.post('code/enter-code', { code, userId });
       setIsAuth(true);
+      setIsModal(false);
+      console.log(res.data);
     } catch (e) {
       alert('Ошибка при активации');
       setCodes(['', '', '', '']);
