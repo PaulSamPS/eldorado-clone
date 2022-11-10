@@ -6,10 +6,6 @@ import { useAppDispatch } from '@/hooks';
 const Page401 = () => {
   const dispatch = useAppDispatch();
 
-  React.useEffect(() => {
-    dispatch(login());
-  }, []);
-
   return (
     <div>
       <h1>401 - Страница доступна только авторизованным пользователям</h1>

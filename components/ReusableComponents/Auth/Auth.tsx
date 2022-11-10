@@ -15,7 +15,7 @@ type InputValueState = {
 export const Auth = ({ setIsModal }: AuthProps) => {
   const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(false);
+  const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(true);
   const [userId, setUserId] = React.useState<string>('');
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
   const { user } = useAppSelector((state) => state.auth);
