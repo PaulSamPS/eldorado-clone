@@ -1,23 +1,23 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 import styles from './CodeInput.module.scss';
 import { CodeInputProps } from './CodeInput.props';
 import { Button } from '@/components/Ui';
 import { useAppDispatch } from '@/hooks';
 import { enterCode } from '@/redux/actions';
+import { StepContext } from '@/context';
 
-export const CodeInput = ({ userId, setIsAuth, setIsModal }: CodeInputProps) => {
+export const CodeInput = ({ userId, setIsAuth }: CodeInputProps) => {
   const [codes, setCodes] = React.useState<string[]>(['', '', '', '']);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const { nextStep } = useContext(StepContext);
 
   const onSubmit = async (code: string) => {
     try {
       setIsLoading(true);
       dispatch(enterCode(code, userId));
       setIsAuth(true);
-      if (setIsModal) {
-        setIsModal(false);
-      }
+      nextStep();
     } catch (e) {
       console.log(e);
       setCodes(['', '', '', '']);

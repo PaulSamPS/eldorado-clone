@@ -1,8 +1,7 @@
 import React from 'react';
-import { Total, Auth } from '@/components/ReusableComponents';
+import { Total, Auth, Inputs } from '@/components/ReusableComponents';
 import { H } from '@/components/Ui';
 import styles from './OrderConfirmation.module.scss';
-import { Inputs } from './components';
 
 export const OrderConfirmation = () => (
   <div className={styles.wrapper}>

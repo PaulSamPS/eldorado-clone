@@ -32,7 +32,7 @@ export const authReducer = createSlice({
     setLogout(state) {
       state.isLoading = false;
       state.errorMessage = '';
-      state.user = {} as IUser;
+      state.user = null;
     },
   },
 });

@@ -14,6 +14,7 @@ export const login = () => async (dispatch: AppDispatch) => {
     })
     .catch((e: AxiosError<IErrorResponse>) => {
       dispatch(authReducer.actions.setError(<string>e.response?.data.message));
+      dispatch(authReducer.actions.setLogout());
     });
 };
 

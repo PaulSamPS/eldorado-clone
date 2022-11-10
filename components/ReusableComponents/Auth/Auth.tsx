@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import NumberFormat from 'react-number-format';
 import styles from './Auth.module.scss';
 import { Button } from '@/components/Ui';
@@ -58,7 +58,7 @@ export const Auth = ({ setIsModal }: AuthProps) => {
               Получить код
             </Button>
           ) : (
-            <CodeInput userId={userId} setIsAuth={setIsAuth} setIsModal={setIsModal} />
+            <CodeInput userId={userId} setIsAuth={setIsAuth} />
           )}
         </>
       )}

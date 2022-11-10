@@ -3,7 +3,7 @@ import styles from './Modal.module.scss';
 import { ModalProps } from './Modal.props';
 import { CloseIcon } from '@/icons';
 
-export const Modal = ({ isModal, errorMessage, children }: ModalProps) => (
+export const Modal = ({ isModal, children }: ModalProps) => (
   <div className={styles.overlay} onClick={() => isModal(false)}>
     <div
       className={styles.content}

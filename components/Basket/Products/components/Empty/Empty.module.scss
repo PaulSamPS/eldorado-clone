@@ -1,4 +1,13 @@
 .wrapper {
-  width: 243px;
-  height: 150px;
+  @include flex-center-center-column;
+  margin-top: 50px;
+
+  svg {
+    width: 243px;
+    height: 150px;
+  }
+
+  h2 {
+    padding: 20px 0 0;
+  }
 }

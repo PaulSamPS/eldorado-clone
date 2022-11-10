@@ -3,7 +3,7 @@ import styles from './Total.module.scss';
 import { Button, H } from '@/components/Ui';
 import { endOf, priceRu } from '@/helpers';
 import { StepContext } from '@/context';
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppSelector } from '@/hooks';
 
 export const Total = () => {
   const { basket } = useAppSelector((state) => state.basket);
@@ -31,15 +31,18 @@ export const Total = () => {
         <span className={styles.text}>Всего к оплате</span>
         <span className={styles.totalPrice}>{priceRu(basket && basket.totalPrice)}</span>
       </div>
-      {step >= 2 && (
+      {step === 2 && (
         <Button appearance='primary' onClick={nextStep}>
-          {step <= 2 ? 'Продолжить' : 'Подтвердить заказ'}
+          Продолжить
         </Button>
       )}
-      <div className={styles.offer}>
-        Нажимая кнопку Подтвердить заказ, я соглашаюсь с условиями Оферты, включающей условия
-        обработки персональных данных.
-      </div>
+      {step === 3 && <Button appearance='primary'>Подтвердить заказ</Button>}
+      {step === 3 && (
+        <div className={styles.offer}>
+          Нажимая кнопку Подтвердить заказ, я соглашаюсь с условиями Оферты, включающей условия
+          обработки персональных данных.
+        </div>
+      )}
     </div>
   );
 };

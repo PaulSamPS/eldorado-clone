@@ -21,8 +21,8 @@ export const Shop = () => {
         </Link>
       </div>
       <div className={styles.productList}>
-        {basket &&
-          basket.products.map((p) => (
+        {basket
+          && basket.products.map((p) => (
             <div key={p.product._id} className={styles.product}>
               <div className={styles.name}>{p.product.name}</div>
               <div className={styles.times}>Через 15 минут</div>

@@ -10,3 +10,4 @@ export * from './slider.interface';
 export * from './user.interface';
 export * from './type.interface';
 export * from './useSlider.interface';
+export * from './userForm.interface';
