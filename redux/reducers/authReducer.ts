@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { HYDRATE } from 'next-redux-wrapper';
 import { IUser } from '@/interfaces';
 
 interface UserState {
@@ -33,6 +34,11 @@ export const authReducer = createSlice({
       state.isLoading = false;
       state.errorMessage = '';
       state.user = null;
+    },
+  },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      state.user = action.payload.auth.user;
     },
   },
 });

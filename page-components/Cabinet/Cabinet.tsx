@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './Cabinet.module.scss';
+import { login } from '@/redux/actions';
+import { useAppDispatch } from '@/hooks';
 
 const nav = [
   { id: 0, name: 'Профиль' },
@@ -9,6 +11,11 @@ const nav = [
 
 export const Cabinet = () => {
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    dispatch(login());
+  }, []);
 
   return (
     <div className={styles.wrapper}>
