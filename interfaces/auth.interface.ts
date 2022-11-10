@@ -1,3 +1,5 @@
+import { IProduct } from './product.interface';
+
 export interface IAuthSentResponse {
   message: string;
   token: string;

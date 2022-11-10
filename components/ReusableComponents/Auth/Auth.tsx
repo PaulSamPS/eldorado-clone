@@ -4,7 +4,8 @@ import styles from './Auth.module.scss';
 import { Button } from '@/components/Ui';
 import { $host } from '@/http';
 import { CodeInput } from './components';
-import { AuthProps } from '@/components/ReusableComponents/Auth/Auth.props';
+import { AuthProps } from './Auth.props';
+import { useAppSelector } from '@/hooks';
 
 type InputValueState = {
   formattedValue: string;
@@ -17,11 +18,12 @@ export const Auth = ({ setIsModal }: AuthProps) => {
   const [isEnterCode, setIIsEnterCode] = React.useState<boolean>(false);
   const [userId, setUserId] = React.useState<string>('');
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
+  const { user } = useAppSelector((state) => state.auth);
 
   const onSubmitPhone = async () => {
     try {
-      setIsLoading(true);
       const res = await $host.post('code/get', { phone: values.formattedValue });
+      setIsLoading(true);
       setUserId(res.data._id);
       setIIsEnterCode(true);
     } catch (e) {
@@ -39,12 +41,12 @@ export const Auth = ({ setIsModal }: AuthProps) => {
         format='+7 (###) ###-##-##'
         mask='_'
         placeholder='+7 (123) 456-78-90'
-        value={values.formattedValue}
+        value={user ? user.phone : values.formattedValue}
         onValueChange={({ formattedValue, value }) => setValues({ formattedValue, value })}
-        disabled={isAuth || isEnterCode}
+        disabled={isAuth || isEnterCode || user !== null}
       />
       <label htmlFor='phone'>Телефон</label>
-      {!isAuth && (
+      {!isAuth && !user && (
         <>
           {!isEnterCode ? (
             <Button
@@ -56,7 +58,7 @@ export const Auth = ({ setIsModal }: AuthProps) => {
               Получить код
             </Button>
           ) : (
-            <CodeInput userId={userId} setIsAuth={setIsAuth} setIsModal={setIsModal!} />
+            <CodeInput userId={userId} setIsAuth={setIsAuth} setIsModal={setIsModal} />
           )}
         </>
       )}

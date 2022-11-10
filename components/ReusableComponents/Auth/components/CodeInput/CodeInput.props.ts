@@ -4,5 +4,5 @@ export interface CodeInputProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   userId: string;
   setIsAuth: (isAuth: boolean) => void;
-  setIsModal: (isModal: boolean) => void;
+  setIsModal?: (isModal: boolean) => void;
 }

@@ -27,6 +27,7 @@
       "@/layout": ["layout"],
       "@/page-components": ["page-components"],
       "@/page-components/*": ["page-components/*"],
+      "@/redux/*": ["redux/*"],
       "@/hoc": ["hoc"]
     }
   },

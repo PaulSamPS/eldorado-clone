@@ -1,5 +1,5 @@
-export const endOf = (review: number, first: string, second: string, third: string) => {
-  let number = Math.abs(review);
+export const endOf = (review: number | null, first: string, second: string, third: string) => {
+  let number = Math.abs(review || 0);
 
   number %= 100;
 

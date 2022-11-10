@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import styles from './Total.module.scss';
 import { Button, H } from '@/components/Ui';
 import { endOf, priceRu } from '@/helpers';
-import { AppContext, StepContext } from '@/context';
+import { StepContext } from '@/context';
+import { useAppSelector } from '../../../hooks/redux';
 
 export const Total = () => {
-  const { basket } = useContext(AppContext);
+  const { basket } = useAppSelector((state) => state.basket);
   const { step, nextStep } = useContext(StepContext);
-  const count = basket.products.reduce((i, sum) => i + sum.qty, 0);
+  const count = basket && basket.products.reduce((i, sum) => i + sum.qty, 0);
 
   return (
     <div className={styles.wrapper}>
@@ -19,7 +20,7 @@ export const Total = () => {
       <div className={styles.info}>
         <div className={styles.item}>
           <span className={styles.text}>Сумма</span>
-          <span className={styles.value}>{priceRu(basket.totalPrice)}</span>
+          <span className={styles.value}>{priceRu(basket && basket.totalPrice)}</span>
         </div>
         <div className={styles.item}>
           <span className={styles.text}>Самовывоз</span>
@@ -28,7 +29,7 @@ export const Total = () => {
       </div>
       <div className={styles.total}>
         <span className={styles.text}>Всего к оплате</span>
-        <span className={styles.totalPrice}>{priceRu(basket.totalPrice)}</span>
+        <span className={styles.totalPrice}>{priceRu(basket && basket.totalPrice)}</span>
       </div>
       {step >= 2 && (
         <Button appearance='primary' onClick={nextStep}>

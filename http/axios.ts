@@ -19,7 +19,7 @@ const $authHost = axios.create({
 });
 
 const authInterceptor = (config: any) => {
-  config.headers.authorization = localStorage.getItem('AccessToken');
+  config.headers.authorization = getCookie('token');
   return config;
 };
 

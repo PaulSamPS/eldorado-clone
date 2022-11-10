@@ -1,22 +1,25 @@
 import React, { ChangeEvent } from 'react';
 import styles from './CodeInput.module.scss';
-import { $host } from '@/http';
 import { CodeInputProps } from './CodeInput.props';
 import { Button } from '@/components/Ui';
+import { useAppDispatch } from '@/hooks';
+import { enterCode } from '@/redux/actions';
 
 export const CodeInput = ({ userId, setIsAuth, setIsModal }: CodeInputProps) => {
   const [codes, setCodes] = React.useState<string[]>(['', '', '', '']);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   const onSubmit = async (code: string) => {
     try {
       setIsLoading(true);
-      const res = await $host.post('code/enter-code', { code, userId });
+      dispatch(enterCode(code, userId));
       setIsAuth(true);
-      setIsModal(false);
-      console.log(res.data);
+      if (setIsModal) {
+        setIsModal(false);
+      }
     } catch (e) {
-      alert('Ошибка при активации');
+      console.log(e);
       setCodes(['', '', '', '']);
     } finally {
       setIsLoading(false);

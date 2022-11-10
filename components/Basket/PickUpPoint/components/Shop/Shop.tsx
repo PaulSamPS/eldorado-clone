@@ -3,9 +3,10 @@ import Link from 'next/link';
 import styles from './Shop.module.scss';
 import { Button } from '@/components/Ui';
 import { AppContext, StepContext } from '@/context';
+import { useAppSelector } from '../../../../../hooks/redux';
 
 export const Shop = () => {
-  const { basket } = useContext(AppContext);
+  const { basket } = useAppSelector((state) => state.basket);
   const { nextStep } = useContext(StepContext);
 
   return (
@@ -20,12 +21,13 @@ export const Shop = () => {
         </Link>
       </div>
       <div className={styles.productList}>
-        {basket.products.map((p) => (
-          <div key={p.product._id} className={styles.product}>
-            <div className={styles.name}>{p.product.name}</div>
-            <div className={styles.times}>Через 15 минут</div>
-          </div>
-        ))}
+        {basket &&
+          basket.products.map((p) => (
+            <div key={p.product._id} className={styles.product}>
+              <div className={styles.name}>{p.product.name}</div>
+              <div className={styles.times}>Через 15 минут</div>
+            </div>
+          ))}
       </div>
       <div className={styles.nextStep}>
         <div className={styles.map} />

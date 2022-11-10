@@ -1,4 +1,4 @@
-export const priceRu = (price: number | undefined): string => {
+export const priceRu = (price: number | null): string => {
   if (!price) {
     return '';
   }

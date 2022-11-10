@@ -1,7 +1,6 @@
 import type { GetServerSideProps } from 'next';
 import React from 'react';
-import axios from 'axios';
-import { IMenu, IProduct, ISlider, BasketInterface } from '@/interfaces';
+import { IMenu, IProduct, ISlider } from '@/interfaces';
 import { $host } from '@/http';
 import { Main } from '@/page-components';
 import { withLayout } from '@/hoc';
@@ -12,13 +11,7 @@ function Home({ ...props }: HomeProps) {
 
 export default withLayout(Home);
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ req }) => {
-  const { data: basket } = await axios.get<BasketInterface>('http://localhost:5000/api/basket', {
-    withCredentials: true,
-    headers: {
-      basket: req?.cookies?.basket!,
-    },
-  });
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const { data: menu } = await $host.get<IMenu[]>('menu');
   const { data: products } = await $host.get<IProduct[]>('products');
   const { data: dayProducts } = await $host.get<IProduct[]>('day-products');
@@ -30,7 +23,6 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ req })
       products,
       dayProducts,
       slider,
-      basket,
     },
   };
 };
@@ -40,5 +32,4 @@ interface HomeProps extends Record<string, unknown> {
   products: IProduct[];
   dayProducts: IProduct[];
   slider: ISlider[];
-  basket: BasketInterface;
 }

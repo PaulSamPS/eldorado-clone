@@ -5,7 +5,6 @@ import { IMenu } from './menu.interface';
 import { IBrand } from './brand.interface';
 
 export interface AppInterface {
-  basket: BasketInterface;
   products: IProduct[];
   dayProducts: IProduct[];
   slider: ISlider[];
